@@ -1,5 +1,16 @@
+/**
+ * 
+ */
 package fr.utbm.ecommerce.dto;
 
-public class Status {
-
+/**
+ * @author Michel
+ *
+ */
+public enum Status {
+	SHIPPED,
+	DELIVERED,
+	PENDING,
+	CANCELLED,
+	AWAITING_PAYMENT
 }
