@@ -1,10 +1,14 @@
 package fr.utbm.ecommerce.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 public class Customer implements Serializable{
 	
@@ -50,8 +54,14 @@ public class Customer implements Serializable{
 	@Column(name="gender")
 	private String gender;
 
+	@OneToMany
+	@JoinColumn(name="orderid")
+	private List<Order> listOrder = new ArrayList<Order>();
+
+
 	public Customer(int customerID, String firstname, String lastname, Date dateOpen, String mail, String phoneNumber,
-			Date dateOfBirth, String address, String postalCode, String town, String country, String gender) {
+			Date dateOfBirth, String address, String postalCode, String town, String country, String gender,
+			List<Order> listOrder) {
 		super();
 		this.customerID = customerID;
 		this.firstname = firstname;
@@ -65,6 +75,7 @@ public class Customer implements Serializable{
 		this.town = town;
 		this.country = country;
 		this.gender = gender;
+		this.listOrder = listOrder;
 	}
 
 	public int getCustomerID() {
@@ -168,7 +179,15 @@ public class Customer implements Serializable{
 		return "Customer [customerID=" + customerID + ", firstname=" + firstname + ", lastname=" + lastname
 				+ ", dateOpen=" + dateOpen + ", mail=" + mail + ", phoneNumber=" + phoneNumber + ", dateOfBirth="
 				+ dateOfBirth + ", address=" + address + ", postalCode=" + postalCode + ", town=" + town + ", country="
-				+ country + ", gender=" + gender + "]";
+				+ country + ", gender=" + gender + ", listOrder=" + listOrder + "]";
+	}
+
+	public List<Order> getListOrder() {
+		return listOrder;
+	}
+
+	public void setListOrder(List<Order> listOrder) {
+		this.listOrder = listOrder;
 	}
 	
 	

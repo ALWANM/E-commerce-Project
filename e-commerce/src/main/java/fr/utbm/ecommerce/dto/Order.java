@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -24,8 +25,9 @@ public class Order implements Serializable{
 	@Column(name="orderid")
 	private String orderID;
 	
-	@Column(name="userid")
-	private int userID;
+	@ManyToOne
+	@JoinColumn(name="userid")
+	private Customer customer;
 	
 	@Column(name="date")
 	private Date date;
@@ -53,12 +55,12 @@ public class Order implements Serializable{
 		this.orderID = orderID;
 	}
 
-	public int getUserID() {
-		return userID;
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setUserID(int userID) {
-		this.userID = userID;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 	public Date getDate() {
@@ -95,20 +97,8 @@ public class Order implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Order [orderID=" + orderID + ", userID=" + userID + ", date=" + date + ", amount=" + amount
+		return "Order [orderID=" + orderID + ", customer=" + customer + ", date=" + date + ", amount=" + amount
 				+ ", shipping=" + shipping + ", payment=" + payment + ", cart=" + cart + "]";
-	}
-
-	public Order(String orderID, int userID, Date date, float amount, ShippingInfo shipping, Payment payment,
-			ShoppingCart cart) {
-		super();
-		this.orderID = orderID;
-		this.userID = userID;
-		this.date = date;
-		this.amount = amount;
-		this.shipping = shipping;
-		this.payment = payment;
-		this.cart = cart;
 	}
 
 	public ShoppingCart getCart() {
@@ -128,5 +118,17 @@ public class Order implements Serializable{
 			}
 		}
 		return price;
+	}
+
+	public Order(String orderID, Customer customer, Date date, float amount, ShippingInfo shipping, Payment payment,
+			ShoppingCart cart) {
+		super();
+		this.orderID = orderID;
+		this.customer = customer;
+		this.date = date;
+		this.amount = amount;
+		this.shipping = shipping;
+		this.payment = payment;
+		this.cart = cart;
 	}
 }
