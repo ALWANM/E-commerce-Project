@@ -1,32 +1,45 @@
 package fr.utbm.ecommerce.config;
 
-//import java.util.Properties;
-//
-//import javax.sql.DataSource;
-//
+import java.util.Properties;
+
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
+
 //import org.apache.commons.dbcp2.BasicDataSource;
-//import org.hibernate.SessionFactory;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.ComponentScan;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.core.annotation.Order;
-//import org.springframework.orm.hibernate5.HibernateTransactionManager;
-//import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
-//import org.springframework.transaction.annotation.EnableTransactionManagement;
-//
-//@Configuration
-//@ComponentScan(basePackages = { "fr.utbm.ecommerce.dto" })
-//@EnableTransactionManagement
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+@Configuration
+@ComponentScan(basePackages = { "fr.utbm.ecommerce.dto" })
+@EnableTransactionManagement
 public class HibernateConfig {
-//	// Change the below based on the DBMS you choose
-//	private final static String DATABASE_URL = "jdbc: ";
-//	private final static String DATABASE_DRIVER = " ";
-//	private final static String DATABASE_DIALECT = " ";
-//	private final static String DATABASE_USERNAME = "sa";
-//	private final static String DATABASE_PASSWORD = "";
+	
+	@Autowired
+	private EntityManagerFactory entityManagerFactory;
+
+	@Bean
+	public SessionFactory getSessionFactory() {
+	    if (entityManagerFactory.unwrap(SessionFactory.class) == null) {
+	        throw new NullPointerException("factory is not a hibernate factory");
+	    }
+	    return entityManagerFactory.unwrap(SessionFactory.class);
+	}
+	// Change the below based on the DBMS you choose
+//	private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/ecommerce1?autoReconnect=true&useSSL=false";
+//	private final static String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
+//	private final static String DATABASE_DIALECT = "org.hibernate.dialect.MySQLDialect";
+//	private final static String DATABASE_USERNAME = "root";
+//	private final static String DATABASE_PASSWORD = "mypass";
 //
 //	// dataSource bean will be available
-////	@Bean("dataSource")
+//	@Bean("dataSource")
 //	public DataSource getDataSource() {
 //
 //		BasicDataSource dataSource = new BasicDataSource();

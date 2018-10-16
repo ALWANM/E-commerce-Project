@@ -1,10 +1,4 @@
 package fr.utbm.ecommerce;
-//this just for test to creeate db in derby from java
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 public class HelloJavaDb {
 //	Connection conn;
