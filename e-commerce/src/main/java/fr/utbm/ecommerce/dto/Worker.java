@@ -7,10 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="worker")
+@PrimaryKeyJoinColumn(name="webuserid")
 public class Worker extends WebUser{
 	
 	/**
@@ -37,10 +39,10 @@ public class Worker extends WebUser{
 	
 	@Column(name="dateopen")
 	private Date dateOpen;
-	
-	public Worker(String login, String password, int workerID, String firstName, String lastName, String mail,
-			String phoneNumber, Date dateOpen) {
-		super(login, password);
+
+	public Worker(int webuserID, String login, String password, int workerID, String firstName, String lastName,
+			String mail, String phoneNumber, Date dateOpen) {
+		super(webuserID, login, password);
 		this.workerID = workerID;
 		this.firstName = firstName;
 		this.lastName = lastName;
