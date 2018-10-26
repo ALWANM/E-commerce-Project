@@ -12,8 +12,6 @@
             "element",
             "app",
             "kebab-case"
-        ],
-        "no-duplicate-variable": true,
-        "no-unused-variable": true 
+        ]
     }
 }
