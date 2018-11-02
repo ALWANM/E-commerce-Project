@@ -26,55 +26,55 @@
 	</properties>
 
 	<dependencies>
+		<!-- SPRING -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<!-- Derby DB -->
-		<dependency>
-			<groupId>org.apache.derby</groupId>
-			<artifactId>derby</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- SPRING -->
-		 
-	 
-	 
-		<!-- H2 Database -->
-		<!-- <dependency> -->
-		<!-- <groupId> </groupId> -->
-		<!-- <artifactId> </artifactId> -->
-		<!-- <version> </version> -->
-		<!-- </dependency> -->
+		<dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-jpa</artifactId>
+     
+</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-security</artifactId> -->
+<!-- 		</dependency> -->
+		<!-- mysql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
 
-		<!-- Hibernate Dependency -->
-		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-beans</artifactId>
+         
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+      
+    </dependency>
 		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-core</artifactId>
-		    <version>5.3.6.Final</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
 		</dependency>
-		 
-		 
-		<!-- Database Connection Pooling this is an example -->
-		 
-		<!-- Hibernate Validator -->
 		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-validator</artifactId>
-		    <version>5.4.1.Final</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.4.1.Final</version>
 		</dependency>
-			
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
-			<version>1.1.0.Final</version>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build> <!-- Updated for the latest version of JAVA -->
