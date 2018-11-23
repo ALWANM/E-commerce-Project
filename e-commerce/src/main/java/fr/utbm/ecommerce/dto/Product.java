@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -22,11 +23,13 @@ public class Product implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PRODUCTID")
 	private int ProductID;
 	@Column(name = "REFERENCE")
 	private String Reference;
+	@Column(name = "NAME")
+	private String Name;
 	@Column(name = "DESCRIPTION")
 	private String Description;
 	@Column(name = "PRICE")
@@ -38,16 +41,14 @@ public class Product implements Serializable {
 	@Column(name = "SIZE")
 	private int Size;
 	@Column(name = "COLOR")
-	private int Color;
+	private String Color;
 	@Column(name = "PICTURE")
-	private int Picture;
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private String Picture;
+	@ManyToOne(cascade = CascadeType.ALL) 
 	@JoinColumn(name = "SUPPLIERID")
-	@NotNull
 	private Supplier Supplier;
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "IDCATEGORY")
-	@NotNull
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "CATEGORYID")
 	private Category Category;
 	public int getProductID() {
 		return ProductID;
@@ -91,16 +92,16 @@ public class Product implements Serializable {
 	public void setSize(int size) {
 		Size = size;
 	}
-	public int getColor() {
+	public String getColor() {
 		return Color;
 	}
-	public void setColor(int color) {
+	public void setColor(String color) {
 		Color = color;
 	}
-	public int getPicture() {
+	public String getPicture() {
 		return Picture;
 	}
-	public void setPicture(int picture) {
+	public void setPicture(String picture) {
 		Picture = picture;
 	}
 	public Supplier getSupplier() {
@@ -122,8 +123,8 @@ public class Product implements Serializable {
 				+ ", Color=" + Color + ", Picture=" + Picture + ", Supplier=" + Supplier + ", Category=" + Category
 				+ "]";
 	}
-	public Product(String reference, String description, float price, float vat, int quantityStock, int size, int color,
-			int picture, fr.utbm.ecommerce.dto.@NotNull Supplier supplier,
+	public Product(String reference, String description, float price, float vat, int quantityStock, int size, String color,
+			String picture, fr.utbm.ecommerce.dto.@NotNull Supplier supplier,
 			fr.utbm.ecommerce.dto.@NotNull Category category) {
 		super();
 		Reference = reference;

@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
-@Table(name="supplier")
+@Table(name="category")
 public class Category implements Serializable {
 
 	/**
@@ -16,36 +16,36 @@ public class Category implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="IDCATEGORY")
-	private int IDCATEGORY;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="CATEGORYID")
+	private int CategoryID;
 	@Column(name="NAME")
-	private int Name;
+	private String Name;
 	@Column(name="DESCRIPTION")
-	private int Decsription;
+	private String Decsription;
 	public int getIDCATEGORY() {
-		return IDCATEGORY;
+		return CategoryID;
 	}
 	public void setIDCATEGORY(int iDCATEGORY) {
-		IDCATEGORY = iDCATEGORY;
+		CategoryID = iDCATEGORY;
 	}
-	public int getName() {
+	public String getName() {
 		return Name;
 	}
-	public void setName(int name) {
+	public void setName(String name) {
 		Name = name;
 	}
-	public int getDecsription() {
+	public String getDecsription() {
 		return Decsription;
 	}
-	public void setDecsription(int decsription) {
+	public void setDecsription(String decsription) {
 		Decsription = decsription;
 	}
 	@Override
 	public String toString() {
-		return "Category [IDCATEGORY=" + IDCATEGORY + ", Name=" + Name + ", Decsription=" + Decsription + "]";
+		return "Category [IDCATEGORY=" + CategoryID + ", Name=" + Name + ", Decsription=" + Decsription + "]";
 	}
-	public Category(int name, int decsription) {
+	public Category(String name, String decsription) {
 		super();
 		Name = name;
 		Decsription = decsription;

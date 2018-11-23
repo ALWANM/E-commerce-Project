@@ -1,6 +1,8 @@
 package fr.utbm.ecommerce.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -10,21 +12,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "user", indexes = {
-		@Index(name = "login", columnList = "MAIL,PASSWORD"),
+@Table(name = "user", indexes = { @Index(name = "login", columnList = "MAIL,PASSWORD"),
 		@Index(name = "MAIL", columnList = "MAIL") })
-public class User implements Serializable {
+//@Scope("session")
+public class User implements UserDetails,Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "IDUSER")
-	private int IDUser;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "USERID")
+	private int UserID;
 	@Column(name = "FIRSTNAME")
 	private String FirstName;
 	@Column(name = "LASTNAME")
@@ -37,6 +48,7 @@ public class User implements Serializable {
 	private String Mail;
 	@Column(name = "PHONENUMBER")
 	private String PhoneNumber;
+	@Temporal(TemporalType.DATE)
 	@Column(name = "DATEOFBIRTH")
 	private Date DateOfBirth;
 	@Column(name = "ADDRESS")
@@ -47,17 +59,18 @@ public class User implements Serializable {
 	private String Town;
 	@Column(name = "COUNTRY")
 	private String Country;
+	@Temporal(TemporalType.DATE)
 	@Column(name = "DATEOPEN")
 	private Date DateOpen;
 	@Column(name = "GENDER")
 	private String Gender;
 
-	public int getIDUser() {
-		return IDUser;
+	public int getUserID() {
+		return UserID;
 	}
 
-	public void setIDUser(int iDUser) {
-		IDUser = iDUser;
+	public void setUserID(int userID) {
+		UserID = userID;
 	}
 
 	public String getFirstName() {
@@ -166,10 +179,18 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [IDUser=" + IDUser + ", FirstName=" + FirstName + ", LastName=" + LastName + ", Role=" + Role
+		return "User [IDUser=" + UserID + ", FirstName=" + FirstName + ", LastName=" + LastName + ", Role=" + Role
 				+ ", Password=" + Password + ", Mail=" + Mail + ", PhoneNumber=" + PhoneNumber + ", DateOfBirth="
 				+ DateOfBirth + ", Address=" + Address + ", PostalCode=" + PostalCode + ", Town=" + Town + ", Country="
 				+ Country + ", DateOpen=" + DateOpen + ", Gender=" + Gender + "]";
+	}
+
+	 
+
+ 
+
+	public User() {
+		super();
 	}
 
 	public User(String firstName, String lastName, String role, String password, String mail, String phoneNumber,
@@ -190,5 +211,81 @@ public class User implements Serializable {
 		DateOpen = dateOpen;
 		Gender = gender;
 	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		Collection<GrantedAuthority> authorities = new ArrayList<>();
+		authorities.add(new SimpleGrantedAuthority(Role));
+		return authorities;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return Mail;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+//	@JsonIgnore
+//	@Override
+//	public Collection<? extends GrantedAuthority> getAuthorities() {
+//		Collection<GrantedAuthority> authorities = new ArrayList<>();
+//		authorities.add(new SimpleGrantedAuthority(Role));
+//		return authorities;
+//	}
+//
+//	@JsonIgnore
+//	@Override
+//	public String getUsername() {
+//		 return Mail;
+//	}
+//
+//	@JsonIgnore
+//	@Override
+//	public boolean isAccountNonExpired() {
+//		 return true;
+//	}
+//
+//	@JsonIgnore
+//	@Override
+//	public boolean isAccountNonLocked() { 
+//		return true;
+//	}
+//
+//	@JsonIgnore
+//	@Override
+//	public boolean isCredentialsNonExpired() { 
+//		return true;
+//	}
+
+//	@JsonIgnore
+//	@Override
+//	public boolean isEnabled() { 
+//		return true;
+//	}
 
 }

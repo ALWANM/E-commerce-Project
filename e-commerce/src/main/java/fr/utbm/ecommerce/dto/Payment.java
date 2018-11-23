@@ -9,8 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 @Entity
-@Table(name="payement")
+@Table(name="payment")
 public class Payment implements Serializable{
 
 	/**
@@ -18,9 +20,10 @@ public class Payment implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="PAYMENTID")
 	private int Paymentid;
+	@Temporal(TemporalType.DATE)
 	@Column(name="PAYMENTDATE")
 	private Date PaymentDate;
 	@Column(name="METHODOFPAYMENT")

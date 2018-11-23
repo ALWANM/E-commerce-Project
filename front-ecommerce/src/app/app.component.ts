@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'front-ecommerce';
+  static API_URL="http://localhost:8080";
 }

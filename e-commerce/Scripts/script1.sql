@@ -1,4 +1,11 @@
-
+DROP TABLE `user` ;
+DROP TABLE `category` ;
+DROP TABLE `supplier` ;
+DROP TABLE `shippinginfo` ;
+DROP TABLE `payment` ;
+DROP TABLE `product` ;
+DROP TABLE `order` ;
+DROP TABLE `carteitem` ;
 CREATE TABLE IF NOT EXISTS  `user` (
 	IDUSER INT(5) NOT NULL AUTO_INCREMENT,
 	FIRSTNAME VARCHAR(10),

@@ -15,25 +15,24 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "carteitem")
-public class CarteItem implements Serializable{
+public class CartItem implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "carteitemid")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "CARTEITEMID")
 	private int CarteitemID;
 	@Column(name = "QUANTITY")
 	private int Quantity;
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne 
 	@JoinColumn(name = "ORDERID")
-	@NotNull
 	private Order Order;
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "PRODUCTID")
-	@NotNull
+  
 	private Product Product;
 	public int getCarteitemID() {
 		return CarteitemID;
@@ -61,10 +60,10 @@ public class CarteItem implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "CarteItem [CarteitemID=" + CarteitemID + ", Quantity=" + Quantity + ", Order=" + Order + ", Product="
+		return "CartItem [CarteitemID=" + CarteitemID + ", Quantity=" + Quantity + ", Order=" + Order + ", Product="
 				+ Product + "]";
 	}
-	public CarteItem(int quantity, fr.utbm.ecommerce.dto.@NotNull Order order,
+	public CartItem(int quantity, fr.utbm.ecommerce.dto.@NotNull Order order,
 			fr.utbm.ecommerce.dto.@NotNull Product product) {
 		super();
 		Quantity = quantity;

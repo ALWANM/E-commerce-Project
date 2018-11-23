@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
-@Table(name="supplier")
+@Table(name="shippinginfo")
 public class ShippingInfo implements Serializable {
 
 	/**
@@ -18,8 +18,8 @@ public class ShippingInfo implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="SHIPPINGID")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="SHIPPINGINFOID")
 	private int ShippingID;
 	@Column(name="SHIPPINGADDRESS")
 	private int ShippingAddress;

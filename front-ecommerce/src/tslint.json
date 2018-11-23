@@ -1,17 +1,10 @@
 {
     "extends": "../tslint.json",
+    "rulesDirectory": [ 
+        "nodes_modules/codelyzer"
+    ],
     "rules": {
-        "directive-selector": [
-            true,
-            "attribute",
-            "app",
-            "camelCase"
-        ],
-        "component-selector": [
-            true,
-            "element",
-            "app",
-            "kebab-case"
-        ]
+         "no-duplicate-variable":true,
+         "no-unused-variable":true
     }
 }

@@ -24,6 +24,20 @@
             ],
             "styles": [
               "src/styles.css"
+              ,"node_modules/bootstrap/dist/css/bootstrap.css"
+              ,"node_modules/mdbootstrap/css/bootstrap.css"
+              ,"node_modules/mdbootstrap/css/bootstrap.min.css"
+              ,"node_modules/mdbootstrap/css/mdb.css"
+              ,"node_modules/mdbootstrap/css/mdb.lite.css"
+              ,"node_modules/mdbootstrap/css/mdb.lite.min.css"
+              ,"node_modules/mdbootstrap/css/mdb.min.css"
+              ,"node_modules/mdbootstrap/css/style.css"
+              ,"node_modules/mdbootstrap/css/style.min.css"
+              
+              ,"node_modules/mdbootstrap/css/addons/datatables.css"
+              ,"node_modules/mdbootstrap/css/addons/datatables.min.css"
+              ,"node_modules/mdbootstrap/css/modules/animations-extended.css"
+              ,"node_modules/mdbootstrap/css/modules/animations-extended.min.css"
             ],
             "scripts": []
           },

@@ -1,14 +1,12 @@
-package fr.utbm.ecommerce.dao;
+package fr.utbm.ecommerce.repository;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import fr.utbm.ecommerce.dto.Supplier;
-
+@Repository
 public interface SupplierDao extends CrudRepository<Supplier,Integer>{
-	Supplier addSupplier(Supplier supplier);
-	Supplier updateSupplier(Supplier supplier);
-	void deleteSupplier(Supplier supplier);
-	List<Supplier> getAllSupplier();
+	 
 }

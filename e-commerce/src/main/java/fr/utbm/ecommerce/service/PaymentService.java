@@ -2,10 +2,16 @@ package fr.utbm.ecommerce.service;
 
 import java.util.List;
 
-import fr.utbm.ecommerce.dao.PaymentDao;
-import fr.utbm.ecommerce.dto.Payment;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import fr.utbm.ecommerce.dto.Payment;
+import fr.utbm.ecommerce.repository.PaymentDao;
+@Service("PaymentService")
+@Transactional
 public class PaymentService {
+	@Autowired
 	private PaymentDao paymentDao;
 
 	public Payment addPayment(Payment payment) {

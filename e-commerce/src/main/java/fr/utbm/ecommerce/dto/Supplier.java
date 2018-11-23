@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 @Entity
 @Table(name="supplier")
 public class Supplier implements Serializable {
@@ -18,7 +20,7 @@ public class Supplier implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="SUPPLIERID")
 	private int SupplierID;
 	@Column(name="FIRSTNAME")
@@ -29,6 +31,7 @@ public class Supplier implements Serializable {
 	private String Mail;
 	@Column(name="PHONENUMBER")
 	private String PhoneNumber;
+	@Temporal(TemporalType.DATE)
 	@Column(name="DATEOFBIRTH")
 	private Date DateOfBirth;
 	@Column(name="ADDRESS")

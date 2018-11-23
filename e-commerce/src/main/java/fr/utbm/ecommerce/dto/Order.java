@@ -1,5 +1,6 @@
 package fr.utbm.ecommerce.dto;
 
+import java.util.*;
 import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,11 +11,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "order")
+@Table(name = "`order`")
 public class Order implements Serializable {
 
 	/**
@@ -22,67 +26,84 @@ public class Order implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ORDERTID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ORDERID")
 	private int OrderID;
+	
+	@Temporal(TemporalType.DATE)
 	@Column(name = "DATE")
-	private int Date;
+	private Date Date;
+	
 	@Column(name = "AMOUNT")
 	private int Amount;
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "SHIPPINGINFOID")
-	@NotNull
 	private ShippingInfo ShippingInfo;
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "IDUSER")
-	@NotNull
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "USERID")
 	private User User;
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "PAYMENTID")
-	@NotNull
 	private Payment Payment;
+
 	public int getOrderID() {
 		return OrderID;
 	}
+
 	public void setOrderID(int orderID) {
 		OrderID = orderID;
 	}
-	public int getDate() {
+
+	public Date getDate() {
 		return Date;
 	}
-	public void setDate(int date) {
+
+	public void setDate(Date date) {
 		Date = date;
 	}
+
 	public int getAmount() {
 		return Amount;
 	}
+
 	public void setAmount(int amount) {
 		Amount = amount;
 	}
+
 	public ShippingInfo getShippingInfo() {
 		return ShippingInfo;
 	}
+
 	public void setShippingInfo(ShippingInfo shippingInfo) {
 		ShippingInfo = shippingInfo;
 	}
+
 	public User getUser() {
 		return User;
 	}
+
 	public void setUser(User user) {
 		User = user;
 	}
+
 	public Payment getPayment() {
 		return Payment;
 	}
+
 	public void setPayment(Payment payment) {
 		Payment = payment;
 	}
+
 	@Override
 	public String toString() {
 		return "Order [OrderID=" + OrderID + ", Date=" + Date + ", Amount=" + Amount + ", ShippingInfo=" + ShippingInfo
 				+ ", User=" + User + ", Payment=" + Payment + "]";
 	}
-	public Order(int date, int amount, fr.utbm.ecommerce.dto.@NotNull ShippingInfo shippingInfo,
+
+	public Order(Date date, int amount, fr.utbm.ecommerce.dto.@NotNull ShippingInfo shippingInfo,
 			fr.utbm.ecommerce.dto.@NotNull User user, fr.utbm.ecommerce.dto.@NotNull Payment payment) {
 		super();
 		Date = date;
@@ -91,5 +112,5 @@ public class Order implements Serializable {
 		User = user;
 		Payment = payment;
 	}
-	
+
 }
