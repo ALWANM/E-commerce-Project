@@ -1,6 +1,9 @@
 package fr.utbm.ecommerce.controller;
 
 import java.security.Principal;
+import java.util.Date;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +41,8 @@ public class UserController {
 						HttpStatus.CONFLICT);
 			}
 //			newUser.setMail("marwan");
-			newUser.setRole("USER");
-			
+			if(newUser.getRole()==null)newUser.setRole("USER");
+
 			return new ResponseEntity<User>(userService.addUser(newUser), HttpStatus.CREATED);
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
@@ -54,5 +57,37 @@ public class UserController {
 		logger.info("user logged " + principal);
 		return principal;
 	}
-
+	@CrossOrigin
+	@RequestMapping(value="/users",method = RequestMethod.GET)
+	public List<User> getUsers(Principal principal) {
+		 
+		return userService.getUsers("ADMIN","WORKER");
+	}
+	@CrossOrigin
+	@RequestMapping(value="/save",method = RequestMethod.POST)
+	public int updateUser(@RequestBody User updateUser) {
+//		userService.deleteUser(updateUser);
+		String firstname=updateUser.getFirstName();
+		String lastname=updateUser.getLastName();
+		String password=updateUser.getPassword();
+		Date dateofbith=updateUser.getDateOfBirth();
+		String gender=updateUser.getGender();
+		String address=updateUser.getAddress();
+		String country=updateUser.getCountry();
+		String town=updateUser.getTown();
+		String postalcode=updateUser.getPostalCode();
+		String phonenumber=updateUser.getPhoneNumber();
+		String mail=updateUser.getMail();
+		String role=updateUser.getRole();
+		return userService.updateUser(firstname, lastname,password, dateofbith, gender, address, country, town, postalcode, phonenumber,role, mail);
+		//return userService.updateUser(updateUser);
+		
+	}
+	@CrossOrigin
+	@RequestMapping(value="/delete",method = RequestMethod.POST)
+	public void deleteUser(@RequestBody User deleteuser) {
+		userService.deleteUser(deleteuser.getMail());
+		System.out.println(deleteuser);
+	}
+//	
 }

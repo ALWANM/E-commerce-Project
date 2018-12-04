@@ -1,61 +1,154 @@
-<header>
-
-  <nav class="navbar navbar-expand-lg navbar-dark default-color">
-    <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Users</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">AddProduct</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">My Orders</a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <input typ="text">
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-collapse">
-        <li>
-          <a class="nav-link" href="#">Search</a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="#" class="nav-link">
-            <span class="glyphicon glyphicon-log-in" (click)="logOut()"></span> LogOut</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</header>
+ <div class="container">
 
 
-<div class="container">
-
-  <!-- Jumbotron Header -->
-  <header class="jumbotron my-4">
+  <header class="container my-4">
     <h1 class="display-3">
-      <strong>{{currentUser.username}}</strong>, Welcome to your app </h1>
-    <p class="lead"> welcome to your profile
-    </p>
+      <strong>Profile of {{updateUser.firstName}} {{updateUser.lastName}} </strong> </h1>
     <div class="row">
-
-
-
-
     </div>
   </header>
 
 </div>
+<div class="container"><br></div>
+<form name="form-profile"  >
+<div class="container table-responsive-sm align-content-center align-content-md-center align-items-center">
+  <table class="table">
+    <tr><td colspan="2" ><h3>Personal Information</h3></td></tr>
+    <tr>
+      <td>
+        <label>
+          First Name
+        </label>
+      </td>
+
+      <td>
+          <input type="text" class="form-control mr-sm-2"  placeholder="First name"   [(ngModel)]="updateUser.firstName"  id="firstname" name="firstname" >
+      </td>
+      <td>
+        <label>
+          Last Name
+        </label>
+      </td>
+
+      <td>
+        <input type="text" class="form-control mr-sm-2"  placeholder="Last name " id="lastname" name="lastname"   [ngModelOptions]="{standalone:true}"   [(ngModel)]="updateUser.lastName" #lastName="ngModel" >
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          Mail
+        </label>
+      </td>
+
+      <td>
+        <input type="email" class="form-control mr-sm-2"  placeholder="Email" value="{{currentUser.mail}}"  readonly id="mail" name="mail" >
+      </td>
+      <td>
+        <label>
+          Password
+        </label>
+      </td>
+
+      <td>
+        <input type="text" class="form-control mr-sm-2"  placeholder="Passowrd"  id="password" name="password"    [(ngModel)]="updateUser.password" >
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          Gender
+        </label>
+      </td>
+
+      <td>
+        <label>
+          <select ng-model="selectedCar" class="form-control mr-sm-2" [(ngModel)]="updateUser.gender"  [ngModelOptions]="{standalone:
+   true}" #gender="ngModel" >
+            <option  value="male" class="form-control mr-sm-2">Male</option>
+            <option  value="female" class="form-control mr-sm-2">Female</option>
+          </select>
+        </label>
+      </td>
+      <td>
+        <label>
+          Date of Birth
+        </label>
+      </td>
+
+      <td>
+        <input type="date" class="form-control mr-sm-2 "  placeholder="JJ/MM/AAAa"     [ngModelOptions]="{standalone:
+   true}" [(ngModel)]="updateUser.dateOfBirth" #dateOfBirth="ngModel"  id="dateofbirth" name="dateofbirth"  >
+
+      </td>
+    </tr>
+    <tr><td colspan="2" ><h3>Address</h3></td></tr>
+    <tr>
+      <td>
+        <label>
+          Rue
+        </label>
+      </td>
+
+      <td>
+        <input type="text" class="form-control mr-sm-2"  placeholder="Address"   [(ngModel)]="updateUser.address"  [ngModelOptions]="{standalone:
+   true}" #address="ngModel" id="address" name="address"  >
+      </td>
+      <td>
+        <label>
+          Country
+        </label>
+      </td>
+      <td>
+        <input type="text" class="form-control mr-sm-2"  placeholder="Country"   [(ngModel)]="updateUser.country"  [ngModelOptions]="{standalone:
+   true}" #country="ngModel"  id="country" name="country"  >
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <label>
+        Town
+      </label>
+    </td>
+
+      <td>
+        <input type="text" class="form-control mr-sm-2"  placeholder="Town"   [(ngModel)]="updateUser.town" #town="ngModel"   [ngModelOptions]="{standalone:
+   true}" id="town" name="town"  >
+      </td>
+      <td>
+        <label>
+          Postal Code
+        </label>
+      </td>
+
+      <td>
+        <input type="text" class="form-control mr-sm-2"  placeholder="Postal Code"    [(ngModel)]="updateUser.postalCode"  [ngModelOptions]="{standalone:
+   true}" #postalCode="ngModel"  id="postalcode" name="postalcode"  >
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          Phone Number
+        </label>
+      </td>
+
+      <td>
+        <input type="tel" class="form-control mr-sm-2"  placeholder="Phone Number" value="{{currentUser.phoneNumber}}" [(ngModel)]="updateUser.phoneNumber"  [ngModelOptions]="{standalone:
+   true}" #phoneNumber="ngModel" id="phonenumber" name="phonenumber"  >
+      </td>
+      <td>
+        <label>
+
+        </label>
+      </td>
+
+      <td>
+        <button class="btn btn-primary btn-block" (click)="saveUser()" >Save</button>
+      </td>
+    </tr>
+
+
+  </table>
+</div>
+</form>

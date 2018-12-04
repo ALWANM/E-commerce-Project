@@ -7,13 +7,17 @@ import { UrlPermission } from "./urlPermission/url.permission";
 import { LoginComponent } from "./components/login/login.component";
 
 import { RegisterComponent } from "./components/register/register.component";
+import {AppComponent} from './app.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
+import {UsersComponent} from './components/users/users.component';
 
 const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent ,canActivate: [UrlPermission] },
   // { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {path: 'login',component:LoginComponent },
-
+  {path: 'home',component:NavbarComponent},
+  {path: 'users',component:UsersComponent},
   // otherwise redirect to profile
   { path: '**', redirectTo: '/login' }
 ];

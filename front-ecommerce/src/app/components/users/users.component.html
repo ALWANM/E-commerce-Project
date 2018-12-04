@@ -1,0 +1,133 @@
+
+
+<form name="form-users" class="" #f="ngForm">
+ <!-- <div class="container table-responsive-sm align-content-center align-content-md-center align-items-center">-->
+  <div class="container">
+  <table class="table">
+    <tr>
+      <td>
+          <table class="table table-responsive-lg">
+      <tr><td colspan="2" ><h3>Personal Information</h3></td></tr>
+      <tr>
+        <td>
+          <label>
+            First Name
+          </label>
+        </td>
+
+        <td>
+          <input type="text" class="form-control mr-sm-2"  placeholder="First name"   [(ngModel)]="newUser.firstName"  id="firstname" name="firstname" >
+        </td>
+        <td>
+          <label>
+            Last Name
+          </label>
+        </td>
+
+        <td>
+          <input type="text" class="form-control mr-sm-2"  placeholder="Last name " id="lastname" name="lastname"   [(ngModel)]="newUser.lastName"   >
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>
+            Mail
+          </label>
+        </td>
+
+        <td>
+          <input type="email" class="form-control mr-sm-2"  placeholder="Email" [(ngModel)]="newUser.mail"   id="mail" name="mail" required>
+        </td>
+        <td>
+          <label>
+            Password
+          </label>
+        </td>
+
+        <td>
+          <input type="text" class="form-control mr-sm-2"   placeholder="Passowrd"  id="password" name="password"    [(ngModel)]="newUser.password" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>
+            Role of User
+          </label>
+        </td>
+
+        <td>
+          <label>
+            <select ng-model="selectedRole" class="form-control mr-sm-2" [(ngModel)]="newUser.role"   [ngModelOptions]="{standalone:
+   true}" #role="ngModel" required>
+              <option  value="ADMIN" class="form-control mr-sm-2" >ADMIN</option>
+              <option  value="WORKER" class="form-control mr-sm-2" >WORKER</option>
+            </select>
+          </label>
+        </td>
+        <td>
+          <label>
+            Date of Birth
+          </label>
+        </td>
+
+        <td>
+          <input type="date" class="form-control mr-sm-2 "  placeholder="JJ/MM/AAAa"     [ngModelOptions]="{standalone:
+   true}" [(ngModel)]="newUser.dateOfBirth" #dateOfBirth="ngModel"  id="dateofbirth" name="dateofbirth"  >
+
+        </td>
+      </tr>
+      <tr>
+        <td></td><td></td>
+        <td>
+          <button class="btn btn-primary btn-block" (click)="updateUser()"   >Update</button>
+        </td>
+        <td>
+          <button class="btn btn-primary btn-block" (click)="saveUser()" >Save</button>
+        </td>
+      </tr>
+  </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+       <!--<div class="container table-responsive-sm align-content-center align-content-md-center align-items-center">-->
+      <table class="table dataTable table-responsive-lg">
+        <tr>
+          <th class="th-lg">First Name</th>
+          <th class="th-lg">Last Name</th>
+          <th class="th-lg">Mail</th>
+          <th class="th-lg">Password</th>
+          <th class="th-lg">Role</th>
+          <th class="th-lg">Date of Birth</th>
+          <th class="th-lg">Edit</th>
+          <th class="th-lg">Delete</th>
+        </tr>
+
+        <tr *ngFor="let u of usersPage" class="table-info">
+          <td>
+            {{u.firstName}}
+          </td>
+          <td>
+            {{u.lastName}}
+          </td>
+          <td>
+            {{u.mail}}
+          </td> <td>
+          {{u.password}}
+        </td>
+          <td>
+            {{u.role}}
+          </td>
+          <td>
+            {{u.dateOfBirth}}
+          </td>
+          <td><a (click)="onEditUser(u)" class="clickable">Edit</a></td>
+          <td><a (click)="DeleteUser(u)" class="clickable">Delete</a></td>
+        </tr>
+          </table>
+      </td>
+    </tr>
+  </table>
+
+  </div>
+</form>

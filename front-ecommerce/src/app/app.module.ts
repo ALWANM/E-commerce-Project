@@ -13,6 +13,10 @@ import { RouterModule } from '@angular/router';
 import { routing } from './app.routing'; 
 import { HttpModule } from '@angular/http';
 import { FacebookModule } from 'ngx-facebook';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import {UpdateUserService} from './services/updateUser.service';
+import { UsersComponent } from './components/users/users.component';
+import {UsersService} from './services/users.service';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,16 @@ import { FacebookModule } from 'ngx-facebook';
     LoginComponent,
     ProfileComponent,
     RegisterComponent,
-     
+    NavbarComponent,
+    UsersComponent,
+
+         
   ],
   imports: [
     BrowserModule,FormsModule,routing,HttpModule,FacebookModule.forRoot()
   ],
   // declarationde service pour reutilise
-  providers: [AuthService,AccountService,UrlPermission],
+  providers: [AuthService,AccountService,UrlPermission,UpdateUserService,UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

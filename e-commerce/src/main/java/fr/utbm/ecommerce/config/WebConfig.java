@@ -72,7 +72,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 				// starts authorizing configurations
 				.authorizeRequests()
 				// ignoring the guest's urls "
-				.antMatchers("/account/register", "/account/login", "/logout").permitAll()
+				.antMatchers("/account/register", "/account/login", "/logout","/account/save","/account/users","/account/delete").permitAll()
 				// authenticate all remaining URLS
 				.anyRequest().fullyAuthenticated().and()
 				/*
