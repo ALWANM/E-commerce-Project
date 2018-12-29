@@ -108,7 +108,18 @@ CREATE TABLE IF NOT EXISTS carteitem(
 )ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
-
+INSERT INTO `category` (`IDCATEGORY`, `NAME`, `DESCRIPTION`) VALUES
+(1, 'Monitor', 'Monitor'),
+(2, 'Motherboard', 'Motherboard'),
+(3, 'CPU', 'Microprocessor'),
+(4, 'RAM', 'Main Memory'),
+(5, 'Expansion cards', 'Expansion cards'),
+(6, 'Power supply unit', 'Power supply unit'),
+(7, 'Optical disc drive', 'Optical disc drive'),
+(8, 'HDD', 'Hard disk drive'),
+(9, 'Keyboard', 'Keyboard'),
+(10, 'Mouse', 'Mouse');
+COMMIT;
 
 
  

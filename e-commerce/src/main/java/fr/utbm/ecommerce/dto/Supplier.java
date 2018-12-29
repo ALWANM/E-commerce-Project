@@ -122,4 +122,7 @@ public class Supplier implements Serializable {
 		Country = country;
 	}
 	
+	public Supplier() {
+		super();
+	}
 }

@@ -12,7 +12,5 @@ import fr.utbm.ecommerce.dto.Product;
 @Repository
 public interface ProductDao extends CrudRepository<Product, Integer> {
 	@Query("SELECT p FROM Product p WHERE LOWER(p.Name) LIKE LOWER(:name) ")
-	List<Product> getAllProductByName(@Param("name") String name);
-	@Query("SELECT p from Product p where p.ProductID =:productid ")
-	Product getProducts(@Param("productid") int productid);
+	Product getProductByName(@Param("name") String name);
 }

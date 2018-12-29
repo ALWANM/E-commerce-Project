@@ -51,11 +51,10 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**").allowedOrigins("http://localhost:4200");
-
 			}
 		};
 	}
-
+	
 	// This method is for overriding some configuration of the WebSecurity
 	// If you want to ignore some request or request patterns then you can
 	// specify that inside this method
@@ -72,7 +71,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 				// starts authorizing configurations
 				.authorizeRequests()
 				// ignoring the guest's urls "
-				.antMatchers("/account/register", "/account/login", "/logout","/account/save","/account/users","/account/delete").permitAll()
+				.antMatchers("/account/register", "/account/login", "/logout","/account/save","/account/users","/account/delete", "/category/categories", "/category/create", "/category/update", "/category/delete", "/category/{id}", "/supplier/suppliers", "/supplier/create", "/supplier/update", "/supplier/delete", "/product/products","/product/create", "/product/update","/product/delete").permitAll()
 				// authenticate all remaining URLS
 				.anyRequest().fullyAuthenticated().and()
 				/*

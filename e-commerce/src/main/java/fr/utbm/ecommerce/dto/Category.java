@@ -17,12 +17,12 @@ public class Category implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="CATEGORYID")
+	@Column(name="IDCATEGORY")
 	private int CategoryID;
 	@Column(name="NAME")
 	private String Name;
 	@Column(name="DESCRIPTION")
-	private String Decsription;
+	private String Description;
 	public int getIDCATEGORY() {
 		return CategoryID;
 	}
@@ -35,20 +35,23 @@ public class Category implements Serializable {
 	public void setName(String name) {
 		Name = name;
 	}
-	public String getDecsription() {
-		return Decsription;
+	public String getDescription() {
+		return Description;
 	}
-	public void setDecsription(String decsription) {
-		Decsription = decsription;
+	public void setDecsription(String description) {
+		Description = description;
 	}
 	@Override
 	public String toString() {
-		return "Category [IDCATEGORY=" + CategoryID + ", Name=" + Name + ", Decsription=" + Decsription + "]";
+		return "Category [IDCATEGORY=" + CategoryID + ", Name=" + Name + ", Description=" + Description + "]";
 	}
-	public Category(String name, String decsription) {
+	public Category(String name, String description) {
 		super();
 		Name = name;
-		Decsription = decsription;
+		Description = description;
 	}
 	
+	public Category() {
+		super();
+	}
 }

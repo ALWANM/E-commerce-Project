@@ -1,47 +1,52 @@
-<header>
-  <nav class="navbar navbar-expand-lg  ">
-    <a class="navbar-brand" href="#"><strong>Ecomerece TO52</strong></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-      <ul class="nav navbar-nav ">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Users</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Add Product</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">My Orders</a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-collapse">
-        <li>
-          <a class="nav-link" href="#">Search</a>
-        </li>
-      </ul>
+<header class="header" style="-webkit-margin-top-collapse:collapse;">
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo fixed-top scrolling-navbar">
+      <mdb-navbar-brand>
+        <a class="navbar-brand" href="#"><strong>TO52</strong></a>
+      </mdb-navbar-brand>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a [routerLink]="['/register']" class="nav-link">Register</a>
-        </li>
-        <li>
-          <a href="#" class="nav-link">
-            <span class="glyphicon glyphicon-log-in" (click)="logOut()"></span> LogOut</a>
-        </li>
+       <!-- Collapsible content -->
+    <links>
 
-      </ul>
-    </div>
-  </nav>
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link waves-light" [routerLink]="['/home']" routerLinkActive="router-link-active"  mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/product']" routerLinkActive="router-link-active" >Products</a>
+            </li>
 
+            <li #register class="nav-item">
+                <a class="nav-link waves-light" [routerLink]="['/register']" routerLinkActive="router-link-active" wdbWavesEffect>Register</a>
+            </li>
+            <li #login class="nav-item">
+                <a class="nav-link waves-light" [routerLink]="['/login']" routerLinkActive="router-link-active" wdbWavesEffect>
+                    <span class="glyphicon glyphicon-log-in"></span> Log in</a>
+            </li>
+
+            <!-- Dropdown -->
+            <li #menuAccount class="nav-item dropdown float-right" dropdown>
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light">
+                My Account<span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/profile']" routerLinkActive="router-link-active" >Profile</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/orders']" routerLinkActive="router-link-active" >My orders</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/shoppingcart']" routerLinkActive="router-link-active" >Shopping Cart</a>
+                    <div class="divider dropdown-divider"></div>
+                    <a class="dropdown-item waves-light" mdbWavesEffect (click)="logOut()">log out</a>
+                </div>
+            </li>
+
+        </ul>
+        <!-- Links -->
+
+        <!-- Search form -->
+        <form class="form-inline waves-light" mdbWavesEffect>
+            <div class="md-form my-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            </div>
+        </form>
+    </links>
+    <!-- Collapsible content -->
+  </mdb-navbar>
 </header>

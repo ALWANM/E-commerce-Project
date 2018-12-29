@@ -41,10 +41,11 @@ public class ECommerceApplication implements CommandLineRunner {
 		// user=uservic.getUserByMail("marwanalwan94@gmail.com");
 //		Category c = new Category("TECH", "Technologie phones");
 //		cs.addCategory(c);
-		user=us.getUserByMail("marwan@gmail.com");
+		//user=us.getUserByMail("marwan@gmail.com");
+//probleme sur le getuserbymail a revoir
 		try{
 //			us.addUser(user);
-		System.out.println(user.toString());
+		//System.out.println(user.toString());
 //		System.out.println(c.toString());
 			}
 		catch (Exception e) {

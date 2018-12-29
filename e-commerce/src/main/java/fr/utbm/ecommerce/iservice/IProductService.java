@@ -10,6 +10,11 @@ import org.springframework.stereotype.Repository;
 import fr.utbm.ecommerce.dto.Product;
  
 public interface IProductService  {
-	 
-	List<Product> getAllProductByName(@Param("name") String name);
+    boolean addProduct(Product product);
+    boolean updateProduct(Product product);
+    boolean deleteProduct(Product product);
+    Product getProductByName(String name);
+	List<Product> getAllProduct();
+    Product getProductById(int productid);
+    boolean existed(int productid);
 }
