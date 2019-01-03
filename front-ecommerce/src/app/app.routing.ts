@@ -10,14 +10,17 @@ import { RegisterComponent } from "./components/register/register.component";
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {UsersComponent} from './components/users/users.component';
+import {DefaultComponent} from './components/default/default.component';
 
 const appRoutes: Routes = [
+  {path: '',component:DefaultComponent},
   { path: 'profile', component: ProfileComponent ,canActivate: [UrlPermission] },
   // { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {path: 'login',component:LoginComponent },
-  {path: 'home',component:NavbarComponent},
+  {path: 'home',component:DefaultComponent},
   {path: 'users',component:UsersComponent},
+
   // otherwise redirect to profile
   { path: '**', redirectTo: '/login' }
 ];

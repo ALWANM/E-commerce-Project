@@ -1,8 +1,10 @@
- <div class="container">
+<div class="limiter " >
+  <div class="container-fluid justify-content-md-between">
+<div class="container">
 
 
   <header class="container my-4">
-    <h1 class="display-3">
+    <h1 class="h1-responsive ">
       <strong>Profile of {{updateUser.firstName}} {{updateUser.lastName}} </strong> </h1>
     <div class="row">
     </div>
@@ -10,7 +12,9 @@
 
 </div>
 <div class="container"><br></div>
-<form name="form-profile"  >
+
+
+   <form name="form-profile"  >
 <div class="container table-responsive-sm align-content-center align-content-md-center align-items-center">
   <table class="table">
     <tr><td colspan="2" ><h3>Personal Information</h3></td></tr>
@@ -22,7 +26,7 @@
       </td>
 
       <td>
-          <input type="text" class="form-control mr-sm-2"  placeholder="First name"   [(ngModel)]="updateUser.firstName"  id="firstname" name="firstname" >
+          <input type="text" class="input100"   placeholder="First name"   [(ngModel)]="updateUser.firstName"  id="firstname" name="firstname" >
       </td>
       <td>
         <label>
@@ -31,7 +35,7 @@
       </td>
 
       <td>
-        <input type="text" class="form-control mr-sm-2"  placeholder="Last name " id="lastname" name="lastname"   [ngModelOptions]="{standalone:true}"   [(ngModel)]="updateUser.lastName" #lastName="ngModel" >
+        <input type="text" class="input100"    placeholder="Last name " id="lastname" name="lastname"   [ngModelOptions]="{standalone:true}"   [(ngModel)]="updateUser.lastName" #lastName="ngModel" >
       </td>
     </tr>
     <tr>
@@ -42,7 +46,7 @@
       </td>
 
       <td>
-        <input type="email" class="form-control mr-sm-2"  placeholder="Email" value="{{currentUser.mail}}"  readonly id="mail" name="mail" >
+        <input type="email" class="input100"    placeholder="Email" value="{{currentUser.mail}}"  readonly id="mail" name="mail" >
       </td>
       <td>
         <label>
@@ -51,7 +55,7 @@
       </td>
 
       <td>
-        <input type="text" class="form-control mr-sm-2"  placeholder="Passowrd"  id="password" name="password"    [(ngModel)]="updateUser.password" >
+        <input type="text" class="input100"    placeholder="Passowrd"  id="password" name="password"    [(ngModel)]="updateUser.password" >
       </td>
     </tr>
     <tr>
@@ -63,10 +67,10 @@
 
       <td>
         <label>
-          <select ng-model="selectedCar" class="form-control mr-sm-2" [(ngModel)]="updateUser.gender"  [ngModelOptions]="{standalone:
+          <select ng-model="selectedCar" class="input100"   [(ngModel)]="updateUser.gender"  [ngModelOptions]="{standalone:
    true}" #gender="ngModel" >
-            <option  value="male" class="form-control mr-sm-2">Male</option>
-            <option  value="female" class="form-control mr-sm-2">Female</option>
+            <option  value="male" class="input100"   >Male</option>
+            <option  value="female" class="input100"  >Female</option>
           </select>
         </label>
       </td>
@@ -77,7 +81,7 @@
       </td>
 
       <td>
-        <input type="date" class="form-control mr-sm-2 "  placeholder="JJ/MM/AAAa"     [ngModelOptions]="{standalone:
+        <input type="date" class="input100"    placeholder="JJ/MM/AAAa"     [ngModelOptions]="{standalone:
    true}" [(ngModel)]="updateUser.dateOfBirth" #dateOfBirth="ngModel"  id="dateofbirth" name="dateofbirth"  >
 
       </td>
@@ -91,7 +95,7 @@
       </td>
 
       <td>
-        <input type="text" class="form-control mr-sm-2"  placeholder="Address"   [(ngModel)]="updateUser.address"  [ngModelOptions]="{standalone:
+        <input type="text" class="input100"    placeholder="Address"   [(ngModel)]="updateUser.address"  [ngModelOptions]="{standalone:
    true}" #address="ngModel" id="address" name="address"  >
       </td>
       <td>
@@ -100,7 +104,7 @@
         </label>
       </td>
       <td>
-        <input type="text" class="form-control mr-sm-2"  placeholder="Country"   [(ngModel)]="updateUser.country"  [ngModelOptions]="{standalone:
+        <input type="text" class="input100"    placeholder="Country"   [(ngModel)]="updateUser.country"  [ngModelOptions]="{standalone:
    true}" #country="ngModel"  id="country" name="country"  >
       </td>
     </tr>
@@ -112,7 +116,7 @@
     </td>
 
       <td>
-        <input type="text" class="form-control mr-sm-2"  placeholder="Town"   [(ngModel)]="updateUser.town" #town="ngModel"   [ngModelOptions]="{standalone:
+        <input type="text" class="input100"    placeholder="Town"   [(ngModel)]="updateUser.town" #town="ngModel"   [ngModelOptions]="{standalone:
    true}" id="town" name="town"  >
       </td>
       <td>
@@ -122,7 +126,7 @@
       </td>
 
       <td>
-        <input type="text" class="form-control mr-sm-2"  placeholder="Postal Code"    [(ngModel)]="updateUser.postalCode"  [ngModelOptions]="{standalone:
+        <input type="text" class="input100"   placeholder="Postal Code"    [(ngModel)]="updateUser.postalCode"  [ngModelOptions]="{standalone:
    true}" #postalCode="ngModel"  id="postalcode" name="postalcode"  >
       </td>
     </tr>
@@ -134,7 +138,7 @@
       </td>
 
       <td>
-        <input type="tel" class="form-control mr-sm-2"  placeholder="Phone Number" value="{{currentUser.phoneNumber}}" [(ngModel)]="updateUser.phoneNumber"  [ngModelOptions]="{standalone:
+        <input type="tel" class="input100"  placeholder="Phone Number" value="{{currentUser.phoneNumber}}" [(ngModel)]="updateUser.phoneNumber"  [ngModelOptions]="{standalone:
    true}" #phoneNumber="ngModel" id="phonenumber" name="phonenumber"  >
       </td>
       <td>
@@ -144,7 +148,12 @@
       </td>
 
       <td>
-        <button class="btn btn-primary btn-block" (click)="saveUser()" >Save</button>
+        <div class="container-login100-form-btn">
+          <button class="login100-form-btn" (click)="saveUser()">
+            Save
+          </button>
+        </div>
+       <!-- <button class="btn btn-primary btn-block" (click)="saveUser()" >Save</button>-->
       </td>
     </tr>
 
@@ -152,3 +161,4 @@
   </table>
 </div>
 </form>
+   </div></div>

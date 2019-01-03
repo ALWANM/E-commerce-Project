@@ -7,18 +7,85 @@
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
-  <!-- bootstrap css -->
-  <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" /> -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-  <!-- Bootstrap core CSS
-  <!-- <link href="/assets/css/bootstrap.min.css" rel="stylesheet"> -->
-  <!-- Material Design Bootstrap -->
-  <!-- <link href="../assets/css/mdb.min.css" rel="stylesheet"> -->
+  <title>Login V1</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="assets/vendor/css-hamburgers/hamburgers.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="assets/css/util.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+ <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/1.0.7/css/responsive.dataTables.min.css">-->
+
+  <!--===============================================================================================-->
+
 </head>
 
-<body>
-  <app-root></app-root>
+<body >
+<div class="align-content-md-center">
+ <ul class="topnav justify-content-md-between  bs-tooltip-right"  >
+    <li><a class="active text-white" >E-Commerce</a></li>
+    <li><a href="">Home</a></li>
+    <li><a href="/users">Users</a></li>
+    <li><a href="/products">product</a></li>
+    <li><a href="/profile">Register</a></li>
+    <li><a href="/register">Register</a></li>
+    <li><a href="/login" class="">Login</a></li>
+    <li><a href="/logout" (click)="logOut()">Logout</a></li>
+    <li class="icon">
+      <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+    </li>
+  </ul>
+   <app-root></app-root>
+  <script>
+    function myFunction() {
+      document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
+    }
+  </script>
+
+
+
+
+  <!--===============================================================================================-->
+  <script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="assets/vendor/bootstrap/js/popper.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="assets/vendor/select2/select2.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="assets/vendor/tilt/tilt.jquery.min.js"></script>
+  <script >
+    $('.js-tilt').tilt({
+      scale: 1.1
+    });
+  </script>
+  <!--===============================================================================================-->
+  <script src="assets/js/main.js"></script>
+</div>
 </body>
 
 </html>
+<style>
+/*
+  body {
+    background: url("assets/images/Nature .jpg") no-repeat  center center fixed;
+    -webkit-background-size: auto;
+    -moz-background-size: auto;
+    -o-background-size: auto;
+
+  }*/
+</style>
+
+

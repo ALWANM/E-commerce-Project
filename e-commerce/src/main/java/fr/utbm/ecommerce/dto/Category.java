@@ -23,11 +23,12 @@ public class Category implements Serializable {
 	private String Name;
 	@Column(name="DESCRIPTION")
 	private String Decsription;
-	public int getIDCATEGORY() {
+	 
+	public int getCategoryID() {
 		return CategoryID;
 	}
-	public void setIDCATEGORY(int iDCATEGORY) {
-		CategoryID = iDCATEGORY;
+	public void setCategoryID(int categoryID) {
+		CategoryID = categoryID;
 	}
 	public String getName() {
 		return Name;
@@ -44,6 +45,9 @@ public class Category implements Serializable {
 	@Override
 	public String toString() {
 		return "Category [IDCATEGORY=" + CategoryID + ", Name=" + Name + ", Decsription=" + Decsription + "]";
+	}
+	public Category() {
+		super();
 	}
 	public Category(String name, String decsription) {
 		super();

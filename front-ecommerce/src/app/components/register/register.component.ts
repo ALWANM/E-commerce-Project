@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
   register() {
+    //this.user.role="USER";
     this.accountService.createAccount(this.user).subscribe(data => {
       this.router.navigate(['/login']);
     }, err => {

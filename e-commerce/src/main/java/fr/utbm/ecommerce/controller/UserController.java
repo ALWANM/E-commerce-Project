@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,9 +41,6 @@ public class UserController {
 						new CustomErrorType("user with username" + newUser.getMail() + "already exist "),
 						HttpStatus.CONFLICT);
 			}
-//			newUser.setMail("marwan");
-			if(newUser.getRole()==null)newUser.setRole("USER");
-
 			return new ResponseEntity<User>(userService.addUser(newUser), HttpStatus.CREATED);
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
@@ -58,11 +56,13 @@ public class UserController {
 		return principal;
 	}
 	@CrossOrigin
+	//@Secured("ROLE_ADMIN")
 	@RequestMapping(value="/users",method = RequestMethod.GET)
 	public List<User> getUsers(Principal principal) {
 		 
 		return userService.getUsers("ADMIN","WORKER");
 	}
+	 
 	@CrossOrigin
 	@RequestMapping(value="/save",method = RequestMethod.POST)
 	public int updateUser(@RequestBody User updateUser) {

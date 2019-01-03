@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {Http} from '@angular/http';
 import {AccountService} from '../../services/account.service';
 import {UsersService} from '../../services/users.service';
+import {userInfo} from 'os';
 
 @Component({
   selector: 'app-users',
@@ -87,6 +88,7 @@ export class UsersComponent implements OnInit {
           console.log(data);
         },
         err=>{
+
           console.log(err);
         })
     }

@@ -37,15 +37,15 @@ public class Order implements Serializable {
 	@Column(name = "AMOUNT")
 	private int Amount;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne()
 	@JoinColumn(name = "SHIPPINGINFOID")
 	private ShippingInfo ShippingInfo;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
 	@JoinColumn(name = "USERID")
 	private User User;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne()
 	@JoinColumn(name = "PAYMENTID")
 	private Payment Payment;
 

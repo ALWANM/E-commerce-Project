@@ -44,10 +44,10 @@ public class Product implements Serializable {
 	private String Color;
 	@Column(name = "PICTURE")
 	private String Picture;
-	@ManyToOne(cascade = CascadeType.ALL) 
+	@ManyToOne() 
 	@JoinColumn(name = "SUPPLIERID")
 	private Supplier Supplier;
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
 	@JoinColumn(name = "CATEGORYID")
 	private Category Category;
 	public int getProductID() {
@@ -137,6 +137,9 @@ public class Product implements Serializable {
 		Picture = picture;
 		Supplier = supplier;
 		Category = category;
+	}
+	public Product() {
+		super();
 	}
 	
 }

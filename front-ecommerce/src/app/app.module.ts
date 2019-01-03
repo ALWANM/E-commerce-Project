@@ -17,6 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import {UpdateUserService} from './services/updateUser.service';
 import { UsersComponent } from './components/users/users.component';
 import {UsersService} from './services/users.service';
+import { DefaultComponent } from './components/default/default.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +27,13 @@ import {UsersService} from './services/users.service';
     RegisterComponent,
     NavbarComponent,
     UsersComponent,
+    DefaultComponent,
 
          
   ],
   imports: [
-    BrowserModule,FormsModule,routing,HttpModule,FacebookModule.forRoot()
+    BrowserModule, FormsModule, routing, HttpModule,FacebookModule.forRoot()
+
   ],
   // declarationde service pour reutilise
   providers: [AuthService,AccountService,UrlPermission,UpdateUserService,UsersService],

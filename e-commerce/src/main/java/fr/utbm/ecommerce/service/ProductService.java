@@ -32,7 +32,7 @@ public class ProductService {
 		return (List<Product>) productDao.findAll();
 	}
 
-//	public List<Product> getAllProductByName(@Param("name") String name) {
-//		return productDao.getAllProductByName("%" + name + "%");
-//	}
+	public List<Product> getAllProductByName(@Param("name") String name) {
+		return productDao.getAllProductByName("%" + name + "%");
+	}
 }

@@ -1,5 +1,6 @@
 
-
+<div class="limiter " >
+  <div class="container-fluid justify-content-md-between">
 <form name="form-users" class="" #f="ngForm">
  <!-- <div class="container table-responsive-sm align-content-center align-content-md-center align-items-center">-->
   <div class="container">
@@ -16,7 +17,7 @@
         </td>
 
         <td>
-          <input type="text" class="form-control mr-sm-2"  placeholder="First name"   [(ngModel)]="newUser.firstName"  id="firstname" name="firstname" >
+          <input type="text" class="input100" placeholder="First name"   [(ngModel)]="newUser.firstName"  id="firstname" name="firstname" >
         </td>
         <td>
           <label>
@@ -25,7 +26,7 @@
         </td>
 
         <td>
-          <input type="text" class="form-control mr-sm-2"  placeholder="Last name " id="lastname" name="lastname"   [(ngModel)]="newUser.lastName"   >
+          <input type="text" class="input100"  placeholder="Last name " id="lastname" name="lastname"   [(ngModel)]="newUser.lastName"   >
         </td>
       </tr>
       <tr>
@@ -36,7 +37,7 @@
         </td>
 
         <td>
-          <input type="email" class="form-control mr-sm-2"  placeholder="Email" [(ngModel)]="newUser.mail"   id="mail" name="mail" required>
+          <input type="email" class="input100"  placeholder="Email" [(ngModel)]="newUser.mail"   id="mail" name="mail" required>
         </td>
         <td>
           <label>
@@ -45,7 +46,7 @@
         </td>
 
         <td>
-          <input type="text" class="form-control mr-sm-2"   placeholder="Passowrd"  id="password" name="password"    [(ngModel)]="newUser.password" required>
+          <input type="text" class="input100"   placeholder="Passowrd"  id="password" name="password"    [(ngModel)]="newUser.password" required>
         </td>
       </tr>
       <tr>
@@ -57,21 +58,21 @@
 
         <td>
           <label>
-            <select ng-model="selectedRole" class="form-control mr-sm-2" [(ngModel)]="newUser.role"   [ngModelOptions]="{standalone:
+            <select ng-model="selectedRole" class="input100" [(ngModel)]="newUser.role"   [ngModelOptions]="{standalone:
    true}" #role="ngModel" required>
-              <option  value="ADMIN" class="form-control mr-sm-2" >ADMIN</option>
-              <option  value="WORKER" class="form-control mr-sm-2" >WORKER</option>
+              <option  value="ADMIN" class="input100" >ADMIN</option>
+              <option  value="WORKER" class="input100" >WORKER</option>
             </select>
           </label>
         </td>
         <td>
-          <label>
+          <label >
             Date of Birth
           </label>
         </td>
 
         <td>
-          <input type="date" class="form-control mr-sm-2 "  placeholder="JJ/MM/AAAa"     [ngModelOptions]="{standalone:
+          <input type="date" class="input100 "  placeholder="JJ/MM/AAAa"     [ngModelOptions]="{standalone:
    true}" [(ngModel)]="newUser.dateOfBirth" #dateOfBirth="ngModel"  id="dateofbirth" name="dateofbirth"  >
 
         </td>
@@ -79,10 +80,22 @@
       <tr>
         <td></td><td></td>
         <td>
-          <button class="btn btn-primary btn-block" (click)="updateUser()"   >Update</button>
+          <div class="container-login100-form-btn">
+            <button class="login100-form-btn" (click)="updateUser()" >
+              Update
+            </button>
+          </div>
+          </td>
+          <td>
+          <div class="container-login100-form-btn">
+            <button class="login100-form-btn" (click)="saveUser()">
+              Create
+            </button>
+          </div>
+          <!--<button class="btn btn-primary btn-block" (click)="updateUser()"   >Update</button>
         </td>
         <td>
-          <button class="btn btn-primary btn-block" (click)="saveUser()" >Save</button>
+          <button class="btn btn-primary btn-block" (click)="saveUser()" >Save</button>-->
         </td>
       </tr>
   </table>
@@ -91,7 +104,7 @@
     <tr>
       <td>
        <!--<div class="container table-responsive-sm align-content-center align-content-md-center align-items-center">-->
-      <table class="table dataTable table-responsive-lg">
+      <table class="display-1 table dataTable table-responsive-lg dark-grey-text">
         <tr>
           <th class="th-lg">First Name</th>
           <th class="th-lg">Last Name</th>
@@ -103,7 +116,7 @@
           <th class="th-lg">Delete</th>
         </tr>
 
-        <tr *ngFor="let u of usersPage" class="table-info">
+        <tr *ngFor="let u of usersPage" class="table-info dark-grey-text">
           <td>
             {{u.firstName}}
           </td>
@@ -131,3 +144,5 @@
 
   </div>
 </form>
+  </div>
+</div>
