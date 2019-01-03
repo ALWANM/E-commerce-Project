@@ -124,5 +124,5 @@ public class Supplier implements Serializable {
 		Town = town;
 		Country = country;
 	}
-	
+ 
 }

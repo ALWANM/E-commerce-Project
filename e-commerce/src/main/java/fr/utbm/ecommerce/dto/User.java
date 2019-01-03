@@ -31,7 +31,7 @@ public class User implements UserDetails,Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "USERID")
+	@Column(name = "IDUSER")
 	private int UserID;
 	@Column(name = "FIRSTNAME")
 	private String FirstName;

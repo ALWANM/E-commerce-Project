@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>  
+
+<mdb-card style=" margin-top:100px;margin-bottom: 100px;" *ngIf="currentCategory" class="text-center">
+    <mdb-card-header class="info-color white-text text-center py-4">
+    <h5>
+      <strong>Category Details</strong>
+    </h5>
+  </mdb-card-header>
+  <form style="color: #757575;">
+                    <div class="md-form mt-3">
+                        <input type="text" name="name" class="form-control" [(ngModel)]="currentCategory.name" mdbInputDirective required>
+                        <label for="name">Category name : </label>
+                    </div>
+
+                    <div class="md-form">
+                        <input type="text" name="descrption" class="form-control" [(ngModel)]="currentCategory.description" mdbInputDirective required>
+                        <label for="description">Description : </label>
+                    </div>
+    </form>
+    <mdb-card-footer class="justify-content-center">
+                <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="update()" mdbWavesEffect>Update</button>
+                <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect (click)="delete(currentCategory)">Delete</button>
+            </mdb-card-footer>
+</mdb-card>
+
+<h2 style="margin-top:100px;">List of Categories</h2>
+<button type="button" mdbBtn gradient="blue" rounded="true" class="relative waves-light" (click)="basicModal.show()" mdbWavesEffect> Add <mdb-icon icon="plus-square"></mdb-icon></button >
+<div mdbModal #basicModal="mdbModal" class="modal top" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+   aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-full-height modal-top" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+                    <mdb-icon icon="close"></mdb-icon>
+                </button>
+                <h4 class="modal-title w-100" id="myModalLabel">Add new Category</h4>
+            </div>
+            <div class="modal-body">
+                <form class="text-center" style="color: #757575;">
+
+                    <div class="md-form mt-3">
+                        <input type="text" name="name" class="form-control" [(ngModel)]="newCategory.name" mdbInputDirective required>
+                        <label for="name">Category name : </label>
+                    </div>
+
+                    <div class="md-form">
+                        <input type="text" name="descrption" class="form-control" [(ngModel)]="newCategory.description" mdbInputDirective required>
+                        <label for="description">Description : </label>
+                    </div>
+
+                    </form>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
+                <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect (click)="addCategory(newCategory);basicModal.hide()">OK!</button>
+            </div>
+        </div>
+    </div >
+</div >
+<div class="table-responsiv table-borderede" cellspacing="0">
+    <table mdbTable #table class="table table-hover table-fixed table-striped">
+        <!-- table head-->
+        <thead>
+            <tr>
+                <th *ngFor="let head of headElements; let i = index" scope="col" [mdbTableSort]="categories" [sortBy]="headElements[i]">{{head}} <mdb-icon icon="sort"></mdb-icon>
+                </th>
+            </tr>
+            <!--table head-->
+        </thead>
+
+        <!--table body-->
+        <tbody>
+            <tr class="table" *ngFor="let category of categories; let i = index" [class.selected]="category === currentCategory">
+                <th scope="row">{{category.idcategory}}</th>
+                <td >{{category.name}}</td>
+                <td >{{category.description}}</td>
+                <td ><a (click)="onEdit(category)" class="clickable">Edit  <mdb-icon icon="edit"></mdb-icon></a></td>
+                <td ><a (click)="delete(category)" class="clickable">Delete  <mdb-icon icon="trash"></mdb-icon></a></td>
+            </tr>
+            
+        </tbody>
+        <!--table body-->
+
+    </table>
+</div>

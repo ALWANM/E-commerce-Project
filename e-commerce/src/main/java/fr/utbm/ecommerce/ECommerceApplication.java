@@ -49,15 +49,16 @@ public class ECommerceApplication implements CommandLineRunner {
 		// user=uservic.getUserByMail("marwanalwan94@gmail.com");
 //		Category c = new Category("TECH", "Technologie phones");
 //		cs.addCategory(c);
+ 
 		Category c=new Category("Phone", "Phones");
 		Supplier s=new Supplier("Supplier_name", "Supplier_lastname", "Suplier@gmail.com", "0010010010", df.parse("2018-11-07"), "paris", "20000", "paris", "Paris");
 		 
 		
-		Product p=new Product("A1DF", "Samsung Galaxy S8 64 GB (Dual SIM) - Black - Android 8.0 - Version internationale", 400, 10, 15, 1, "Black", "photo_url", s, c);
-		Product p1=new Product("A2DF", "Samsung Galaxy S7 64 GB (Dual SIM) - Red - Android 8.0 - Version internationale", 300, 10, 15, 1, "Red", "photo_url", s, c);
-		Product p2=new Product("A3DF", "Samsung Galaxy S5 64 GB (Dual SIM) - Black - Android 8.0 - Version internationale", 100, 10, 15, 1, "Black", "photo_url", s, c);
-		Product p3=new Product("A4DF", "Samsung Galaxy S4 64 GB (Dual SIM) - Yellow - Android 8.0 - Version internationale", 200, 10, 15, 1, "Yellow", "photo_url", s, c);
-		Product p4=new Product("A5DF", "Samsung Galaxy S9 64 GB (Dual SIM) - Black - Android 8.0 - Version internationale", 800, 10, 15, 1, "Black", "photo_url", s, c);
+		Product p=new Product("A1DF", "Samsung Galaxy S8 64 GB (Dual SIM) - Black "," - Android 8.0 - Version internationale", 400, 10, 15, 1, "Black", "photo_url", s, c);
+		Product p1=new Product("A2DF", "Samsung Galaxy S7 64 GB (Dual SIM) - Red ","- Android 8.0 - Version internationale", 300, 10, 15, 1, "Red", "photo_url", s, c);
+		Product p2=new Product("A3DF", "Samsung Galaxy S5 64 GB (Dual SIM) - Black ","- Android 8.0 - Version internationale", 100, 10, 15, 1, "Black", "photo_url", s, c);
+		Product p3=new Product("A4DF", "Samsung Galaxy S4 64 GB (Dual SIM) - Yellow ","- Android 8.0 - Version internationale", 200, 10, 15, 1, "Yellow", "photo_url", s, c);
+		Product p4=new Product("A5DF", "Samsung Galaxy S9 64 GB (Dual SIM) - Black ","- Android 8.0 - Version internationale", 800, 10, 15, 1, "Black", "photo_url", s, c);
 		
 		
 	 
@@ -72,8 +73,10 @@ public class ECommerceApplication implements CommandLineRunner {
 //		ps.addProduct(p2);
 //		ps.addProduct(p3);
 //		ps.addProduct(p4);
-//		System.out.println(c.toString());
-			}
+ 
+		//user=us.getUserByMail("marwan@gmail.com");
+//probleme sur le getuserbymail a revoir
+		}
 		catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.toString());

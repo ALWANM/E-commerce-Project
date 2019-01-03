@@ -32,8 +32,8 @@ public class CartItem implements Serializable{
 	private Order Order;
 	@ManyToOne
 	@JoinColumn(name = "PRODUCTID")
-  
 	private Product Product;
+	
 	public int getCarteitemID() {
 		return CarteitemID;
 	}

@@ -17,7 +17,17 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import {UpdateUserService} from './services/updateUser.service';
 import { UsersComponent } from './components/users/users.component';
 import {UsersService} from './services/users.service';
+
 import { DefaultComponent } from './components/default/default.component';
+
+import { ProductComponent } from './components/product/product/product.component';
+import { ProductsComponent } from './components/products/products/products.component';
+import { SupplierComponent } from './components/supplier/supplier.component';
+import { CategoryComponent } from './components/category/category.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 
 @NgModule({
   declarations: [
@@ -28,12 +38,16 @@ import { DefaultComponent } from './components/default/default.component';
     NavbarComponent,
     UsersComponent,
     DefaultComponent,
-
-         
+    ProductComponent,
+    ProductsComponent,
+    SupplierComponent,
+    CategoryComponent,
+    FooterComponent,
+    HomeComponent,
   ],
   imports: [
-    BrowserModule, FormsModule, routing, HttpModule,FacebookModule.forRoot()
-
+   /* BrowserModule, FormsModule, routing, HttpModule,FacebookModule.forRoot()*/
+    BrowserModule,FormsModule,routing,HttpModule,FacebookModule.forRoot(), MDBBootstrapModule.forRoot()
   ],
   // declarationde service pour reutilise
   providers: [AuthService,AccountService,UrlPermission,UpdateUserService,UsersService],

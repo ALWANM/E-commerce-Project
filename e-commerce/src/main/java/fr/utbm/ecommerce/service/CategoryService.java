@@ -1,6 +1,7 @@
 package fr.utbm.ecommerce.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,21 +15,44 @@ import fr.utbm.ecommerce.repository.CategoryDao;
 @Transactional
 public class CategoryService implements ICategoryService {
 	@Autowired
+
 	private CategoryDao categoryDao;
 
-	public Category addCategory(Category category) {
-		return categoryDao.save(category);
+	public boolean addCategory(Category category) {
+		boolean existed = existed(category.getCategoryID());
+		if(existed == false){
+			categoryDao.save(category);
+			existed = true;
+		}
+		return existed;
+		
 	}
 
-	public Category updateCategory(Category category) {
-		return categoryDao.save(category);
+	public boolean updateCategory(Category category) {
+		boolean existed = existed(category.getCategoryID());
+		if(existed == true){
+			categoryDao.save(category);
+		}
+		return existed;
 	}
 
-	public void deleteCategory(Category category) {
-		categoryDao.delete(category);
+	public boolean deleteCategory(Category category) {
+		boolean existed= existed(category.getCategoryID());
+		if(existed == true){
+			categoryDao.delete(category);
+		}
+		return existed;
 	}
 
 	public List<Category> getAllCategory() {
 		return (List<Category>) categoryDao.findAll();
+	}
+
+	public boolean existed(int id){
+		return categoryDao.existsById(id);
+	}
+
+	public Category getCategoryById(int id){
+			return categoryDao.findById(id);
 	}
 }

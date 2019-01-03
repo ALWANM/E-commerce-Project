@@ -1,0 +1,159 @@
+<app-navbar></app-navbar>  
+
+<mdb-card style=" margin-top:100px;margin-bottom: 100px;" *ngIf="currentProduct" class="text-center">
+    <mdb-card-header class="info-color white-text text-center py-4">
+    <h5>
+      <strong>Product Details</strong>
+    </h5>
+  </mdb-card-header>
+  <form style="color: #757575;">
+                    <div class="md-form mt-3">
+                        <input type="text" name="reference" class="form-control" [(ngModel)]="currentProduct.reference" mdbInputDirective required>
+                        <label for="reference">Reference : </label>
+                    </div>
+
+                    <div class="md-form">
+                        <input type="text" name="name" class="form-control" [(ngModel)]="currentProduct.name" mdbInputDirective required>
+                        <label for="name">Name : </label>
+                    </div>
+                    <div class="md-form">
+                        <input type="text" name="description" class="form-control" [(ngModel)]="currentProduct.description" mdbInputDirective required>
+                        <label for="description">Description : </label>
+                    </div>
+                    <div class="md-form">
+                        <input type="number" name="price" class="form-control" [(ngModel)]="currentProduct.price" mdbInputDirective required>
+                        <label for="price">Price : </label>
+                    </div>
+                    <div class="md-form">
+                        <input type="number" name="vat" class="form-control" [(ngModel)]="currentProduct.vat" mdbInputDirective required>
+                        <label for="vat">VAT : </label>
+                    </div>
+                    <div class="md-form">
+                        <input type="number" name="stock" class="form-control" [(ngModel)]="currentProduct.quantityStock" mdbInputDirective required>
+                        <label for="stock">Stock : </label>
+                    </div>
+                    <div class="md-form">
+                        <div class="row">
+                        <div class="col-md-6">
+                            <select class="form-control" name="category" [(ngModel)]="currentProduct.category.categoryid" placeholder="Choose your category" required mdbInputDirective>
+                                 <option *ngFor="let category of listCategories" [value]="category.id">{{category.name}}</option>
+                            </select>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="md-form">
+                        <div class="row">
+                        <div class="col-md-6">
+                            <select class="form-control" name="supplier" [(ngModel)]="currentProduct.supplier.supplierid" placeholder="Choose your supplier" required>
+                                 <option *ngFor="let supplier of listSuppliers" [value]="supplier.id">{{supplier.firstName}}</option>
+                            </select>
+                        </div>
+                        </div>
+                    </div>
+    </form>
+    <mdb-card-footer class="justify-content-center">
+                <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="updateProduct()" mdbWavesEffect>Update</button>
+                <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect (click)="onDelete(currentProduct)">Delete</button>
+            </mdb-card-footer>
+</mdb-card>
+
+<h2 style="margin-top:100px;">List of Products</h2>
+<button type="button" mdbBtn gradient="blue" rounded="true" class="relative waves-light" (click)="basicModal.show()" mdbWavesEffect> Add <mdb-icon icon="plus-square"></mdb-icon></button >
+<div mdbModal #basicModal="mdbModal" class="modal top" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+   aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-full-height modal-top" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+                    <mdb-icon icon="close"></mdb-icon>
+                </button>
+                <h4 class="modal-title w-100" id="myModalLabel">Add new Product</h4>
+            </div>
+            <div class="modal-body">
+                <form class="text-center" style="color: #757575;">
+
+                   <div class="md-form mt-3">
+                        <input type="text" name="reference" class="form-control" [(ngModel)]="newProduct.reference" mdbInputDirective required>
+                        <label for="reference">Reference : </label>
+                    </div>
+
+                    <div class="md-form">
+                        <input type="text" name="name" class="form-control" [(ngModel)]="newProduct.name" mdbInputDirective required>
+                        <label for="name">Name : </label>
+                    </div>
+                    <div class="md-form">
+                        <input type="text" name="description" class="form-control" [(ngModel)]="newProduct.description" mdbInputDirective required>
+                        <label for="description">Description : </label>
+                    </div>
+                    <div class="md-form">
+                        <input type="number" name="price" class="form-control" [(ngModel)]="newProduct.price" mdbInputDirective required>
+                        <label for="price">Price : </label>
+                    </div>
+                    <div class="md-form">
+                        <input type="number" name="vat" class="form-control" [(ngModel)]="newProduct.vat" mdbInputDirective required>
+                        <label for="vat">VAT : </label>
+                    </div>
+                    <div class="md-form">
+                        <input type="number" name="stock" class="form-control" [(ngModel)]="newProduct.stock" mdbInputDirective required>
+                        <label for="stock">Stock : </label>
+                    </div>
+                    <div class="md-form">
+                        <div class="row">
+                        <div class="col-md-6">
+                            <select class="form-control" name="category" [(ngModel)]="newProduct.categoryid" placeholder="Choose your category" required>
+                                 <option *ngFor="let category of listCategories" [value]="category.id">{{category.name}}</option>
+                            </select>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="md-form">
+                        <div class="row">
+                        <div class="col-md-6">
+                            <select class="form-control" name="supplier" [(ngModel)]="newProduct.supplierid" placeholder="Choose your supplier" required>
+                                 <option *ngFor="let supplier of listSuppliers" [value]="supplier.id">{{supplier.firstName}}</option>
+                            </select>
+                        </div>
+                        </div>
+                    </div>
+
+                    </form>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
+                <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect (click)="addProduct(newProduct);basicModal.hide()">OK!</button>
+            </div>
+        </div>
+    </div >
+</div >
+<div class="table-responsiv table-borderede" cellspacing="0">
+    <table mdbTable #table class="table table-hover table-fixed table-striped">
+        <!-- table head-->
+        <thead>
+            <tr>
+                <th *ngFor="let head of headElements; let i = index" scope="col" [mdbTableSort]="products" [sortBy]="headElements[i]">{{head}} <mdb-icon icon="sort"></mdb-icon>
+                </th>
+            </tr>
+            <!--table head-->
+        </thead>
+
+        <!--table body-->
+        <tbody>
+            <tr class="table" *ngFor="let Product of products; let i = index" [class.selected]="Product === currentProduct">
+                <th scope="row">{{Product.productID}}</th>
+                <td >{{Product.reference}}</td>
+                <td >{{Product.name}}</td>
+                <td >{{Product.description}}</td>
+                <td >{{Product.price}} <mdb-icon icon="euro"></mdb-icon></td>
+                <td >{{Product.vat}} <mdb-icon icon="percent"></mdb-icon></td>
+                <td >{{Product.quantityStock}}</td>
+                <td >{{Product.supplier.firstName}}</td>
+                <td >{{Product.category.name}}</td>
+                <td ><a (click)="onEdit(Product)" class="clickable">Edit  <mdb-icon icon="edit"></mdb-icon></a></td>
+                <td ><a (click)="deleteProduct(Product)" class="clickable">Delete  <mdb-icon icon="trash"></mdb-icon></a></td>
+            </tr>
+            
+        </tbody>
+        <!--table body-->
+
+    </table>
+</div>

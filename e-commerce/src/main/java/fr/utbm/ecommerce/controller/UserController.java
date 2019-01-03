@@ -11,11 +11,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.utbm.ecommerce.dto.Product;
 import fr.utbm.ecommerce.dto.User;
 import fr.utbm.ecommerce.service.UserService;
 import fr.utbm.ecommerce.util.CustomErrorType;
@@ -38,19 +40,24 @@ public class UserController {
 			if (userService.getUserByMail(newUser.getMail()) != null) {
 				logger.error("username Already exist " + newUser.getMail());
 				return new ResponseEntity<Object>(
-						new CustomErrorType("user with username" + newUser.getMail() + "already exist "),
+						new CustomErrorType("user with username " + newUser.getMail() + " already exist "),
 						HttpStatus.CONFLICT);
 			}
+ 
+
+//			newUser.setMail("marwan");
+//			if(newUser.getRole()==null || newUser.getRole()=="")newUser.setRole("USER");
+
 			return new ResponseEntity<User>(userService.addUser(newUser), HttpStatus.CREATED);
 		} catch (Exception e) {
-			System.err.println(e.getMessage());
+			System.err.println("Error : "+e.getMessage());
 			return null;
 		}
 	}
 
 	// this is the login api/service
 	@CrossOrigin
-	@RequestMapping("/login")
+	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public Principal user(Principal principal) {
 		logger.info("user logged " + principal);
 		return principal;
@@ -62,7 +69,7 @@ public class UserController {
 		 
 		return userService.getUsers("ADMIN","WORKER");
 	}
-	 
+ 
 	@CrossOrigin
 	@RequestMapping(value="/save",method = RequestMethod.POST)
 	public int updateUser(@RequestBody User updateUser) {

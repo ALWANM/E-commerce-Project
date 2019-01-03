@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import fr.utbm.ecommerce.dto.Product;
+ 
 import fr.utbm.ecommerce.dto.User;
 
 public interface IProductService {
@@ -21,4 +22,16 @@ public interface IProductService {
 	Product updateProduct(Product product);
 
 	void deleteProduct(Product product); 
+	 boolean existed(int productid);
 }
+ 
+//public interface IProductService  {
+//    boolean addProduct(Product product);
+//    boolean updateProduct(Product product);
+//    boolean deleteProduct(Product product);
+//    Product getProductByName(String name);
+//	List<Product> getAllProduct();
+//    Product getProductById(int productid);
+//    boolean existed(int productid);
+// 
+//}

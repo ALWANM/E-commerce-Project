@@ -1,21 +1,20 @@
 package fr.utbm.ecommerce.iservice;
 
 import java.util.List;
+import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
-import fr.utbm.ecommerce.dto.CartItem;
 import fr.utbm.ecommerce.dto.Category;
 
  
 public interface ICategoryService {
-	Category addCategory(Category category);
+	boolean addCategory(Category category);
 
-	Category updateCategory(Category category);
+	boolean updateCategory(Category category);
 
-	void deleteCategory(Category category);
+	boolean deleteCategory(Category category);
 
 	List<Category> getAllCategory( );
 
-	 
+	Category getCategoryById(int id);
 	  
 }

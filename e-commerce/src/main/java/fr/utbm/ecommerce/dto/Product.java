@@ -47,6 +47,7 @@ public class Product implements Serializable {
 	@ManyToOne() 
 	@JoinColumn(name = "SUPPLIERID")
 	private Supplier Supplier;
+ 
 	@ManyToOne()
 	@JoinColumn(name = "CATEGORYID")
 	private Category Category;
@@ -121,9 +122,9 @@ public class Product implements Serializable {
 		return "Product [ProductID=" + ProductID + ", Reference=" + Reference + ", Description=" + Description
 				+ ", Price=" + Price + ", Vat=" + Vat + ", QuantityStock=" + QuantityStock + ", Size=" + Size
 				+ ", Color=" + Color + ", Picture=" + Picture + ", Supplier=" + Supplier + ", Category=" + Category
-				+ "]";
+				+ ", Name = "+ Name +"]";
 	}
-	public Product(String reference, String description, float price, float vat, int quantityStock, int size, String color,
+	public Product(String reference, String name, String description, float price, float vat, int quantityStock, int size, String color,
 			String picture, fr.utbm.ecommerce.dto.@NotNull Supplier supplier,
 			fr.utbm.ecommerce.dto.@NotNull Category category) {
 		super();
@@ -137,9 +138,12 @@ public class Product implements Serializable {
 		Picture = picture;
 		Supplier = supplier;
 		Category = category;
+		Name = name;
 	}
+	
 	public Product() {
 		super();
 	}
+	 
 	
 }
