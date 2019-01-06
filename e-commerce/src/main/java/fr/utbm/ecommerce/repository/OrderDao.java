@@ -11,6 +11,6 @@ import fr.utbm.ecommerce.dto.Order;
 @Repository
 public interface OrderDao extends CrudRepository<Order, Integer> {
 	 
-	@Query("SELECT o FROM Order o WHERE o.User.UserID LIKE :iduser ")
-	List<Order> getAllOrdersForUser(@Param("iduser") int string);
+	@Query("SELECT o FROM Order o WHERE o.User.UserID = :iduser ")
+	List<Order> getAllOrdersForUser(@Param("iduser") int iduser);
 }

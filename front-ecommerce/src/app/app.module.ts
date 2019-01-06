@@ -27,6 +27,10 @@ import { CategoryComponent } from './components/category/category.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ShoppingcartComponent } from './components/shoppingcart/shoppingcart.component';
+import { ListProductComponent } from './components/list-product/list-product.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 
 @NgModule({
@@ -44,6 +48,10 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     CategoryComponent,
     FooterComponent,
     HomeComponent,
+    ShoppingcartComponent,
+    ListProductComponent,
+    ProductCardComponent,
+    OrdersComponent,
   ],
   imports: [
    /* BrowserModule, FormsModule, routing, HttpModule,FacebookModule.forRoot()*/

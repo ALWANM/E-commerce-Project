@@ -1,0 +1,19 @@
+<div class="card" *ngIf="product">
+    <img class="card-img-top" src="assets/img/{{product.picture}}.jpg" alt="{{product.picture}}">
+    <div class="card-block">
+        <p class="card-title">
+            Name : {{product.name}}
+        </p>
+        <p class="card-text">
+            Description : {{product.description}}
+        </p>
+        <p class="card-number">
+            Stock : {{product.quantityStock}}
+        </p>
+        <!-- Card footer -->
+              <div class="card-footer px-1">
+                <span class="float-left">Price : {{product.price}} <mdb-icon icon="euro"></mdb-icon></span>
+                <a (click)="onAdd(product)" style="float:right" class="clickable">Add cart  <mdb-icon icon="plus"></mdb-icon></a>
+              </div>
+    </div>
+</div>

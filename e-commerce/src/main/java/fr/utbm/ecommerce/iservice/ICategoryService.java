@@ -1,7 +1,6 @@
 package fr.utbm.ecommerce.iservice;
 
 import java.util.List;
-import java.util.Optional;
 
 import fr.utbm.ecommerce.dto.Category;
 

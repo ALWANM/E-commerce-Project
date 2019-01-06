@@ -42,6 +42,11 @@ public class Supplier implements Serializable {
 	private String Town;
 	@Column(name="COUNTRY")
 	private String Country;
+	
+	
+	/**Getters and Setters**/
+	
+	
 	public int getSupplierID() {
 		return SupplierID;
 	}
@@ -108,9 +113,6 @@ public class Supplier implements Serializable {
 				+ Mail + ", PhoneNumber=" + PhoneNumber + ", DateOfBirth=" + DateOfBirth + ", Address=" + Address
 				+ ", PostalCode=" + PostalCode + ", Town=" + Town + ", Country=" + Country + "]";
 	}
-	public Supplier() {
-		super();
-	}
 	public Supplier(String firstName, String lastName, String mail, String phoneNumber, Date dateOfBirth,
 			String address, String postalCode, String town, String country) {
 		super();
@@ -124,5 +126,8 @@ public class Supplier implements Serializable {
 		Town = town;
 		Country = country;
 	}
- 
+	
+	public Supplier() {
+		super();
+	}
 }

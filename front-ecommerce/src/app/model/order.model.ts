@@ -4,9 +4,9 @@ import {Payment} from './payment.model';
 
 export class Order {
   id: string;
-  date: String = "";
-  amont: Float32Array;
-  shippingInfo: Shippinginfo;
-  user: User;
-  payment: Payment;
+  date: Date;
+  amount: number;
+  shippingInfo: String;
+  user: String="";
+  payment: String;
   }

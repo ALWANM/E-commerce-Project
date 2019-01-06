@@ -1,9 +1,9 @@
 package fr.utbm.ecommerce.iservice;
 
-import fr.utbm.ecommerce.dto.User;
-
 import java.util.Date;
-import java.util.List;;
+import java.util.List;
+
+import fr.utbm.ecommerce.dto.User;;
 
  
 public interface IUserservice {

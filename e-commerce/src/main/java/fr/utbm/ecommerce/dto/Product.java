@@ -44,15 +44,25 @@ public class Product implements Serializable {
 	private String Color;
 	@Column(name = "PICTURE")
 	private String Picture;
-	@ManyToOne() 
+	@ManyToOne(cascade = CascadeType.ALL) 
 	@JoinColumn(name = "SUPPLIERID")
 	private Supplier Supplier;
- 
-	@ManyToOne()
-	@JoinColumn(name = "CATEGORYID")
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "IDCATEGORY")
 	private Category Category;
+	
+	
+	/**Getters and Setters**/
+	
+	
 	public int getProductID() {
 		return ProductID;
+	}
+	public String getName() {
+		return Name;
+	}
+	public void setName(String name) {
+		Name = name;
 	}
 	public void setProductID(int productID) {
 		ProductID = productID;
@@ -144,6 +154,5 @@ public class Product implements Serializable {
 	public Product() {
 		super();
 	}
-	 
 	
 }

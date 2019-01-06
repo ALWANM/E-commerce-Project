@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="container">
+<h1><strong>List of order</strong></h1>
+<div class="table-responsiv table-borderede" cellspacing="0">
+    <table mdbTable #table class="table table-hover table-fixed table-striped">
+        <!-- table head-->
+        <thead>
+            <tr>
+                <th>Order reference</th>
+                <th>Date</th>
+                <th>Amount</th>
+            </tr>
+            <!--table head-->
+        </thead>
+
+        <!--table body-->
+        <tbody>
+            <tr class="table" *ngFor="let order of listOrder; let i = index">
+                <th>{{order.orderID}}</th>
+                <th scope="row">{{order.date}}</th>
+                <td >{{order.amount}} <mdb-icon icon="euro"></mdb-icon></td>
+                <td ><a (click)="view(order.orderID)" class="clickable">View</a></td>
+            </tr>
+        </tbody>
+        <!--table body-->
+
+    </table>
+</div>
+<app-footer></app-footer>

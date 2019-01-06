@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<div class="container">
+<h1><strong>Shopping Cart</strong></h1>
+<div class="table-responsiv table-borderede" cellspacing="0">
+    <table mdbTable #table class="table table-hover table-fixed table-striped">
+        <!-- table head-->
+        <thead>
+            <tr>
+                <th>Article line</th>
+                <th>Product ID</th>
+                <th>Product Reference</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            <!--table head-->
+        </thead>
+
+        <!--table body-->
+        <tbody>
+            <tr class="table" *ngFor="let Product of listCart; let i = index">
+                <th>{{i+1}}</th>
+                <th scope="row">{{Product.id}}</th>
+                <td >{{Product.ref}}</td>
+                <td >{{Product.quantity}}</td>
+                <td >{{Product.quantity*Product.price}} <mdb-icon icon="euro"></mdb-icon></td>
+                <td ><a (click)="plus(i)" class="clickable"><mdb-icon icon="plus"></mdb-icon></a></td>
+                <td ><a (click)="minus(i)" class="clickable"><mdb-icon icon="minus"></mdb-icon></a></td>
+                <td ><a (click)="remove(i)" class="clickable"><mdb-icon icon="trash"></mdb-icon></a></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td> <strong>Total</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> <strong> {{total}} <mdb-icon icon="euro"></mdb-icon></strong></td>
+                <td><button class="btn btn-primary" type="button" (click)=doOrder()>
+            Do Order
+          </button></td>
+            </tr>
+        </tfoot>
+        <!--table body-->
+
+    </table>
+</div>
+<app-footer></app-footer>

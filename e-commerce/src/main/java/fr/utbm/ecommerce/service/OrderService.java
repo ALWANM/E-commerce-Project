@@ -15,26 +15,23 @@ public class OrderService implements IOrderService {
 	@Autowired
 	private OrderDao orderDao;
 
-	public Order addOrder(Order order) {
-		return orderDao.save(order);
+	public Boolean addOrder(Order order) {
+		orderDao.save(order);
+		return true;
 	}
 
-	public Order updateOrder(Order order) {
-		return orderDao.save(order);
+	public Boolean updateOrder(Order order) {
+		orderDao.save(order);
+		return true;
 	}
 
-	public void deleteOrder(Order order) {
+	public Boolean deleteOrder(Order order) {
 		orderDao.delete(order);
+		return true;
 	}
-
-	@Override
-	public List<Order> getAllOrdersForUser(String string) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public List<Order> getAllOrder(int userid){
+		return orderDao.getAllOrdersForUser(userid);
 	}
-
-//	public List<Order> getAllOrdersForUser(@Param("iduser") int iduser) {
-//		return orderDao.getAllOrdersForUser("%" + iduser + "%");
-//	}
 
 }

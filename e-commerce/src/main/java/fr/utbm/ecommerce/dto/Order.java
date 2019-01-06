@@ -1,11 +1,11 @@
 package fr.utbm.ecommerce.dto;
 
-import java.util.*;
 import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,9 +21,6 @@ import javax.validation.constraints.NotNull;
 @Table(name = "`order`")
 public class Order implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,18 +34,22 @@ public class Order implements Serializable {
 	@Column(name = "AMOUNT")
 	private int Amount;
 	
-	@OneToOne()
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "SHIPPINGINFOID")
 	private ShippingInfo ShippingInfo;
 	
-	@ManyToOne()
-	@JoinColumn(name = "USERID")
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "IDUSER")
 	private User User;
 	
-	@OneToOne()
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "PAYMENTID")
 	private Payment Payment;
 
+	
+	/**Getters and Setters**/
+	
+	
 	public int getOrderID() {
 		return OrderID;
 	}
@@ -111,6 +112,10 @@ public class Order implements Serializable {
 		ShippingInfo = shippingInfo;
 		User = user;
 		Payment = payment;
+	}
+	
+	public Order() {
+		super();
 	}
 
 }

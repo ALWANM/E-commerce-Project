@@ -27,9 +27,6 @@ export class ProductsComponent implements OnInit {
     headElements = ["ID", "Reference", "Name", "Description", "Price", "VAT", "Stock", "Supplier", "Category"];
 
   constructor(public router : Router, public http : Http, public productService : ProductService, public categoryService : CategoryService, public supplierService: SupplierService) { 
-      this.getProducts();
-      this.getCategories();
-      this.getSuppliers();
   }
 
   ngOnInit() {

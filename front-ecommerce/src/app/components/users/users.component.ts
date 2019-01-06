@@ -6,7 +6,6 @@ import {Router} from '@angular/router';
 import {Http} from '@angular/http';
 import {AccountService} from '../../services/account.service';
 import {UsersService} from '../../services/users.service';
-import {userInfo} from 'os';
 
 @Component({
   selector: 'app-users',
@@ -20,8 +19,8 @@ export class UsersComponent implements OnInit {
   userDelete:User=new User();
   userModified: User=new User();
   errorMessage: string;
-  constructor(public updateUserService:UpdateUserService,public usersService:UsersService,private authService: AuthService,public accountService: AccountService, public router: Router,public http: Http) {
-    this.getUsers();
+  constructor(public updateUserService:UpdateUserService,public usersService:UsersService,public accountService: AccountService, public router: Router,public http: Http) {
+
   }
 
   ngOnInit() {
@@ -33,8 +32,9 @@ export class UsersComponent implements OnInit {
     this.accountService.createAccount(this.newUser)
       .subscribe(data => {
         this.router.navigate(['/users']);
+        console.log(data);
       }, err => {
-
+        console.log(err);
         this.errorMessage = "username already exist";console.log(this.errorMessage);
       }
     )
@@ -63,7 +63,7 @@ export class UsersComponent implements OnInit {
        console.log(data);
       },
 
-      err=>console.log());
+      err=>console.log(err));
 
     /*this.authService.logIn(this.userModified)
       .subscribe(data=>{

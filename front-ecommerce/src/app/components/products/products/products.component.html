@@ -33,6 +33,18 @@
                         <label for="stock">Stock : </label>
                     </div>
                     <div class="md-form">
+                        <input type="text" name="color" class="form-control" [(ngModel)]="currentProduct.color" mdbInputDirective required>
+                        <label for="color">Color : </label>
+                    </div>
+                    <div class="md-form">
+                        <input type="number" name="size" class="form-control" [(ngModel)]="currentProduct.size" mdbInputDirective required>
+                        <label for="size">Size : </label>
+                    </div>
+                    <div class="md-form">
+                        <input type="text" name="picture" class="form-control" [(ngModel)]="currentProduct.picture" mdbInputDirective required>
+                        <label for="picture">Picture name : </label>
+                    </div>
+                    <div class="md-form">
                         <div class="row">
                         <div class="col-md-6">
                             <select class="form-control" name="category" [(ngModel)]="currentProduct.category.categoryid" placeholder="Choose your category" required mdbInputDirective>
@@ -96,6 +108,18 @@
                     <div class="md-form">
                         <input type="number" name="stock" class="form-control" [(ngModel)]="newProduct.stock" mdbInputDirective required>
                         <label for="stock">Stock : </label>
+                    </div>
+                    <div class="md-form">
+                        <input type="text" name="color" class="form-control" [(ngModel)]="newProduct.color" mdbInputDirective required>
+                        <label for="color">Color : </label>
+                    </div>
+                    <div class="md-form">
+                        <input type="number" name="size" class="form-control" [(ngModel)]="newProduct.size" mdbInputDirective required>
+                        <label for="size">Size : </label>
+                    </div>
+                    <div class="md-form">
+                        <input type="text" name="picture" class="form-control" [(ngModel)]="newProduct.picture" mdbInputDirective required>
+                        <label for="picture">Picture name : </label>
                     </div>
                     <div class="md-form">
                         <div class="row">

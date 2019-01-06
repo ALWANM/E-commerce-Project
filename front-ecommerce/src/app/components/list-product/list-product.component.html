@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+<div class="container test-center " style="margin-bottom: 10px;margin-right: 10px; margin-left:10px;margin-top: 10px;">
+<div class="row">
+    <div class="col-3 pb-4" *ngFor="let product of products">
+        <a (click)=navigate(product.productID)>
+            <app-product-card [product]="product"></app-product-card>
+        </a>
+    </div>
+</div>
+</div>
+<app-footer></app-footer>

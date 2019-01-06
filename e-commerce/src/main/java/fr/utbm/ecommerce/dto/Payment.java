@@ -28,6 +28,11 @@ public class Payment implements Serializable{
 	private Date PaymentDate;
 	@Column(name="METHODOFPAYMENT")
 	private String MethodOfPayment;
+	
+	
+	/**Getters and Setters**/
+	
+	
 	public int getPaymentid() {
 		return Paymentid;
 	}
@@ -55,6 +60,10 @@ public class Payment implements Serializable{
 		super();
 		PaymentDate = paymentDate;
 		MethodOfPayment = methodOfPayment;
+	}
+	
+	public Payment() {
+		super();
 	}
 	
 }

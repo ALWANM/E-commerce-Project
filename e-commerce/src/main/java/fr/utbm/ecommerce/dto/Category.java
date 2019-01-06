@@ -17,39 +17,26 @@ public class Category implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="CATEGORYID")
+	@Column(name="IDCATEGORY")
 	private int CategoryID;
 	@Column(name="NAME")
 	private String Name;
 	@Column(name="DESCRIPTION")
- 
 	private String Description;
-	 
-	public int getCategoryID() {
- 		return CategoryID;
-	}
-	public void setCategoryID(int categoryID) {
-		CategoryID = categoryID;
-	}
+	
+	
+	/**Getters and Setters**/
+	
 	public String getName() {
 		return Name;
 	}
 	public void setName(String name) {
 		Name = name;
 	}
-	public String getDescription() {
-		return Description;
-	}
-	public void setDecsription(String description) {
-		Description = description;
-	}
+
 	@Override
 	public String toString() {
 		return "Category [IDCATEGORY=" + CategoryID + ", Name=" + Name + ", Description=" + Description + "]";
-	}
- 
-	public Category() {
-		super();
 	}
 	public Category(String name, String description) {
 		super();
@@ -57,5 +44,20 @@ public class Category implements Serializable {
 		Description = description;
 	}
 	
- 
+	public int getCategoryID() {
+		return CategoryID;
+	}
+	public void setCategoryID(int categoryID) {
+		CategoryID = categoryID;
+	}
+	public void setDescription(String description) {
+		Description = description;
+	}
+	
+	public String getDescription() {
+		return Description;
+	}
+	public Category() {
+		super();
+	}
 }

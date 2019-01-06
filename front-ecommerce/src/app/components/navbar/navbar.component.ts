@@ -16,40 +16,62 @@ export class NavbarComponent implements OnInit{
 
     @ViewChild('login') idLogin : ElementRef
 
-    @ViewChild('menuAccount') idMenuAccount : ElementRef
+    @ViewChild('userMenu') idMenuUser : ElementRef
+    @ViewChild('workerMenu') idMenuWorker : ElementRef
+    @ViewChild('adminMenu') idMenuAdmin : ElementRef    
 
   constructor(public authService: AuthService, public router: Router) { 
-      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
     
   ngOnInit() {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.log(this.currentUser);
 
       if(this.currentUser === null){
-          if(this.idMenuAccount.nativeElement.style.display==="" || this.idMenuAccount.nativeElement.style.display==="inline-block"){
-              this.idMenuAccount.nativeElement.style.display = "none";
+          if(this.idMenuUser.nativeElement.style.display==="" || this.idMenuUser.nativeElement.style.display==="inline-block"){
+              this.idMenuUser.nativeElement.style.display = "none";
+              this.idMenuWorker.nativeElement.style.display = "none";
+              this.idMenuAdmin.nativeElement.style.display = "none";
+              
           }
           if(this.idLogin.nativeElement.style.display==="none"){
               this.idLogin.nativeElement.style.display= "inline-block";
               this.idRegister.nativeElement.style.display = "inline-block";
           }
       }else{
-          if(this.idMenuAccount.nativeElement.style.display==="" || this.idMenuAccount.nativeElement.style.display==="inline-block"){
-                this.idMenuAccount.nativeElement.style.display = "inline-block";
-          }
+          switch(this.currentUser.role){
+                    case "ADMIN":
+                       console.log("admin");
+                        this.idMenuWorker.nativeElement.style.display = "none";
+                        this.idMenuUser.nativeElement.style.display = "none";
+                        this.idMenuAdmin.nativeElement.style.display = "inline-block";
+                    break;
+                    case "WORKER":
+                        this.idMenuWorker.nativeElement.style.display = "inline-block";
+                        this.idMenuUser.nativeElement.style.display = "none";
+                        this.idMenuAdmin.nativeElement.style.display = "none";
+                    break;
+                    default:
+                        this.idMenuWorker.nativeElement.style.display = "none";
+                        this.idMenuUser.nativeElement.style.display = "inline-block";
+                        this.idMenuAdmin.nativeElement.style.display = "none";
+
+                }
           if(this.idLogin.nativeElement.style.display===""){
                this.idLogin.nativeElement.style.display="none";
               this.idRegister.nativeElement.style.display="none";
           }
       }
   }
-//  login out from the app
+  
+//  log out from the app
   logOut() {
     this.authService.logOut()
       .subscribe(
         data => {
-        if(this.idMenuAccount.nativeElement.style.display==="" || this.idMenuAccount.nativeElement.style.display==="inline-block"){
-            this.idMenuAccount.nativeElement.style.display = "none";
-        }
+        this.idMenuWorker.nativeElement.style.display = "none";
+                        this.idMenuUser.nativeElement.style.display = "none";
+                        this.idMenuAdmin.nativeElement.style.display = "none";
         if(this.idLogin.nativeElement.style.display==="none"){
             this.idLogin.nativeElement.style.display= "inline-block";
             this.idRegister.nativeElement.style.display = "inline-block";

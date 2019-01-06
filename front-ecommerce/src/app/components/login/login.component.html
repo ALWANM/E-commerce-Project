@@ -1,45 +1,5 @@
 <app-navbar></app-navbar>
 
-
-<!--
-<div class="modal-dialog cascading-modal" role="document">
-  <div class="modal-content">
-         &lt;!&ndash; <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> &ndash;&gt;
-    &lt;!&ndash; <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" /> &ndash;&gt;
-    <p id="profile-name" class="profile-name-card"></p>
-
-      <form name="form-signin" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-        <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
-      <span id="reauth-email" class="reauth-email"></span>
-      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-        <label for="username">Email Address</label>
-        <input type="email" class="form-control" id="username" name="username" placeholder="email@example.com" pattern="[^ @]*@[^ @]*" [(ngModel)]="user.mail" #username="ngModel" email required />
-        <div *ngIf="f.submitted && !username.valid" class="help-block">an valid email is required</div>
-      </div>
-
-      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" placeholder="Password" id="password" name="password" [(ngModel)]="user.password" #password="ngModel" required />
-        <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-      </div>
-      <div id="remember" class="checkbox">
-
-      </div>
-        <div class="text-center mt-2">
-          <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign </button>
-        </div>
-    </form>&lt;!&ndash; /form &ndash;&gt;
-      <a [routerLink]="['/register']" class="btn btn-link">Create new Account!</a>
-  </div>&lt;!&ndash; /card-container &ndash;&gt;
-</div>&lt;!&ndash; /container &ndash;&gt;
--->
-
-
-<!--<form name="form-signin" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-  <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
-  <span id="reauth-email" class="reauth-email"></span>-->
-
-
 <div class="limiter " >
   <div class="container-login100">
     <div class="wrap-login100">
@@ -76,15 +36,6 @@
             Login
           </button>
         </div>
-
-       <!-- <div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot
-						</span>
-          <a class="txt2" href="#">
-            Username / Password?
-          </a>
-        </div>-->
 
         <div class="text-center p-t-136">
           <a [routerLink]="['/register']" class="btn btn-link">

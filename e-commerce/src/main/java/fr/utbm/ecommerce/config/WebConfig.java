@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -21,14 +20,13 @@ import fr.utbm.ecommerce.service.AppUserDetailsService;
 
 @Configurable
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled=true)
 // Modifying or overriding the default spring boot security.
 public class WebConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	AppUserDetailsService appUserDetailsService;
 
-	// This method is for overriding the default AuthenticationManagerBuilder.
+	/// This method is for overriding the default AuthenticationManagerBuilder.
 	// We can specify how the user details are kept in the application. It may
 	// be in a database, LDAP or in memory.
 	@Override
@@ -36,8 +34,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(appUserDetailsService);
 	}
 
-	 @SuppressWarnings("deprecation")
-	@Bean
+	 @Bean
 	 public static NoOpPasswordEncoder passwordEncoder() {
 	  return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
 	 }
@@ -48,7 +45,6 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 
 	// this configuration allow the client app to access the this api
 	// all the domain that consume this api must be included in the allowed o'rings
-	@SuppressWarnings("deprecation")
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurerAdapter() {
@@ -75,40 +71,20 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 				// starts authorizing configurations
 				.authorizeRequests()
 				// ignoring the guest's urls "
- 
-				
-				.antMatchers("/account/register").permitAll()
-				.antMatchers("/products").permitAll()
-				.antMatchers("/account/login").permitAll()
-				.antMatchers("/logout").permitAll()//all the user have the right to get this page
-				.antMatchers("/account/users").permitAll()
-				.antMatchers("/account/save").permitAll()//hasRole("ADMIN")//if the user have a role of admin then permit to get this url
-				.antMatchers("/account/delete").permitAll()//hasRole("ADMIN")
-				
-//				.antMatchers("/account/register", "/account/login", "/logout","/account/save","/account/users","/account/delete","/products").permitAll()
-				
-//				.antMatchers("/account/register", "/account/login", "/logout","/account/save","/account/users","/account/delete","/products").hasRole("ROLE_ADMIN")
-				
-				
- 
-//				.antMatchers("/account/register", "/account/login", "/logout","/account/save","/account/users","/account/delete", "/category/categories", "/category/create", "/category/update", "/category/delete", "/category/{id}", "/supplier/suppliers", "/supplier/create", "/supplier/update", "/supplier/delete", "/product/products","/product/create", "/product/update","/product/delete").permitAll()
- 
+				.antMatchers("/account/register", "/account/login", "/logout","/account/save","/account/users","/account/delete", "/category/categories", "/category/create", "/category/update", "/category/delete", "/category/{id}", "/supplier/suppliers", "/supplier/create", "/supplier/update", "/supplier/delete", "/product/products","/product/create", "/product/update","/product/delete", "/product/fetch/{id}", "/order/create", "/order/update", "/order/delete", "/order/{orderid}", "/cartitem/create", "/cartitem/update", "/cartitem/delete", "/cartitem/order/items/{orderid}").permitAll()
 				// authenticate all remaining URLS
 				.anyRequest().fullyAuthenticated().and()
-				
 				/*
 				 * "/logout" will log the user out by invalidating the HTTP Session, cleaning up
 				 * any {link rememberMe()} authentication that was configured,
 				 */
-				
 				.logout().permitAll().logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST")).and()
 				// enabling the basic authentication
 				.httpBasic().and()
- 				// configuring the session on the server
+				// configuring the session on the server
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).and()
 				// disabling the CSRF - Cross Site Request Forgery
-				.csrf().disable()
-				;
+				.csrf().disable();
 	}
 
 }

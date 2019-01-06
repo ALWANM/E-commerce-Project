@@ -23,10 +23,15 @@ export class ProductService {
   public updateProduct(product:Product){
       return this.http.put(AppComponent.API_URL+"/product/update", product)
       .map(response=>response.json());
-  }
+  } 
 
   public addProduct(product:Product){
       return this.http.post(AppComponent.API_URL+"/product/create", product)
       .map(response=>response.json());
+  }
+
+  public getProduct(id : String){
+      return this.http.get(AppComponent.API_URL+"/product/fetch/"+id, id)
+      .map(response=> response.json());
   }
 }

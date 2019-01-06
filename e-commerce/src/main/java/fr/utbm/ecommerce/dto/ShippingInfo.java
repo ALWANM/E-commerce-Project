@@ -19,52 +19,42 @@ public class ShippingInfo implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="SHIPPINGINFOID")
+	@Column(name="SHIPPINGID")
 	private int ShippingID;
 	@Column(name="SHIPPINGADDRESS")
-	private int ShippingAddress;
+	private String ShippingAddress;
 	@Column(name="SHIPPINGPOSTALCODE")
-	private int ShippingPostalCode;
+	private String ShippingPostalCode;
 	@Column(name="SHIPPINGTOWN")
-	private int ShippingTown;
+	private String ShippingTown;
 	@Column(name="SHIPPINGCOUNTRY")
-	private int ShippingCountry;
+	private String ShippingCountry;
 	@Column(name="RECIPIENT")
-	private int Recipient;
+	private String Recipient;
+	
+	
+	/**Getters and Setters**/
+	
+	
 	public int getShippingID() {
 		return ShippingID;
 	}
 	public void setShippingID(int shippingID) {
 		ShippingID = shippingID;
 	}
-	public int getShippingAddress() {
-		return ShippingAddress;
-	}
-	public void setShippingAddress(int shippingAddress) {
+	public void setShippingAddress(String shippingAddress) {
 		ShippingAddress = shippingAddress;
 	}
-	public int getShippingPostalCode() {
-		return ShippingPostalCode;
-	}
-	public void setShippingPostalCode(int shippingPostalCode) {
+	public void setShippingPostalCode(String shippingPostalCode) {
 		ShippingPostalCode = shippingPostalCode;
 	}
-	public int getShippingTown() {
-		return ShippingTown;
-	}
-	public void setShippingTown(int shippingTown) {
+	public void setShippingTown(String shippingTown) {
 		ShippingTown = shippingTown;
 	}
-	public int getShippingCountry() {
-		return ShippingCountry;
-	}
-	public void setShippingCountry(int shippingCountry) {
+	public void setShippingCountry(String shippingCountry) {
 		ShippingCountry = shippingCountry;
 	}
-	public int getRecipient() {
-		return Recipient;
-	}
-	public void setRecipient(int recipient) {
+	public void setRecipient(String recipient) {
 		Recipient = recipient;
 	}
 	@Override
@@ -73,8 +63,9 @@ public class ShippingInfo implements Serializable {
 				+ ", ShippingPostalCode=" + ShippingPostalCode + ", ShippingTown=" + ShippingTown + ", ShippingCountry="
 				+ ShippingCountry + ", Recipient=" + Recipient + "]";
 	}
-	public ShippingInfo(int shippingAddress, int shippingPostalCode, int shippingTown, int shippingCountry,
-			int recipient) {
+	
+	public ShippingInfo(String shippingAddress, String shippingPostalCode, String shippingTown, String shippingCountry,
+			String recipient) {
 		super();
 		ShippingAddress = shippingAddress;
 		ShippingPostalCode = shippingPostalCode;
@@ -82,5 +73,7 @@ public class ShippingInfo implements Serializable {
 		ShippingCountry = shippingCountry;
 		Recipient = recipient;
 	}
-	
+	public ShippingInfo() {
+		super();
+	}
 }

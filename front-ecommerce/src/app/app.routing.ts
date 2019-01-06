@@ -16,21 +16,25 @@ import {ProductsComponent} from './components/products/products/products.compone
 import {CategoryComponent} from './components/category/category.component';
 import {SupplierComponent} from './components/supplier/supplier.component';
 import {HomeComponent} from './components/home/home.component';
-
+import {ProductComponent} from './components/product/product/product.component';  
+import {ShoppingcartComponent} from './components/shoppingcart/shoppingcart.component';
+import {ListProductComponent} from './components/list-product/list-product.component';
+import {OrdersComponent} from './components/orders/orders.component';
 
 const appRoutes: Routes = [
   {path: '',component:DefaultComponent},
   { path: 'profile', component: ProfileComponent ,canActivate: [UrlPermission] },
   { path: 'register', component: RegisterComponent },
   {path: 'login',component:LoginComponent },
-
-
+{path:'product/:id', component:ProductComponent},
+{path:'shoppingcart', component:ShoppingcartComponent},
   {path: 'home',component:HomeComponent},
   {path: 'users',component:UsersComponent},
     {path : 'products', component:ProductsComponent},
   {path : 'categories', component:CategoryComponent},
   {path : 'suppliers', component:SupplierComponent},
-
+{path:'product', component:ListProductComponent},
+{path:'orders', component:OrdersComponent},
   // otherwise redirect to profile
   { path: '**', redirectTo: '/home' }
 

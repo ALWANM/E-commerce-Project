@@ -4,7 +4,7 @@ import {Product} from './product.model';
 import {Order} from './order.model';
 export class Cartitem {
   id: string;
-  quantity: Int8Array;
-  order: Order;
-  product: Product;
+  quantity: number;
+  order: string;
+  product: string;
   }
