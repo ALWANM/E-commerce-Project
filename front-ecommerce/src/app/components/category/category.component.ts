@@ -11,12 +11,16 @@ import {Router} from '@angular/router';
 })
 export class CategoryComponent implements OnInit {
 
+    //list of categories
     categories : any
+
     currentCategory : Category
 
     newCategory : Category = new Category()
 
     error : String
+
+    //get element of the HTML page
     @ViewChild('table') table :ElementRef
 
     headElements = ["ID", "Name", "Description"];
@@ -29,6 +33,7 @@ export class CategoryComponent implements OnInit {
       this.getCategories();
   }
 
+  //get all categories
   getCategories(){
     this.categoryService.getCategories()
         .subscribe(data=>{
@@ -45,6 +50,7 @@ export class CategoryComponent implements OnInit {
       this.currentCategory = category
   }
 
+  //delete a category
   delete(category : Category){
     this.categoryService.deleteCategory(category)
     .subscribe(data=>{
@@ -59,6 +65,7 @@ export class CategoryComponent implements OnInit {
     })
   }
 
+  //add a category
   addCategory(category : Category){
       this.categoryService.addCategory(category)
       .subscribe(data=>{
@@ -71,6 +78,7 @@ export class CategoryComponent implements OnInit {
       })
   }
 
+  //update a category
   update(){
       console.log(this.currentCategory)
       this.categoryService.updateCategory(this.currentCategory)

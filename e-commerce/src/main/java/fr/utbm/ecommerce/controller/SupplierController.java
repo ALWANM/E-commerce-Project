@@ -71,11 +71,4 @@ public class SupplierController {
 	public ResponseEntity<List<Supplier>> getAllSuppliers(){
 		return new  ResponseEntity<List<Supplier>>(SupplierService.getAllSupplier(), HttpStatus.OK);
 	}
-
-	//request a method to get a Supplier by id
-	@CrossOrigin
-	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<Supplier> getSupplierById(@PathVariable("id") int id){
-		return new ResponseEntity<Supplier>(SupplierService.getSupplierById(id), HttpStatus.OK);
-	}
 }

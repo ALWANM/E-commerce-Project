@@ -15,6 +15,7 @@ public class ProductService {
 	@Autowired
 	private ProductDao productDao;
 
+	//add a product
 	public boolean addProduct(Product product) {
 		boolean existed = productDao.existsById(product.getProductID());
 		if(existed == false){
@@ -26,6 +27,7 @@ public class ProductService {
 		return existed;
 	}
 
+	//update a product
 	public boolean updateProduct(Product product) {
 		boolean existed = productDao.existsById(product.getProductID());
 		if(existed == true){
@@ -37,6 +39,7 @@ public class ProductService {
 		return existed;
 	}
 
+	//delete a product
 	public boolean deleteProduct(Product product) {
 		boolean existed = productDao.existsById(product.getProductID());
 		if(existed == true){
@@ -45,23 +48,24 @@ public class ProductService {
         return existed;
 	}
 
+	//get all products
 	public List<Product> getAllProduct() {
 		return (List<Product>) productDao.findAll();
 	}
     
+	//get product by name
     public Product getProductByName(String name){
         Product product = productDao.getProductByName("%"+name+"%");
         return product;
     }
     
+    //get product by id
     public Product getProductById(int id){
         return productDao.getProductById(id);
     }
 
+    //to know if the product existed or not
     public boolean existed(int productid){
     	return productDao.existsById(productid);
     }
-//	public List<Product> getAllProductByName(@Param("name") String name) {
-//		return productDao.getAllProductByName("%" + name + "%");
-//	}
 }

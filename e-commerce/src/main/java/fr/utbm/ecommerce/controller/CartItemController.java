@@ -30,8 +30,8 @@ public class CartItemController {
 	@CrossOrigin
 	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public ResponseEntity<?> createCartItem(@RequestBody CartItem CartItem){
+		//test if the item is already created or not
 		boolean created = CartItemService.addCartItem(CartItem);
-		logger.info(CartItem.toString());
 		if(created == false){
 			logger.info("item is not created");
 			return new ResponseEntity<Object>(HttpStatus.CONFLICT);
@@ -44,6 +44,7 @@ public class CartItemController {
 	@CrossOrigin
 	@RequestMapping(value="/update", method=RequestMethod.PUT)
 	public ResponseEntity<?> updateCartItem(@RequestBody CartItem CartItem){
+		//test if the item is updated
 		boolean updated = CartItemService.updateCartItem(CartItem);
 		if(updated == false){
 			logger.info("item not found to update");
@@ -57,6 +58,7 @@ public class CartItemController {
 	@CrossOrigin
 	@RequestMapping(value="/delete", method=RequestMethod.POST)
 	public ResponseEntity<?> deleteCartItem(@RequestBody CartItem CartItem){
+		//test if the item is deleted
 		boolean deleted = CartItemService.deleteCartItem(CartItem);
 		logger.info(CartItem.toString());
 		if(deleted == false){
@@ -68,7 +70,7 @@ public class CartItemController {
 		return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
 	}
 
-	//request a method to get all CartItem
+	//request a method to get all CartItem by orderid
 	@CrossOrigin
 	@RequestMapping(value="/order/items/{orderid}", method=RequestMethod.GET)
 	public ResponseEntity<List<CartItem>> getAllCartItems(@PathVariable("orderid") int orderid){

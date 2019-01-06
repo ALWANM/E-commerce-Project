@@ -15,12 +15,14 @@ export class OrdersComponent implements OnInit {
 
   user : User;
 
+  //list of orders
   listOrder : any;
   ngOnInit() {
       this.user = JSON.parse(localStorage.getItem("currentUser"));
       this.getOrders();
   }
 
+  //get all orders of the user
   getOrders(){
       this.orderService.getOrderByUser(this.user.userID).subscribe(data=>{
           this.listOrder = data;

@@ -74,7 +74,7 @@ public class CategoryController {
 		return new  ResponseEntity<List<Category>>(CategoryService.getAllCategory(), HttpStatus.OK);
 	}
 
-	//request a method to get a Category by
+	//request a method to get a Category by id
 	@CrossOrigin
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Category> getCategoryById(@PathVariable("id") int id){

@@ -71,7 +71,7 @@
         <!--table body-->
         <tbody>
             <tr class="table" *ngFor="let category of categories; let i = index" [class.selected]="category === currentCategory">
-                <th scope="row">{{category.idcategory}}</th>
+                <th scope="row">{{category.categoryID}}</th>
                 <td >{{category.name}}</td>
                 <td >{{category.description}}</td>
                 <td ><a (click)="onEdit(category)" class="clickable">Edit  <mdb-icon icon="edit"></mdb-icon></a></td>

@@ -42,7 +42,7 @@ public class ECommerceApplication implements CommandLineRunner {
 //		Category c = new Category("TECH", "Technologie phones");
 //		cs.addCategory(c);
 		//user=us.getUserByMail("marwan@gmail.com");
-//probleme sur le getuserbymail a revoir
+		
 		try{
 //			us.addUser(user);
 		//System.out.println(user.toString());

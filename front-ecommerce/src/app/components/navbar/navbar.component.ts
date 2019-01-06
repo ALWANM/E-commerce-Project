@@ -27,6 +27,7 @@ export class NavbarComponent implements OnInit{
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
 
+    //to know if the user is worker, user or admin
       if(this.currentUser === null){
           if(this.idMenuUser.nativeElement.style.display==="" || this.idMenuUser.nativeElement.style.display==="inline-block"){
               this.idMenuUser.nativeElement.style.display = "none";

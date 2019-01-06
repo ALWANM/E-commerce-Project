@@ -35,6 +35,7 @@ export class ProductsComponent implements OnInit {
       this.getSuppliers();
   }
 
+  //get all products
   getProducts(){
     this.productService.getProducts()
         .subscribe(data=>{
@@ -47,6 +48,7 @@ export class ProductsComponent implements OnInit {
         })
   }
 
+  //delete a product
   deleteProduct(product : Product){
         this.productService.deleteProduct(product)
         .subscribe(data=>{
@@ -58,6 +60,8 @@ export class ProductsComponent implements OnInit {
         })
   }
 
+
+  //add a new product
   addProduct(){
     this.productService.addProduct(this.newProduct)
     .subscribe(data=>{
@@ -83,6 +87,7 @@ export class ProductsComponent implements OnInit {
     this.newProduct = product;
   }
 
+  //get all categories
   getCategories(){
     this.categoryService.getCategories()
         .subscribe(data=>{
@@ -95,6 +100,7 @@ export class ProductsComponent implements OnInit {
         })
   }
 
+  //get all suppliers
   getSuppliers(){
     this.supplierService.getSuppliers()
         .subscribe(data=>{
@@ -107,6 +113,8 @@ export class ProductsComponent implements OnInit {
         })
   }
 
+
+  //update a product
   updateProduct(){
     this.productService.updateProduct(this.currentProduct)
     .subscribe(data=>{

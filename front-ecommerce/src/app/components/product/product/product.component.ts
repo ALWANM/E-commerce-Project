@@ -25,6 +25,7 @@ export class ProductComponent implements OnInit {
       this.getProduct(this.id);
   }
 
+  //get product by id
   getProduct(id : String){
       console.log(id);
       this.productService.getProduct(id)
@@ -38,6 +39,7 @@ export class ProductComponent implements OnInit {
         })
   }
 
+  //add a new product into cart
   onAdd(product: Product){
     var item = {id : product.productID, quantity : 1, ref: product.reference, price : product.price};
     console.log(JSON.parse(localStorage.getItem("cart")));

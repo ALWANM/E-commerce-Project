@@ -19,14 +19,21 @@ import fr.utbm.ecommerce.dto.User;
 @Repository("UserDao")
 @Transactional
 public interface UserDao extends CrudRepository<User, Integer> {
-//
+
+	//get user by mail
 	@Query("SELECT u FROM User u WHERE LOWER(u.Mail) LIKE LOWER(:mail) ")
 	User getUserByMail(@Param("mail") String mail);
+	
+	//delete user by mail
 	@Modifying
 	@Query("DELETE  FROM User WHERE LOWER(Mail) LIKE LOWER(:mail) ")
 	int deleteUserByMail(@Param("mail") String mail);
+	
+	//get users who has role admin and worker
 	@Query("SELECT u FROM User u WHERE LOWER(u.Role) LIKE LOWER(:admin) OR LOWER(u.Role) LIKE LOWER(:worker) ")
 	List<User> getUsers(@Param("admin") String admin,@Param("worker") String worker);
+	
+	//update user by mail
 	@Modifying
 	@Query("UPDATE User u set u.FirstName=:firstname,u.LastName=:lastname,u.Password=:password,u.DateOfBirth=:dateofbirth,u.Gender=:gender"
 			+ ",u.Address=:address,u.Country=:country,u.Town=:town,u.PostalCode=:postalcode,u.PhoneNumber=:phonenumber,u.Role=:role WHERE LOWER(u.Mail) LIKE LOWER(:mail) ")

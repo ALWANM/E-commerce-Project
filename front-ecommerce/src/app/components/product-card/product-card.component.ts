@@ -17,6 +17,7 @@ export class ProductCardComponent implements OnInit {
 
   }
 
+  // add a product to the cart
   onAdd(product: Product){
     var item = {id : product.productID, quantity : 1, ref: product.reference, price : product.price};
     console.log(JSON.parse(localStorage.getItem("cart")));

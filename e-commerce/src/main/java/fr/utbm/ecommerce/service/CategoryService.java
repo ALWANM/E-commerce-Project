@@ -18,7 +18,7 @@ public class CategoryService implements ICategoryService {
 	private CategoryDao categoryDao;
 
 	public boolean addCategory(Category category) {
-		boolean existed = existed(category.getIDCATEGORY());
+		boolean existed = existed(category.getCategoryID());
 		if(existed == false){
 			categoryDao.save(category);
 			existed = true;
@@ -28,7 +28,7 @@ public class CategoryService implements ICategoryService {
 	}
 
 	public boolean updateCategory(Category category) {
-		boolean existed = existed(category.getIDCATEGORY());
+		boolean existed = existed(category.getCategoryID());
 		if(existed == true){
 			categoryDao.save(category);
 		}
@@ -36,7 +36,7 @@ public class CategoryService implements ICategoryService {
 	}
 
 	public boolean deleteCategory(Category category) {
-		boolean existed= existed(category.getIDCATEGORY());
+		boolean existed= existed(category.getCategoryID());
 		if(existed == true){
 			categoryDao.delete(category);
 		}
@@ -51,7 +51,10 @@ public class CategoryService implements ICategoryService {
 		return categoryDao.existsById(id);
 	}
 
-	public Category getCategoryById(int id){
-			return categoryDao.findById(id);
+	@Override
+	public Category getCategoryById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
+
 }

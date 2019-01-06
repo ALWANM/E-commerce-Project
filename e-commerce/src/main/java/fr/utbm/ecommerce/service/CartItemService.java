@@ -14,19 +14,25 @@ public class CartItemService {
 	@Autowired
 	private CartItemDao cartItemDao;
 
+	//add cart item
 	public Boolean addCartItem(CartItem cartItem) {
 		cartItemDao.save(cartItem);
 		return true;
 	}
+	
+	//update a cart item
 	public Boolean updateCartItem(CartItem cartItem) {
 		cartItemDao.save(cartItem);
 		return true;
 	}
+	
+	//delete a cart item
 	public Boolean deleteCartItem(CartItem cartItem) {
 		 cartItemDao.save(cartItem);
 		 return true;
 	}
 	
+	//get all cart item by order id
 	public List<CartItem> getAllCartItem(int orderid){
 		return cartItemDao.getAllItemByOrder(orderid);
 	}

@@ -17,9 +17,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import {UpdateUserService} from './services/updateUser.service';
 import { UsersComponent } from './components/users/users.component';
 import {UsersService} from './services/users.service';
-
-import { DefaultComponent } from './components/default/default.component';
-
 import { ProductComponent } from './components/product/product/product.component';
 import { ProductsComponent } from './components/products/products/products.component';
 import { SupplierComponent } from './components/supplier/supplier.component';
@@ -41,7 +38,6 @@ import { OrdersComponent } from './components/orders/orders.component';
     RegisterComponent,
     NavbarComponent,
     UsersComponent,
-    DefaultComponent,
     ProductComponent,
     ProductsComponent,
     SupplierComponent,

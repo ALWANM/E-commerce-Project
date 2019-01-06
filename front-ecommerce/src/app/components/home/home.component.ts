@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+    //list of products
     products :any;
     error : String
   constructor(public router : Router, public http : Http, public productService : ProductService) { }
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
       this.getProducts();
   }
 
+  //get all products
     getProducts(){
     this.productService.getProducts()
         .subscribe(data=>{
@@ -30,6 +32,7 @@ export class HomeComponent implements OnInit {
         })
     }
 
+    //navifate to the product details page
     navigate(id: number){
     this.router.navigate(['/product/'+id]);
   }

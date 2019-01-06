@@ -15,6 +15,7 @@ public class SupplierService {
 	@Autowired
 	private SupplierDao supplierDao;
 
+	//add a new supplier
 	public boolean addSupplier(Supplier supplier) {
 		boolean existed = existed(supplier.getSupplierID());
 		if(existed == false){
@@ -23,6 +24,7 @@ public class SupplierService {
 		return existed;
 	}
 
+	//update a supplier
 	public boolean updateSupplier(Supplier supplier) {
 		boolean existed = existed(supplier.getSupplierID());
 		if(existed == true){
@@ -31,6 +33,7 @@ public class SupplierService {
 		return existed;
 	}
 
+	//delete a supplier
 	public boolean deleteSupplier(Supplier supplier) {
 		boolean existed = existed(supplier.getSupplierID());
 		if(existed == true){
@@ -40,16 +43,14 @@ public class SupplierService {
 		 
 	}
 
+	//get all suppliers
 	public List<Supplier> getAllSupplier() {
 		return (List<Supplier>) supplierDao.findAll();
 	}
 
+	//to know if the supplier existed or not
 	public boolean existed(int id){
 		return supplierDao.existsById(id);
-	}
-
-	public Supplier getSupplierById(int id){
-		return supplierDao.findById(id);
 	}
 
 }
