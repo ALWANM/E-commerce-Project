@@ -46,18 +46,20 @@
                     </div>
                     <div class="md-form">
                         <div class="row">
+                            <div class="col-md-6">Category : </div>
                         <div class="col-md-6">
-                            <select class="form-control" name="category" [(ngModel)]="currentProduct.category.categoryid" placeholder="Choose your category" required mdbInputDirective>
-                                 <option *ngFor="let category of listCategories" [value]="category.id">{{category.name}}</option>
+                            <select class="form-control" name="category" [(ngModel)]="currentProduct.category.categoryID" placeholder="Choose your category" required mdbInputDirective>
+                                 <option *ngFor="let category of listCategories" [value]="category.categoryID" [attr.selected]="currentProduct.category.categoryID===category.categoryID? true: null">{{category.name}}</option>
                             </select>
                         </div>
                         </div>
                     </div>
                     <div class="md-form">
                         <div class="row">
+                            <div class="col-md-6">Supplier : </div>
                         <div class="col-md-6">
-                            <select class="form-control" name="supplier" [(ngModel)]="currentProduct.supplier.supplierid" placeholder="Choose your supplier" required>
-                                 <option *ngFor="let supplier of listSuppliers" [value]="supplier.id">{{supplier.firstName}}</option>
+                            <select class="form-control" name="supplier" [(ngModel)]="currentProduct.supplier.supplierID" placeholder="Choose your supplier" required>
+                                 <option *ngFor="let supplier of listSuppliers" [value]="supplier.supplierID" [attr.selected]="currentProduct.supplier.supplierID===supplier.supplierID? true: null">{{supplier.firstName}}</option>
                             </select>
                         </div>
                         </div>
@@ -106,7 +108,7 @@
                         <label for="vat">VAT : </label>
                     </div>
                     <div class="md-form">
-                        <input type="number" name="stock" class="form-control" [(ngModel)]="newProduct.stock" mdbInputDirective required>
+                        <input type="number" name="stock" class="form-control" [(ngModel)]="newProduct.quantityStock" mdbInputDirective required>
                         <label for="stock">Stock : </label>
                     </div>
                     <div class="md-form">
@@ -123,18 +125,21 @@
                     </div>
                     <div class="md-form">
                         <div class="row">
+                            <div class="col-md-6">Category : </div>
+
                         <div class="col-md-6">
-                            <select class="form-control" name="category" [(ngModel)]="newProduct.categoryid" placeholder="Choose your category" required>
-                                 <option *ngFor="let category of listCategories" [value]="category.id">{{category.name}}</option>
+                            <select class="form-control" name="category" [(ngModel)]="newProduct.categoryID" placeholder="Choose your category" required>
+                                 <option *ngFor="let category of listCategories; let i = index" [attr.selected]="i===0?true:null" [value]="category.categoryID">{{category.name}}</option>
                             </select>
                         </div>
                         </div>
                     </div>
                     <div class="md-form">
                         <div class="row">
+                                <div class="col-md-6">Supplier : </div>
                         <div class="col-md-6">
-                            <select class="form-control" name="supplier" [(ngModel)]="newProduct.supplierid" placeholder="Choose your supplier" required>
-                                 <option *ngFor="let supplier of listSuppliers" [value]="supplier.id">{{supplier.firstName}}</option>
+                            <select class="form-control" name="supplier" [(ngModel)]="newProduct.supplierID" placeholder="Choose your supplier" required>
+                                 <option *ngFor="let supplier of listSuppliers; let j = index" [attr.selected]="j===0?true:null" [value]="supplier.supplierID">{{supplier.firstName}}</option>
                             </select>
                         </div>
                         </div>
@@ -172,8 +177,8 @@
                 <td >{{Product.quantityStock}}</td>
                 <td >{{Product.supplier.firstName}}</td>
                 <td >{{Product.category.name}}</td>
-                <td ><a (click)="onEdit(Product)" class="clickable">Edit  <mdb-icon icon="edit"></mdb-icon></a></td>
-                <td ><a (click)="deleteProduct(Product)" class="clickable">Delete  <mdb-icon icon="trash"></mdb-icon></a></td>
+                <td ><a (click)="onEdit(Product, i)" class="clickable">Edit  <mdb-icon icon="edit"></mdb-icon></a></td>
+                <td ><a (click)="deleteProduct(Product,i)" class="clickable">Delete  <mdb-icon icon="trash"></mdb-icon></a></td>
             </tr>
             
         </tbody>

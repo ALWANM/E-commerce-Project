@@ -10,6 +10,6 @@ export class Product {
     size : number;
     color : string ="";
     picture : string="";
-    supplierid : string;
-    categoryid: string;
+    supplierid : number;
+    categoryid: number;
 }

@@ -20,13 +20,15 @@ export class CategoryComponent implements OnInit {
 
     error : String
 
+    currentIndex : number;
+
     //get element of the HTML page
     @ViewChild('table') table :ElementRef
 
     headElements = ["ID", "Name", "Description"];
 
   constructor(public router : Router, public http: Http, public categoryService: CategoryService) {
-      this.getCategories();
+      
    }
 
   ngOnInit() {
@@ -37,7 +39,7 @@ export class CategoryComponent implements OnInit {
   getCategories(){
     this.categoryService.getCategories()
         .subscribe(data=>{
-            console.log(data);
+            //console.log(data);
             this.categories = data;
         },
         err=>{
@@ -46,15 +48,17 @@ export class CategoryComponent implements OnInit {
         })
   }
 
-  onEdit(category : Category){
+  onEdit(category : Category, i : number){
+      this.currentIndex = i;
       this.currentCategory = category
   }
 
   //delete a category
-  delete(category : Category){
+  delete(category : Category, i : number){
     this.categoryService.deleteCategory(category)
     .subscribe(data=>{
         console.log(data);
+        this.categories.splice(i,1);
         if(data===null){
             alert("Category deleted successful");
         }
@@ -70,6 +74,7 @@ export class CategoryComponent implements OnInit {
       this.categoryService.addCategory(category)
       .subscribe(data=>{
         console.log(data);
+        this.categories.push(data);
         this.newCategory = new Category();
     },
       err=>{
@@ -84,6 +89,7 @@ export class CategoryComponent implements OnInit {
       this.categoryService.updateCategory(this.currentCategory)
       .subscribe(data=>{
           console.log(data);
+          this.categories[this.currentIndex] = this.currentCategory;
         },
       err=>{
           this.error = err;

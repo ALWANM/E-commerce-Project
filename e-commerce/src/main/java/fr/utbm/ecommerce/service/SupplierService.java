@@ -20,6 +20,7 @@ public class SupplierService {
 		boolean existed = existed(supplier.getSupplierID());
 		if(existed == false){
 			supplierDao.save(supplier);
+			existed = true;
 		}
 		return existed;
 	}

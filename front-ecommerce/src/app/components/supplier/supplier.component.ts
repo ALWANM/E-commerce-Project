@@ -17,6 +17,8 @@ export class SupplierComponent implements OnInit {
 
     error : String
 
+    currentIndex : number;
+
     @ViewChild('table') table : ElementRef
 
     headElements = ["ID", "First name", "Last name", "Mail", "Phone number", "Town"];
@@ -30,7 +32,7 @@ export class SupplierComponent implements OnInit {
   getSuppliers(){
       this.supplierService.getSuppliers()
       .subscribe(data=>{
-          console.log(data);
+          //console.log(data);
           this.suppliers = data;
       },
       err =>{
@@ -39,15 +41,17 @@ export class SupplierComponent implements OnInit {
       })
   }
 
-  onEdit(supplier : Supplier){
+  onEdit(supplier : Supplier, i : number){
+      this.currentIndex = i;
       this.currentSupplier = supplier;
   }
 
-  onDelete(supplier : Supplier){
+  onDelete(supplier : Supplier, i : number){
       this.supplierService.deleteSupplier(supplier)
       .subscribe(data=>{
-        console.log(data);
+        //console.log(data);
         if(data===null){
+            this.suppliers.splice(i,1);
             alert("supplier deleted successful");
         }
     },
@@ -60,7 +64,8 @@ export class SupplierComponent implements OnInit {
    addSupplier(supplier : Supplier){
       this.supplierService.addSupplier(supplier)
       .subscribe(data=>{
-        console.log(data);
+        //console.log(data);
+        this.suppliers.push(data);
         this.newSupplier = new Supplier();
     },
       err=>{
@@ -69,10 +74,11 @@ export class SupplierComponent implements OnInit {
       })
   }
 
-  update(){
+  update(i: number){
       this.supplierService.updateSupplier(this.currentSupplier)
       .subscribe(data=>{
-          console.log(data);
+          this.suppliers[i]= this.currentSupplier;
+          //console.log(data);
         },
       err=>{
           this.error = err;

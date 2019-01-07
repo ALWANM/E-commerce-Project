@@ -74,8 +74,8 @@
                 <th scope="row">{{category.categoryID}}</th>
                 <td >{{category.name}}</td>
                 <td >{{category.description}}</td>
-                <td ><a (click)="onEdit(category)" class="clickable">Edit  <mdb-icon icon="edit"></mdb-icon></a></td>
-                <td ><a (click)="delete(category)" class="clickable">Delete  <mdb-icon icon="trash"></mdb-icon></a></td>
+                <td ><a (click)="onEdit(category, i)" class="clickable">Edit  <mdb-icon icon="edit"></mdb-icon></a></td>
+                <td ><a (click)="delete(category, i)" class="clickable">Delete  <mdb-icon icon="trash"></mdb-icon></a></td>
             </tr>
             
         </tbody>

@@ -26,6 +26,8 @@ export class ProductsComponent implements OnInit {
 
     headElements = ["ID", "Reference", "Name", "Description", "Price", "VAT", "Stock", "Supplier", "Category"];
 
+    currentIndex : number;
+
   constructor(public router : Router, public http : Http, public productService : ProductService, public categoryService : CategoryService, public supplierService: SupplierService) { 
   }
 
@@ -40,7 +42,7 @@ export class ProductsComponent implements OnInit {
     this.productService.getProducts()
         .subscribe(data=>{
             this.products = data;
-            console.log(data);
+            //console.log(data);
         },
         err=>{
             this.error = err;
@@ -53,6 +55,8 @@ export class ProductsComponent implements OnInit {
         this.productService.deleteProduct(product)
         .subscribe(data=>{
         console.log(data);
+        this.products.splice(this.currentIndex, 1);
+        alert("deleted");
       },
         err=>{
             this.error = err;
@@ -66,7 +70,7 @@ export class ProductsComponent implements OnInit {
     this.productService.addProduct(this.newProduct)
     .subscribe(data=>{
         console.log(data);
-        this.router.navigate(['/products']);
+        this.router.navigate['/products'];
       },
 
         err=>{
@@ -75,11 +79,14 @@ export class ProductsComponent implements OnInit {
         })
   }
   
-  onEdit(product : Product){
+  onEdit(product : Product, index: number){
       this.currentProduct = product;
+      this.currentIndex = index;
+      console.log(this.currentProduct);
   }
 
-  onDelete(product : Product){
+  onDelete(product : Product, index : number){
+      this.currentIndex = index;
       this.currentProduct = product;
   }
 
@@ -92,7 +99,7 @@ export class ProductsComponent implements OnInit {
     this.categoryService.getCategories()
         .subscribe(data=>{
             this.listCategories = data;
-            console.log(this.listCategories);
+            //console.log(this.listCategories);
         },
         err=>{
             this.error = err;
@@ -105,7 +112,7 @@ export class ProductsComponent implements OnInit {
     this.supplierService.getSuppliers()
         .subscribe(data=>{
             this.listSuppliers = data;
-            console.log(this.listSuppliers);
+            //console.log(this.listSuppliers);
         },
         err=>{
             this.error = err;
@@ -119,6 +126,7 @@ export class ProductsComponent implements OnInit {
     this.productService.updateProduct(this.currentProduct)
     .subscribe(data=>{
         console.log(data);
+        this.products[this.currentIndex] = this.currentProduct;
       },
 
         err=>{
@@ -126,6 +134,5 @@ export class ProductsComponent implements OnInit {
             console.log(err);
         })
   }
-
 
 }

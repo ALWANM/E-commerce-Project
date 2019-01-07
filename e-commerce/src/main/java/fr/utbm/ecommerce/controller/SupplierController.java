@@ -30,6 +30,7 @@ public class SupplierController {
 	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public ResponseEntity<?> createSupplier(@RequestBody Supplier Supplier){
 		boolean created = SupplierService.addSupplier(Supplier);
+		
 		if(created == false){
 			logger.info("item is not created");
 			return new ResponseEntity<Object>(HttpStatus.CONFLICT);
