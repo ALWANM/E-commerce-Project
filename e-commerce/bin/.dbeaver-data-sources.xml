@@ -3,5 +3,8 @@
 	<data-source id="derby-16664f4290d-5a01f542a3bed4bc" provider="generic" driver="derby" name="Derby - demo" save-password="true" show-system-objects="true" show-util-objects="true" read-only="false">
 		<connection server="" database="C:\Users\m-alwan\MyDB\demo" url="jdbc:derby:C:\Users\m-alwan\MyDB\demo" type="dev"/>
 	</data-source>
+	<data-source id="mysql5-166cf70e8ea-13d5ab77190e467f" provider="mysql" driver="mysql5" name="MySQL - ecommerce" save-password="true" show-system-objects="true" show-util-objects="true" read-only="false">
+		<connection host="localhost" port="3306" server="" database="ecommerce" url="jdbc:mysql://localhost:3306/ecommerce" user="root" password="Hh0WIVJQJPc=" type="dev"/>
+	</data-source>
 	<filters/>
 </data-sources>

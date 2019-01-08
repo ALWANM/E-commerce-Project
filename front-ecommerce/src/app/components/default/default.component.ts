@@ -16,30 +16,18 @@ import {Cartitem} from '../../model/cartitem.model';
   styleUrls: ['./default.component.css']
 })
 export class DefaultComponent implements OnInit {
-  currentUser: User;
-  productsPage:any;
-  counter:any;
-  errorMessage: string;
-   card=[];
-  constructor(public productService: ProductsService, public router: Router,public http: Http) {
-    this.getProduct();
+
+  constructor(public authService: AuthService, public router: Router,public http: Http) {
+    this.logOut();
   }
   ngOnInit() {
-    this.counter=0;
+    this.logOut();
   }
-  getProduct(){
-    this.productService.getListProduct()
-      .subscribe(data=>{
-          this.productsPage=data;
-          console.log(data);
-        },
-        err=>{
-          console.log(err);
-        })
+  //  log out from the app
+  logOut() {
+    this.authService.logOut();
+    this.router.navigate(['/home']);
+
   }
-  onAddToCart(product:Product){
-this.counter++;
-this.card.push(product);
-console.log(this.card);
-  }
+
 }

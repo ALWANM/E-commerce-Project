@@ -28,6 +28,7 @@ import { ShoppingcartComponent } from './components/shoppingcart/shoppingcart.co
 import { ListProductComponent } from './components/list-product/list-product.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import {DefaultComponent} from './components/default/default.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { OrdersComponent } from './components/orders/orders.component';
     ListProductComponent,
     ProductCardComponent,
     OrdersComponent,
+    DefaultComponent,
   ],
   imports: [
    /* BrowserModule, FormsModule, routing, HttpModule,FacebookModule.forRoot()*/

@@ -31,28 +31,6 @@ public class ECommerceApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
-		// User user;
-		User user = new User("marwan", "alwan", "admin", "password", "marwan2@gmail.com", "0605908782",
-				df.parse("2018-11-07"), "", "", "", "", df.parse("2018-11-07"), "");
-		// us.addUser(user);
-		// UserService uservic=new UserService();
-		// uservic.addUser(user);
-		// user=uservic.getUserByMail("marwanalwan94@gmail.com");
-//		Category c = new Category("TECH", "Technologie phones");
-//		cs.addCategory(c);
-		//user=us.getUserByMail("marwan@gmail.com");
-		
-		try{
-//			us.addUser(user);
-		//System.out.println(user.toString());
-//		System.out.println(c.toString());
 			}
-		catch (Exception e) {
-			// TODO: handle exception
-			System.out.println(e.toString());
-		}
-
-	}
 
 }
