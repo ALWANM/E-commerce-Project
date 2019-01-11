@@ -54,7 +54,7 @@ export class ProductsComponent implements OnInit {
   deleteProduct(product : Product){
         this.productService.deleteProduct(product)
         .subscribe(data=>{
-        console.log(data);
+        //console.log(data);
         this.products.splice(this.currentIndex, 1);
         alert("deleted");
       },
@@ -67,10 +67,11 @@ export class ProductsComponent implements OnInit {
 
   //add a new product
   addProduct(){
+      console.log(this.newProduct);
     this.productService.addProduct(this.newProduct)
     .subscribe(data=>{
         console.log(data);
-        this.router.navigate['/products'];
+        this.products.push(data);
       },
 
         err=>{
@@ -125,7 +126,6 @@ export class ProductsComponent implements OnInit {
   updateProduct(){
     this.productService.updateProduct(this.currentProduct)
     .subscribe(data=>{
-        console.log(data);
         this.products[this.currentIndex] = this.currentProduct;
       },
 

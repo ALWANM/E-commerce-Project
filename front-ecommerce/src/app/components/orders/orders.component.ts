@@ -3,6 +3,7 @@ import {OrderService} from '../../services/order.service';
 import {User} from '../../model/user.model';
 import {Order} from '../../model/order.model';
 import {Http} from '@angular/http';
+import {CartitemService} from '../../services/cartitem.service';
 
 @Component({
   selector: 'app-orders',
@@ -11,12 +12,15 @@ import {Http} from '@angular/http';
 })
 export class OrdersComponent implements OnInit {
 
-  constructor(public http : Http, public orderService : OrderService) { }
+  constructor(public http : Http, public orderService : OrderService, public cartitemService : CartitemService) { }
 
   user : User;
 
   //list of orders
   listOrder : any;
+  listcartitem : any;
+  reference : any;
+
   ngOnInit() {
       this.user = JSON.parse(localStorage.getItem("currentUser"));
       this.getOrders();
@@ -26,11 +30,16 @@ export class OrdersComponent implements OnInit {
   getOrders(){
       this.orderService.getOrderByUser(parseInt(this.user.userID)).subscribe(data=>{
           this.listOrder = data;
+          console.log(data);
       });
   }
 
   view(id : number){
-//todo show order details
+    this.reference = id;
+    this.cartitemService.getcartitemByOrder(id).subscribe(data=>{
+        this.listcartitem = data;
+        console.log(data);
+    });
   }
 
 }

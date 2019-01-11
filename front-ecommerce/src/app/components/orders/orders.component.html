@@ -1,5 +1,52 @@
 <app-navbar></app-navbar>
 <div class="container">
+<div mdbModal #basicModal="mdbModal" class="modal top" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+   aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-full-height modal-top" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+                    <mdb-icon icon="close"></mdb-icon>
+                </button>
+                <h4 class="modal-title w-100" id="myModalLabel">Reference order : {{reference}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsiv table-borderede" cellspacing="0">
+    <table mdbTable #table class="table table-hover table-fixed table-striped">
+        <!-- table head-->
+        <thead>
+            <tr>
+                <th>Article line</th>
+                <th>Product ID</th>
+                <th>Product Reference</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            <!--table head-->
+        </thead>
+
+        <!--table body-->
+        <tbody>
+            <tr class="table" *ngFor="let cartitem of listcartitem; let i = index">
+                <th>{{i+1}}</th>
+                <th scope="row">{{cartitem.product.productID}}</th>
+                <td>{{cartitem.product.reference}}</td>
+                <td >{{cartitem.quantity}}</td>
+                <td >{{cartitem.quantity * cartitem.product.price}}<mdb-icon icon="euro"></mdb-icon></td>
+            </tr>
+        </tbody>
+        <!--table body-->
+
+    </table>
+</div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
+            </div>
+        </div>
+    </div >
+</div >
+
 <h1><strong>List of order</strong></h1>
 <div class="table-responsiv table-borderede" cellspacing="0">
     <table mdbTable #table class="table table-hover table-fixed table-striped">
@@ -19,7 +66,7 @@
                 <th>{{order.orderID}}</th>
                 <th scope="row">{{order.date}}</th>
                 <td >{{order.amount}} <mdb-icon icon="euro"></mdb-icon></td>
-                <td ><a (click)="view(order.orderID)" class="clickable">View</a></td>
+                <td ><a (click)="view(order.orderID);basicModal.show()" class="clickable">View</a></td>
             </tr>
         </tbody>
         <!--table body-->

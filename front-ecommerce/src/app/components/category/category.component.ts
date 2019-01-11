@@ -18,6 +18,7 @@ export class CategoryComponent implements OnInit {
 
     newCategory : Category = new Category()
 
+    //error message
     error : String
 
     currentIndex : number;
@@ -58,8 +59,8 @@ export class CategoryComponent implements OnInit {
     this.categoryService.deleteCategory(category)
     .subscribe(data=>{
         console.log(data);
-        this.categories.splice(i,1);
         if(data===null){
+            this.categories.splice(i,1);
             alert("Category deleted successful");
         }
     },

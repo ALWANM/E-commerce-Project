@@ -25,13 +25,39 @@
   <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="assets/css/util.css">
   <link rel="stylesheet" type="text/css" href="assets/css/main.css">
-  </head>
+ <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/1.0.7/css/responsive.dataTables.min.css">-->
+
+  <!--===============================================================================================-->
+
+</head>
 
 <body >
 <div class="align-content-md-center">
-
+ <ul class="topnav justify-content-md-between  bs-tooltip-right"  >
+    <li><a class="active text-white" >E-Commerce</a></li>
+    <li><a href="">Home</a></li>
+    <li><a href="/users">Users</a></li>
+    <li><a href="/products">product</a></li>
+    <li><a href="/profile">Register</a></li>
+    <li><a href="/register">Register</a></li>
+    <li><a href="/login" class="">Login</a></li>
+    <li><a href="/logout" (click)="logOut()">Logout</a></li>
+    <li class="icon">
+      <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+    </li>
+  </ul>
    <app-root></app-root>
-   <!--===============================================================================================-->
+  <script>
+    function myFunction() {
+      document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
+    }
+  </script>
+
+
+
+
+  <!--===============================================================================================-->
   <script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
   <!--===============================================================================================-->
   <script src="assets/vendor/bootstrap/js/popper.js"></script>
@@ -51,6 +77,15 @@
 </body>
 
 </html>
+<style>
+/*
+  body {
+    background: url("assets/images/Nature .jpg") no-repeat  center center fixed;
+    -webkit-background-size: auto;
+    -moz-background-size: auto;
+    -o-background-size: auto;
 
+  }*/
+</style>
 
 

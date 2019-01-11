@@ -11,10 +11,12 @@ import { SupplierService } from '../../services/supplier.service';
 })
 export class SupplierComponent implements OnInit {
 
+    //list of suppliers
     suppliers : any
      currentSupplier : Supplier
     newSupplier : Supplier = new Supplier()
 
+    //error message
     error : String
 
     currentIndex : number;
@@ -29,6 +31,7 @@ export class SupplierComponent implements OnInit {
       this.getSuppliers();
   }
 
+  //get all suppliers
   getSuppliers(){
       this.supplierService.getSuppliers()
       .subscribe(data=>{
@@ -41,11 +44,13 @@ export class SupplierComponent implements OnInit {
       })
   }
 
+  //edit
   onEdit(supplier : Supplier, i : number){
       this.currentIndex = i;
       this.currentSupplier = supplier;
   }
 
+  //delete
   onDelete(supplier : Supplier, i : number){
       this.supplierService.deleteSupplier(supplier)
       .subscribe(data=>{
@@ -61,6 +66,7 @@ export class SupplierComponent implements OnInit {
     })
   }
 
+  //add
    addSupplier(supplier : Supplier){
       this.supplierService.addSupplier(supplier)
       .subscribe(data=>{
@@ -74,6 +80,7 @@ export class SupplierComponent implements OnInit {
       })
   }
 
+  //update
   update(i: number){
       this.supplierService.updateSupplier(this.currentSupplier)
       .subscribe(data=>{

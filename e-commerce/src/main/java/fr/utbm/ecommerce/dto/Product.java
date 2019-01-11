@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -39,11 +40,11 @@ public class Product implements Serializable {
 	@Column(name = "COLOR")
 	private String Color;
 	@Column(name = "PICTURE")
-	private String Picture;
-	@ManyToOne(cascade = CascadeType.ALL) 
+	private String Picture; 
+	@OneToOne
 	@JoinColumn(name = "SUPPLIERID")
 	private Supplier Supplier;
-	@ManyToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "IDCATEGORY")
 	private Category Category;
 	

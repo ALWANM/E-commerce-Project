@@ -21,6 +21,7 @@ export class OrderService {
   }
 
   public addorder(order:Order){
+      console.log(order);
       return this.http.post(AppComponent.API_URL+"/order/create", order)
       .map(response=>response.json());
     }

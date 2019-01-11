@@ -34,7 +34,7 @@
                             <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/profile']" routerLinkActive="router-link-active" >Profile</a>
                             <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/orders']" routerLinkActive="router-link-active" >My orders</a>
                             <div class="divider dropdown-divider"></div>
-                            <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/logout']">Log out</a>
+                            <a class="dropdown-item waves-light" mdbWavesEffect (click)="logOut()">Log out</a>
                 </div>
                 
             </li>
@@ -50,7 +50,7 @@
                             <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/categories']" routerLinkActive="router-link-active" >Add category</a>
                             <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/suppliers']" routerLinkActive="router-link-active" >Add suppliers</a>
                             <div class="divider dropdown-divider"></div>
-                            <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/logout']">Log out</a>
+                            <a class="dropdown-item waves-light" mdbWavesEffect (click)="logOut()">Log out</a>
                 </div>
                 
             </li>
@@ -64,7 +64,7 @@
                              <div class="divider dropdown-divider"></div>
                             <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/users']" routerLinkActive="router-link-active" >Add user/worker</a>
                             <div class="divider dropdown-divider"></div>
-                            <a class="dropdown-item waves-light" mdbWavesEffect  [routerLink]="['/logout']">Log out</a>
+                            <a class="dropdown-item waves-light" mdbWavesEffect (click)="logOut()">Log out</a>
                 </div>
                 
             </li>

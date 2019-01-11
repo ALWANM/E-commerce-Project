@@ -18,7 +18,6 @@ import {ProductComponent} from './components/product/product/product.component';
 import {ShoppingcartComponent} from './components/shoppingcart/shoppingcart.component';
 import {ListProductComponent} from './components/list-product/list-product.component';
 import {OrdersComponent} from './components/orders/orders.component';
-import {DefaultComponent} from './components/default/default.component';
 
 const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent ,canActivate: [UrlPermission] },
@@ -33,8 +32,6 @@ const appRoutes: Routes = [
   {path : 'suppliers', component:SupplierComponent},
 {path:'product', component:ListProductComponent},
 {path:'orders', component:OrdersComponent},
-
-  {path:'logout', component:DefaultComponent},
   // otherwise redirect to profile
   { path: '**', redirectTo: '/home' }
 

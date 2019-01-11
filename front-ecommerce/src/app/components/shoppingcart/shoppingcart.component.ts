@@ -117,6 +117,9 @@ export class ShoppingcartComponent implements OnInit {
             this.orderService.addorder(this.order).subscribe(data=>{
                 console.log(data);
                 this.order = data;
+            },
+            err=>{
+                console.log(err);
             });
 
             this.listCart.forEach(element =>{

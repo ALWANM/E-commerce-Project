@@ -17,6 +17,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 @Entity
 @Table(name = "`order`")
 public class Order implements Serializable {
@@ -34,15 +36,15 @@ public class Order implements Serializable {
 	@Column(name = "AMOUNT")
 	private int Amount;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "SHIPPINGINFOID")
 	private ShippingInfo ShippingInfo;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "IDUSER")
 	private User User;
-	
-	@OneToOne(cascade = CascadeType.ALL)
+
+	@OneToOne
 	@JoinColumn(name = "PAYMENTID")
 	private Payment Payment;
 

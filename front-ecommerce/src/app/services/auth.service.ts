@@ -44,7 +44,6 @@ export class AuthService {
     return this.http.post(AppComponent.API_URL+"/logout/",{})
       .map((response: Response) => {
         localStorage.removeItem('currentUser');
-
       });
 
   }

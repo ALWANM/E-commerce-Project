@@ -1,58 +1,3 @@
-
-<!--
-
-<div class="modal-dialog cascading-modal" role="document">
-  <div class="modal-content">
-
-
-    <p id="profile-name" class="profile-name-card"></p>
-
-    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
-      <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
-      <span id="reauth-email" class="reauth-email"></span>
-       
-      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-        <label for="username">Email Address</label>
-        <input type="email" class="form-control" name="username" id="username" pattern="[^ @]*@[^ @]*" [(ngModel)]="user.mail" #username="ngModel" required email />
-        <div *ngIf="f.submitted && !username.valid" class="help-block">
-
-           <div *ngIf="username.errors.required">
-            Email is required.
-          </div>
-          <div *ngIf="username.errors.pattern">
-            A valid email address is required
-          </div> 
-
-        </div>
-      </div>
-      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" name="password" id="password"[(ngModel)]="user.password" #password="ngModel" required minlength="4" />
-        <div *ngIf="f.submitted && !password.valid" class="help-block">
-
-          <div *ngIf="password.errors.required">
-            password is required.
-          </div>
-          <div *ngIf="password.errors.minlength">
-            password must be at least 4 characters long.
-          </div> 
-
-        </div>
-      </div>
-      <div id="remember" class="checkbox">
-
-      </div>
-      <div class="text-center mt-2">
-      <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Create Account</button>
-
-      </div>
-
-    </form>&lt;!&ndash; /form &ndash;&gt;
-
-    <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
-  </div>&lt;!&ndash; /card-container &ndash;&gt;
-</div>&lt;!&ndash; /container &ndash;&gt;
--->
 <app-navbar></app-navbar>
 <div class="limiter " >
   <div class="container-login100">
@@ -105,15 +50,6 @@
             Create Account
           </button>
         </div>
-
-        <!-- <div class="text-center p-t-12">
-                         <span class="txt1">
-                             Forgot
-                         </span>
-           <a class="txt2" href="#">
-             Username / Password?
-           </a>
-         </div>-->
 
         <div class="text-center p-t-136">
           <a [routerLink]="['/login']" class="btn btn-link">Cancel

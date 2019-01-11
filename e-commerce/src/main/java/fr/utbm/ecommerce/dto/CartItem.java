@@ -69,4 +69,7 @@ public class CartItem implements Serializable{
 		Product = product;
 	}
 	
+	public CartItem() {
+		super();
+	}
 }
