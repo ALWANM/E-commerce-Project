@@ -186,14 +186,10 @@ public class User implements UserDetails,Serializable {
 				+ Country + ", DateOpen=" + DateOpen + ", Gender=" + Gender + "]";
 	}
 
-	 
-
- 
-
 	public User() {
 		super();
 	}
-
+	
 	public User(String firstName, String lastName, String role, String password, String mail, String phoneNumber,
 			Date dateOfBirth, String address, String postalCode, String town, String country, Date dateOpen,
 			String gender) {

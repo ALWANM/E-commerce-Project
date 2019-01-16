@@ -73,4 +73,5 @@ public class ShippingInfo implements Serializable {
 	public ShippingInfo() {
 		super();
 	}
+	
 }

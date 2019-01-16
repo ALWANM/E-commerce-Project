@@ -142,6 +142,17 @@ INSERT INTO `payment` (`PAYMENTID`, `PAYMENTDATE`, `METHODOFPAYMENT`) VALUES
 (1, '2019-01-06', 'CB');
 
 INSERT INTO `order` (`ORDERID`, `IDUSER`, `DATE`, `AMOUNT`, `SHIPPINGINFOID`, `PAYMENTID`) VALUES
-(1, 1, '2019-01-06', 100, 1, 1),
-(2, 2, '2019-01-06', 100, 1, 1),
-(3, 3, '2019-01-06', 100, 1, 1);
+(1, 1, '2019-01-06', 200, 1, 1),
+(2, 2, '2019-01-06', 90, 1, 1),
+(3, 3, '2019-01-06', 230, 1, 1),
+(4, 3, '2019-01-08', 1040, 1, 1),
+(5, 3, '2019-01-16', 720, 1, 1);
+
+
+INSERT INTO `carteitem` (`CARTEITEMID`, `ORDERID`, `PRODUCTID`, `QUANTITY`) VALUES
+(1, 1, 2, 1),
+(2, 2, 3, 1),
+(3, 3, 4, 1),
+(4, 4, 2, 2),
+(5, 4, 3, 2),
+(6, 4, 4, 2);
