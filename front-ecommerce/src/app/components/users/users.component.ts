@@ -24,7 +24,7 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit() {
-    /**/this.getUsers();
+    this.getUsers();
 
   }
   saveUser() {
@@ -32,7 +32,7 @@ export class UsersComponent implements OnInit {
     this.accountService.createAccount(this.newUser)
       .subscribe(data => {
         this.router.navigate(['/users']);
-        console.log(data);
+        //console.log(data);
       }, err => {
         console.log(err);
         this.errorMessage = "username already exist";console.log(this.errorMessage);
@@ -56,28 +56,20 @@ export class UsersComponent implements OnInit {
     this.userModified.phoneNumber=this.newUser.phoneNumber;
     this.userModified.dateOfBirth=this.newUser.dateOfBirth;
     this.userModified.role=this.newUser.role;
-    //this.updateUser.mail=this.currentUser.mail;
-    /*this.updateUser.password=this.currentUser.password;*/
     this.updateUserService.saveUser(this.userModified)
       .subscribe(data=>{
-       console.log(data);
+       //console.log(data);
       },
 
       err=>console.log(err));
-
-    /*this.authService.logIn(this.userModified)
-      .subscribe(data=>{
-        this.router.navigate(['/profile']);
-      },err=>console.log(err));*/
   }
   DeleteUser(user:User){
 
-    //this.userDelete.id=user.id;
     this.userDelete.mail=user.mail;
-    console.log(this.userDelete);
     this.updateUserService.deleteUser(this.userDelete)
       .subscribe(data=>{
-        console.log(data);
+        //console.log(data);
+        alert("deleted")
       },
         err=>console.log(err));
   }
@@ -85,7 +77,7 @@ export class UsersComponent implements OnInit {
     this.usersService.getUsers()
       .subscribe(data=>{
           this.usersPage=data;
-          console.log(data);
+          //console.log(data);
         },
         err=>{
 

@@ -18,7 +18,11 @@ export class OrdersComponent implements OnInit {
 
   //list of orders
   listOrder : any;
+
+  //list of cart item
   listcartitem : any;
+  
+  //reference order
   reference : any;
 
   ngOnInit() {
@@ -30,7 +34,7 @@ export class OrdersComponent implements OnInit {
   getOrders(){
       this.orderService.getOrderByUser(parseInt(this.user.userID)).subscribe(data=>{
           this.listOrder = data;
-          console.log(data);
+          //console.log(data);
       });
   }
 
@@ -38,7 +42,7 @@ export class OrdersComponent implements OnInit {
     this.reference = id;
     this.cartitemService.getcartitemByOrder(id).subscribe(data=>{
         this.listcartitem = data;
-        console.log(data);
+        //console.log(data);
     });
   }
 

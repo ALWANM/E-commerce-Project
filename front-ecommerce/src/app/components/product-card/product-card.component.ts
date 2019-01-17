@@ -9,6 +9,8 @@ import {Product} from './../../model/product.model';
 export class ProductCardComponent implements OnInit {
 
     @Input() product : Product;
+
+    //list of cart item
     listCart :any;
 
   constructor() { }

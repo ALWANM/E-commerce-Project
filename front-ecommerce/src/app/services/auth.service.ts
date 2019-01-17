@@ -3,7 +3,7 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http'
 import 'rxjs/add/operator/map'
 import { User } from '../model/user.model';
 import { AppComponent } from '../app.component';
-import { Observable } from 'rxjs';
+
 @Injectable()
 // Injectable
 // ({
@@ -41,7 +41,7 @@ export class AuthService {
 
   logOut() {
     // remove user from local storage to log user out
-    return this.http.post(AppComponent.API_URL+"/logout/",{})
+    return this.http.get(AppComponent.API_URL+"/account/logout")
       .map((response: Response) => {
         localStorage.removeItem('currentUser');
       });

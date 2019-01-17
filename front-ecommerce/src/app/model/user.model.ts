@@ -1,6 +1,3 @@
-import {DateFormatter} from '@angular/common/src/pipes/deprecated/intl';
-import {getLocaleDateTimeFormat} from '@angular/common';
-
 export class User {
    userID: string;
    mail: String = "";

@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -71,14 +70,14 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 				// starts authorizing configurations
 				.authorizeRequests()
 				// ignoring the guest's urls "
-				.antMatchers("/account/register", "/account/login", "/logout","/account/save","/account/users","/account/delete", "/category/categories", "/category/create", "/category/update", "/category/delete", "/category/{id}", "/supplier/suppliers", "/supplier/create", "/supplier/update", "/supplier/delete", "/product/products","/product/create", "/product/update","/product/delete", "/product/fetch/{id}", "/order/create", "/order/update", "/order/delete", "/order/{orderid}", "/cartitem/create", "/cartitem/update", "/cartitem/delete", "/cartitem/order/items/{orderid}").permitAll()
+				.antMatchers("/account/logout", "/account/register", "/account/login","/account/save","/account/users","/account/delete", "/category/categories", "/category/create", "/category/update", "/category/delete", "/category/{id}", "/supplier/suppliers", "/supplier/create", "/supplier/update", "/supplier/delete", "/product/products","/product/create", "/product/update","/product/delete", "/product/fetch/{id}", "/order/create", "/order/update", "/order/delete", "/order/{orderid}", "/cartitem/create", "/cartitem/update", "/cartitem/delete", "/cartitem/order/items/{orderid}").permitAll()
 				// authenticate all remaining URLS
 				.anyRequest().fullyAuthenticated().and()
 				/*
 				 * "/logout" will log the user out by invalidating the HTTP Session, cleaning up
 				 * any {link rememberMe()} authentication that was configured,
 				 */
-				.logout().permitAll().logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST")).and()
+				.logout().logoutUrl("/logout").permitAll().logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST")).and()
 				// enabling the basic authentication
 				.httpBasic().and()
 				// configuring the session on the server

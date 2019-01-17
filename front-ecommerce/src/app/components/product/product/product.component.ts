@@ -15,7 +15,10 @@ export class ProductComponent implements OnInit {
 
     product : Product;
 
+    //product id
     id : String
+    
+    //list of cart item
     listCart : any;
     
   constructor(public route : ActivatedRoute, public router : Router, public http : Http, public productService : ProductService) { }
@@ -31,7 +34,7 @@ export class ProductComponent implements OnInit {
       this.productService.getProduct(id)
         .subscribe(data=>{
             this.product = data;
-            console.log(data);
+            //console.log(data);
         },
         err=>{
             this.error = err;

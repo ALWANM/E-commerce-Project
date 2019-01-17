@@ -14,11 +14,12 @@ export class ProfileComponent implements OnInit {
   currentUser: User;
   updateUser: User=new User();
 
-
-    
-
   constructor(public updateUserService:UpdateUserService,private authService: AuthService, public router: Router,public http: Http) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+  }
+
+  ngOnInit() {
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.updateUser.firstName=this.currentUser.firstName;
     this.updateUser.lastName=this.currentUser.lastName;
     this.updateUser.gender=this.currentUser.gender;
@@ -30,34 +31,21 @@ export class ProfileComponent implements OnInit {
     this.updateUser.postalCode=this.currentUser.postalCode;
     this.updateUser.phoneNumber=this.currentUser.phoneNumber;
     this.updateUser.dateOfBirth=this.currentUser.dateOfBirth;
-
   }
 
-  ngOnInit() {
-  }
-//  login out from the app
-  /*logOut() {
-    this.authService.logOut()
-      .subscribe(
-        data => {
-          this.router.navigate(['/login']);
-        },
-        error => {
-
-        });
-  }*/
+  //update the user data
   saveUser(){
 
     this.updateUser.mail=this.currentUser.mail;
     /*this.updateUser.password=this.currentUser.password;*/
     this.updateUserService.saveUser(this.updateUser)
       .subscribe(data=>{
-        console.log(data)
+        //console.log(data)
       },err=>console.log(err));
 
       this.authService.logIn(this.updateUser)
       .subscribe(data=>{
-      this.router.navigate(['/profile']);
+        this.router.navigate(['/profile']);
     },err=>console.log(err));
   }
 }

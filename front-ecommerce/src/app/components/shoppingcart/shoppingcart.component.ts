@@ -18,9 +18,14 @@ import { Cartitem } from '../../model/cartitem.model';
 })
 export class ShoppingcartComponent implements OnInit {
 
+    //list of cart item
     listCart : any;
+
+    //total (price)
     total = 0;
     error : String;
+
+    //list of products
     listProduct : any;
     product : Product;
     order : Order = new Order();
@@ -36,7 +41,7 @@ export class ShoppingcartComponent implements OnInit {
   constructor(public router : Router, public shoppingCartService : ShoppingcartService, public productService: ProductService, public http : Http, public orderService : OrderService) { }
 
   ngOnInit() {
-      this.listCart = JSON.parse(localStorage.getItem("cart"));
+    this.listCart = JSON.parse(localStorage.getItem("cart"));
     this.calculTotal();
     this.productService.getProducts()
     .subscribe(data =>{
@@ -44,12 +49,14 @@ export class ShoppingcartComponent implements OnInit {
     });
   }
 
+  //add 1 quantity
   plus(i: number){
       this.listCart[i].quantity += 1;
       this.calculTotal();
       localStorage.setItem("cart", JSON.stringify(this.listCart));
   }
 
+  //minus 1 quantity
   minus(i : number){
       if(this.listCart[i].quantity<=1){
         this.remove(i);
@@ -60,12 +67,14 @@ export class ShoppingcartComponent implements OnInit {
       }
   }
 
+  //remove item
   remove(i: number){
       this.listCart.splice(i, 1);
       this.calculTotal();
       localStorage.setItem("cart", JSON.stringify(this.listCart));
   }
 
+  //calculate the total
   calculTotal(){
       this.total = 0;
     if(this.listCart !==null){
@@ -75,6 +84,7 @@ export class ShoppingcartComponent implements OnInit {
     }
   }
 
+  //find the the product
   find(id){
       this.product = null;
       this.listProduct.forEach(element=>{
@@ -83,6 +93,8 @@ export class ShoppingcartComponent implements OnInit {
           }
       })
   }
+
+  //do order
   doOrder(){
       if(this.listCart.length>0){
           var products = [];
@@ -97,6 +109,8 @@ export class ShoppingcartComponent implements OnInit {
                 }
 
         });
+
+        //if the quantity is enough
         if(this.error === ""){
             products.forEach(element =>{
                 this.productService.updateProduct(element)
@@ -105,30 +119,30 @@ export class ShoppingcartComponent implements OnInit {
                 });
             });
 
-
             this.user = JSON.parse(localStorage.getItem("currentUser"));
-            this.order.user = this.user.userID;
+            this.order.user = parseInt(this.user.userID);
             this.order.amount = this.total;
             this.order.date = new Date();
-            this.order.payment = "1";
-            this.order.shippingInfo = "1";
+            this.order.payment = 1;
+            this.order.shippingInfo = 1;
 
-            console.log(this.order);
+            //console.log(this.order);
             this.orderService.addorder(this.order).subscribe(data=>{
-                console.log(data);
+                //console.log(data);
                 this.order = data;
             },
             err=>{
                 console.log(err);
             });
 
+            //create each cart item
             this.listCart.forEach(element =>{
                 this.cartitem.quantity = element.quantity;
                 this.cartitem.order = this.order.id;
                 this.cartitem.product = element.id;
                 this.shoppingCartService.addcartitem(this.cartitem)
                 .subscribe(data=>{
-                    console.log(data);
+                    //console.log(data);
                 })
             });
             localStorage.removeItem("cart");

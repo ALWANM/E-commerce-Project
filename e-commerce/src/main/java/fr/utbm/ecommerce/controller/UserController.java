@@ -88,4 +88,10 @@ public class UserController {
 		userService.deleteUser(deleteuser.getMail());
 		System.out.println(deleteuser);
 	}
+	
+	@CrossOrigin
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public String logoutUser() {
+		return "logout";
+	}
 }

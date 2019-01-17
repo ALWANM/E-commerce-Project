@@ -1,7 +1,6 @@
 package fr.utbm.ecommerce.dto;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -74,7 +74,7 @@ export class CategoryComponent implements OnInit {
   addCategory(category : Category){
       this.categoryService.addCategory(category)
       .subscribe(data=>{
-        console.log(data);
+        //console.log(data);
         this.categories.push(data);
         this.newCategory = new Category();
     },
@@ -89,7 +89,7 @@ export class CategoryComponent implements OnInit {
       console.log(this.currentCategory)
       this.categoryService.updateCategory(this.currentCategory)
       .subscribe(data=>{
-          console.log(data);
+          //console.log(data);
           this.categories[this.currentIndex] = this.currentCategory;
         },
       err=>{

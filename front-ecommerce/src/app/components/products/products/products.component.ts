@@ -16,16 +16,20 @@ export class ProductsComponent implements OnInit {
     currentProduct : Product;
     newProduct : Product = new Product();
     
+    //list of products
     products :any;
 
     error : String;
 
+    //list of categories
     listCategories : any;
 
+    //list of suppliers
     listSuppliers : any;
 
     headElements = ["ID", "Reference", "Name", "Description", "Price", "VAT", "Stock", "Supplier", "Category"];
 
+    //index of the list
     currentIndex : number;
 
   constructor(public router : Router, public http : Http, public productService : ProductService, public categoryService : CategoryService, public supplierService: SupplierService) { 
@@ -70,7 +74,7 @@ export class ProductsComponent implements OnInit {
       console.log(this.newProduct);
     this.productService.addProduct(this.newProduct)
     .subscribe(data=>{
-        console.log(data);
+        //console.log(data);
         this.products.push(data);
       },
 
@@ -83,7 +87,7 @@ export class ProductsComponent implements OnInit {
   onEdit(product : Product, index: number){
       this.currentProduct = product;
       this.currentIndex = index;
-      console.log(this.currentProduct);
+      //console.log(this.currentProduct);
   }
 
   onDelete(product : Product, index : number){

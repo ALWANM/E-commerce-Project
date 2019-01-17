@@ -70,7 +70,7 @@ export class NavbarComponent implements OnInit{
     this.authService.logOut()
       .subscribe(
         data => {
-        this.idMenuWorker.nativeElement.style.display = "none";
+                        this.idMenuWorker.nativeElement.style.display = "none";
                         this.idMenuUser.nativeElement.style.display = "none";
                         this.idMenuAdmin.nativeElement.style.display = "none";
         if(this.idLogin.nativeElement.style.display==="none"){
