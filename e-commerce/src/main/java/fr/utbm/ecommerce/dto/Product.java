@@ -11,12 +11,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
+/*
+ * to define the entity 
+ * */
 @Entity
 @Table(name = "product")
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	/*
+	 *To define the primary key 
+	 *And the generated method of the PK
+	 *and the Column name in the database
+	 * */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PRODUCTID")
@@ -39,9 +46,15 @@ public class Product implements Serializable {
 	private String Color;
 	@Column(name = "PICTURE")
 	private String Picture; 
+	/*
+	 * to define the mapping between class product and supplier
+	 * */
 	@OneToOne
 	@JoinColumn(name = "SUPPLIERID")
 	private Supplier Supplier;
+	/*
+	 * to define the mapping between class product and category
+	 * */
 	@OneToOne
 	@JoinColumn(name = "IDCATEGORY")
 	private Category Category;
@@ -129,6 +142,9 @@ public class Product implements Serializable {
 				+ ", Color=" + Color + ", Picture=" + Picture + ", Supplier=" + Supplier + ", Category=" + Category
 				+ ", Name = "+ Name +"]";
 	}
+	/*
+	 * constructor
+	 * */
 	public Product(String reference, String name, String description, float price, float vat, int quantityStock, int size, String color,
 			String picture, fr.utbm.ecommerce.dto.@NotNull Supplier supplier,
 			fr.utbm.ecommerce.dto.@NotNull Category category) {
@@ -145,7 +161,9 @@ public class Product implements Serializable {
 		Category = category;
 		Name = name;
 	}
-	
+	/*
+	 * default constructor
+	 * */
 	public Product() {
 		super();
 	}

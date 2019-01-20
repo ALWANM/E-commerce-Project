@@ -11,11 +11,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+/*
+ * to define the entity 
+ * */
 @Entity
 @Table(name="payment")
 public class Payment implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	/*
+	 *To define the primary key 
+	 *And the generated method of the PK
+	 *and the Column name in the database
+	 * */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="PAYMENTID")
@@ -53,12 +61,17 @@ public class Payment implements Serializable{
 		return "Payment [Paymentid=" + Paymentid + ", PaymentDate=" + PaymentDate + ", MethodOfPayment="
 				+ MethodOfPayment + "]";
 	}
+	/*
+	 * constructor
+	 * */
 	public Payment(Date paymentDate, String methodOfPayment) {
 		super();
 		PaymentDate = paymentDate;
 		MethodOfPayment = methodOfPayment;
 	}
-	
+	/*
+	 * default constructor
+	 * */
 	public Payment() {
 		super();
 	}

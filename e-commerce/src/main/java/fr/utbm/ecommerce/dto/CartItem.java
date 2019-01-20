@@ -11,12 +11,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
+/*
+ * to define the entity 
+ * */
 @Entity
 @Table(name = "carteitem")
 public class CartItem implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	/*
+	 *To define the primary key 
+	 *And the generated method of the PK
+	 *and the Column name in the database
+	 * */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "CARTEITEMID")
@@ -26,6 +33,9 @@ public class CartItem implements Serializable{
 	@ManyToOne 
 	@JoinColumn(name = "ORDERID")
 	private Order Order;
+	/*
+	 * to define the mapping between class cartitem and product
+	 * */
 	@ManyToOne
 	@JoinColumn(name = "PRODUCTID")
 	private Product Product;
@@ -56,11 +66,17 @@ public class CartItem implements Serializable{
 	public void setProduct(Product product) {
 		Product = product;
 	}
+	/*
+	 * to string method to print the object java
+	 * */
 	@Override
 	public String toString() {
 		return "CartItem [CarteitemID=" + CarteitemID + ", Quantity=" + Quantity + ", Order=" + Order + ", Product="
 				+ Product + "]";
 	}
+	/*
+	 * constructor
+	 * */
 	public CartItem(int quantity, fr.utbm.ecommerce.dto.@NotNull Order order,
 			fr.utbm.ecommerce.dto.@NotNull Product product) {
 		super();
@@ -68,7 +84,10 @@ public class CartItem implements Serializable{
 		Order = order;
 		Product = product;
 	}
-	
+	/*
+	 * default constructor
+	 * */
+
 	public CartItem() {
 		super();
 	}

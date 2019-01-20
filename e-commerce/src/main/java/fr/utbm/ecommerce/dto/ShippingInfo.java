@@ -8,11 +8,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+/*
+ * to define the entity 
+ * */
 @Entity
 @Table(name="shippinginfo")
 public class ShippingInfo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	/*
+	 *To define the primary key 
+	 *And the generated method of the PK
+	 *and the Column name in the database
+	 * */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="SHIPPINGID")
@@ -59,7 +67,9 @@ public class ShippingInfo implements Serializable {
 				+ ", ShippingPostalCode=" + ShippingPostalCode + ", ShippingTown=" + ShippingTown + ", ShippingCountry="
 				+ ShippingCountry + ", Recipient=" + Recipient + "]";
 	}
-	
+	/*
+	 *   constructor
+	 * */
 	public ShippingInfo(String shippingAddress, String shippingPostalCode, String shippingTown, String shippingCountry,
 			String recipient) {
 		super();
@@ -69,6 +79,9 @@ public class ShippingInfo implements Serializable {
 		ShippingCountry = shippingCountry;
 		Recipient = recipient;
 	}
+	/*
+	 * default constructor
+	 * */
 	public ShippingInfo() {
 		super();
 	}

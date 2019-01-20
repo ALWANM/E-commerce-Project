@@ -19,13 +19,29 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+/*
+ * to define the entity and the index of username and password 
+ * and second index of mail
+ * this make the research in database rapid 
+ * and with these indexes we will never have a double username in same mail in database
+ * */
 @Entity
 @Table(name = "user", indexes = { @Index(name = "login", columnList = "MAIL,PASSWORD"),
 		@Index(name = "MAIL", columnList = "MAIL") })
 //@Scope("session")
-public class User implements UserDetails,Serializable {
+/*
+ * by default there is a unique user created by spring security if we want to
+ * login with an individual user we must implement a UserDetails
+ *
+ */
+public class User implements UserDetails, Serializable {
 
 	private static final long serialVersionUID = 1L;
+	/*
+	 *To define the primary key 
+	 *And the generated method of the PK
+	 *and the Column name in the database
+	 * */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "IDUSER")
@@ -59,10 +75,8 @@ public class User implements UserDetails,Serializable {
 	@Column(name = "GENDER")
 	private String Gender;
 
-	
-	/**Getters and Setters**/
-	
-	
+	/** Getters and Setters **/
+
 	public int getUserID() {
 		return UserID;
 	}
@@ -182,11 +196,15 @@ public class User implements UserDetails,Serializable {
 				+ DateOfBirth + ", Address=" + Address + ", PostalCode=" + PostalCode + ", Town=" + Town + ", Country="
 				+ Country + ", DateOpen=" + DateOpen + ", Gender=" + Gender + "]";
 	}
-
+	/*
+	 * default constructor
+	 * */
 	public User() {
 		super();
 	}
-	
+	/*
+	 *   constructor
+	 * */
 	public User(String firstName, String lastName, String role, String password, String mail, String phoneNumber,
 			Date dateOfBirth, String address, String postalCode, String town, String country, Date dateOpen,
 			String gender) {

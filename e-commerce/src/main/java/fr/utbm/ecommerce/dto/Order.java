@@ -15,32 +15,47 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-
+/*
+ * to define the entity 
+ * */
 @Entity
 @Table(name = "`order`")
 public class Order implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	/*
+	 *To define the primary key 
+	 *And the generated method of the PK
+	 *and the Column name in the database
+	 * */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ORDERID")
 	private int OrderID;
-	
+	/* 
+	 * to define the type date for the database
+	 * */
 	@Temporal(TemporalType.DATE)
 	@Column(name = "DATE")
 	private Date Date;
 	
 	@Column(name = "AMOUNT")
 	private int Amount;
-	
+	/*
+	 * to define the mapping between class order and ShippingInfo
+	 * */
 	@OneToOne
 	@JoinColumn(name = "SHIPPINGINFOID")
 	private ShippingInfo ShippingInfo;
-	
+	/*
+	 * to define the mapping between class order and User
+	 * */
 	@ManyToOne
 	@JoinColumn(name = "IDUSER")
 	private User User;
-
+	/*
+	 * to define the mapping between class order and payment
+	 * */
 	@OneToOne
 	@JoinColumn(name = "PAYMENTID")
 	private Payment Payment;
@@ -102,7 +117,9 @@ public class Order implements Serializable {
 		return "Order [OrderID=" + OrderID + ", Date=" + Date + ", Amount=" + Amount + ", ShippingInfo=" + ShippingInfo
 				+ ", User=" + User + ", Payment=" + Payment + "]";
 	}
-
+	/*
+	 * constructor
+	 * */
 	public Order(Date date, int amount, fr.utbm.ecommerce.dto.@NotNull ShippingInfo shippingInfo,
 			fr.utbm.ecommerce.dto.@NotNull User user, fr.utbm.ecommerce.dto.@NotNull Payment payment) {
 		super();
@@ -112,7 +129,9 @@ public class Order implements Serializable {
 		User = user;
 		Payment = payment;
 	}
-	
+	/*
+	 * default constructor
+	 * */
 	public Order() {
 		super();
 	}

@@ -7,11 +7,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+/*
+ * to define the entity 
+ * */
 @Entity
 @Table(name="category")
 public class Category implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	/*
+	 *To define the primary key 
+	 *And the generated method of the PK
+	 *and the Column name in the database
+	 * */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="IDCATEGORY")
@@ -35,6 +43,9 @@ public class Category implements Serializable {
 	public String toString() {
 		return "Category [IDCATEGORY=" + CategoryID + ", Name=" + Name + ", Description=" + Description + "]";
 	}
+	/*
+	 *  constructor
+	 * */
 	public Category(String name, String description) {
 		super();
 		Name = name;
@@ -54,6 +65,9 @@ public class Category implements Serializable {
 	public String getDescription() {
 		return Description;
 	}
+	/*
+	 * default constructor
+	 * */
 	public Category() {
 		super();
 	}

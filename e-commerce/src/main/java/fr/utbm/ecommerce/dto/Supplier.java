@@ -11,11 +11,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+/*
+ * to define the entity 
+ * */
 @Entity
 @Table(name="supplier")
 public class Supplier implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	/*
+	 * To define the primary key And the generated method of the PK and the Column
+	 * name in the database
+	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="SUPPLIERID")
@@ -110,6 +117,9 @@ public class Supplier implements Serializable {
 				+ Mail + ", PhoneNumber=" + PhoneNumber + ", DateOfBirth=" + DateOfBirth + ", Address=" + Address
 				+ ", PostalCode=" + PostalCode + ", Town=" + Town + ", Country=" + Country + "]";
 	}
+	/*
+	 *   constructor
+	 * */
 	public Supplier(String firstName, String lastName, String mail, String phoneNumber, Date dateOfBirth,
 			String address, String postalCode, String town, String country) {
 		super();
@@ -123,7 +133,9 @@ public class Supplier implements Serializable {
 		Town = town;
 		Country = country;
 	}
-	
+	/*
+	 * default constructor
+	 * */
 	public Supplier() {
 		super();
 	}

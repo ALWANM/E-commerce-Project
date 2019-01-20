@@ -9,6 +9,15 @@ import org.springframework.stereotype.Service;
 import fr.utbm.ecommerce.dto.User;
 
 @Service
+/*
+ * create a class that implements UserDetailsService interface, then use it as
+ * the authentication provider . It’s pretty easy to create an
+ * AuthenticationManager of your own: just implement UserDetailsService. The
+ * UserDetailsService contains a single method: loadByUsername. It’s up to that
+ * method to either return a populated Authentication object or throw a
+ * UsernameNotFoundException. UserDetailsService implementations do one thing:
+ * return a UserDetails implementation
+ */
 public class AppUserDetailsService implements UserDetailsService {
 
 	@Autowired
