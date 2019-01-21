@@ -17,6 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.utbm.ecommerce.dto.Product;
 import fr.utbm.ecommerce.service.ProductService;
 
+/**
+ * Product controller
+ *
+ */
 @RestController
 @RequestMapping("product")
 public class ProductController {
@@ -25,7 +29,11 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
-	//request method to create a new product
+	/**
+	 * Creates a new product
+	 * @param product the object product
+	 * @return response http created
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public ResponseEntity<?> createProduct(@RequestBody Product product){
@@ -38,7 +46,11 @@ public class ProductController {
 		return new ResponseEntity<Product>(product, HttpStatus.CREATED);
 	}
 
-	//request a method to update a product
+	/**
+	 * Updates the product
+	 * @param product the object product
+	 * @return response http ok
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/update", method=RequestMethod.PUT)
 	public ResponseEntity<?> updateProduct(@RequestBody Product product){
@@ -51,7 +63,11 @@ public class ProductController {
 		return new ResponseEntity<Product>(product, HttpStatus.OK);
 	}
 
-	//request a method to delete a product
+	/**
+	 * Deletes the product
+	 * @param product the object product
+	 * @return response http no content
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/delete", method=RequestMethod.POST)
 	public ResponseEntity<?> deleteProduct(@RequestBody Product product){
@@ -65,14 +81,21 @@ public class ProductController {
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 
-	//request a method to get all products
+	/**
+	 * Gets all products
+	 * @return a list of products
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/products", method=RequestMethod.GET)
 	public ResponseEntity<List<Product>> getAllProducts(){
 		return new  ResponseEntity<List<Product>>(productService.getAllProduct(), HttpStatus.OK);
 	}
 
-	//request a method to get a product by id
+	/**
+	 * Gets the product by id
+	 * @param id the product id
+	 * @return the product
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/fetch/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Product> getProductById(@PathVariable("id") String id){

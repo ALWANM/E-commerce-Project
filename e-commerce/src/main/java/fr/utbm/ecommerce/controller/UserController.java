@@ -19,6 +19,10 @@ import fr.utbm.ecommerce.dto.User;
 import fr.utbm.ecommerce.service.UserService;
 import fr.utbm.ecommerce.util.CustomErrorType;
 
+/**
+ * User controller
+ *
+ */
 @RestController
 @RequestMapping("account")
 public class UserController {
@@ -27,7 +31,11 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	// request method to create a new account by a guest
+	/**
+	 * Creates a new user
+	 * @param newUser the object user
+	 * @return response http created
+	 */
 	@CrossOrigin
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ResponseEntity<?> createUser(@RequestBody User newUser) {
@@ -54,6 +62,12 @@ public class UserController {
 		logger.info("user logged " + principal);
 		return principal;
 	}
+	
+	/**
+	 * Gets a list of users with the role worker and admin
+	 * @param principal
+	 * @return the list of users
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/users",method = RequestMethod.GET)
 	public List<User> getUsers(Principal principal) {
@@ -61,7 +75,11 @@ public class UserController {
 		return userService.getUsers("ADMIN","WORKER");
 	}
 	
-	//update a user
+	/**
+	 * Updates the user
+	 * @param updateUser the object user
+	 * @return 1
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/save",method = RequestMethod.POST)
 	public int updateUser(@RequestBody User updateUser) {
@@ -81,7 +99,10 @@ public class UserController {
 		
 	}
 	
-	//delete a user
+	/**
+	 * Deletes a user
+	 * @param deleteuser the object user
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/delete",method = RequestMethod.POST)
 	public void deleteUser(@RequestBody User deleteuser) {
@@ -89,6 +110,10 @@ public class UserController {
 		System.out.println(deleteuser);
 	}
 	
+	/**
+	 * Logouts the user
+	 * @return message logout
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public String logoutUser() {

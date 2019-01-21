@@ -11,9 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-/*
- * to define the entity 
- * */
+
+
+/**
+ * Entity payment
+ *
+ */
 @Entity
 @Table(name="payment")
 public class Payment implements Serializable{
@@ -37,41 +40,74 @@ public class Payment implements Serializable{
 	
 	/**Getters and Setters**/
 	
-	
+	/**
+	 * Gets the payment id
+	 * @return payment id
+	 */
 	public int getPaymentid() {
 		return Paymentid;
 	}
+	
+	/**
+	 * Sets the payment id
+	 * @param paymentid the id
+	 */
 	public void setPaymentid(int paymentid) {
 		Paymentid = paymentid;
 	}
+	
+	/**
+	 * Gets the date
+	 * @return date
+	 */
 	public Date getPaymentDate() {
 		return PaymentDate;
 	}
+	
+	/**
+	 * Sets the payment date
+	 * @param paymentDate payment date
+	 */
 	public void setPaymentDate(Date paymentDate) {
 		PaymentDate = paymentDate;
 	}
+	
+	/**
+	 * Gets the method of payment
+	 * @return methodofpayment
+	 */
 	public String getMethodOfPayment() {
 		return MethodOfPayment;
 	}
+	
+	/**
+	 * Sets the method of payment
+	 * @param methodOfPayment payment
+	 */
 	public void setMethodOfPayment(String methodOfPayment) {
 		MethodOfPayment = methodOfPayment;
 	}
+	
 	@Override
 	public String toString() {
 		return "Payment [Paymentid=" + Paymentid + ", PaymentDate=" + PaymentDate + ", MethodOfPayment="
 				+ MethodOfPayment + "]";
 	}
-	/*
-	 * constructor
-	 * */
+
+	/**
+	 * Default constructor
+	 * @param paymentDate the date
+	 * @param methodOfPayment the method of payment
+	 */
 	public Payment(Date paymentDate, String methodOfPayment) {
 		super();
 		PaymentDate = paymentDate;
 		MethodOfPayment = methodOfPayment;
 	}
-	/*
-	 * default constructor
-	 * */
+
+	/**
+	 * Default constructor
+	 */
 	public Payment() {
 		super();
 	}

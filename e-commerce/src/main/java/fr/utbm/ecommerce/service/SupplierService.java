@@ -7,11 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.utbm.ecommerce.dto.Supplier;
+import fr.utbm.ecommerce.iservice.ISupplierService;
 import fr.utbm.ecommerce.repository.SupplierDao;
 
 @Service("SupplierService")
 @Transactional
-public class SupplierService {
+public class SupplierService implements ISupplierService{
 	@Autowired
 	private SupplierDao supplierDao;
 

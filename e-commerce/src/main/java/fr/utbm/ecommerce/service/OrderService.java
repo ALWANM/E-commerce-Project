@@ -16,19 +16,19 @@ public class OrderService implements IOrderService {
 	private OrderDao orderDao;
 
 	//add order
-	public Boolean addOrder(Order order) {
+	public boolean addOrder(Order order) {
 		orderDao.save(order);
 		return true;
 	}
 
 	//update a order
-	public Boolean updateOrder(Order order) {
+	public boolean updateOrder(Order order) {
 		orderDao.save(order);
 		return true;
 	}
 
 	//delete order
-	public Boolean deleteOrder(Order order) {
+	public boolean deleteOrder(Order order) {
 		orderDao.delete(order);
 		return true;
 	}

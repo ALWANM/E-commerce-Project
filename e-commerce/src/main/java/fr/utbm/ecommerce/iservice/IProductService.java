@@ -4,25 +4,57 @@ import java.util.List;
 
 import fr.utbm.ecommerce.dto.Product;
  
+/**
+ * Interface Product Service
+ *
+ */
 public interface IProductService  {
-	//add new product
+	/**
+	 * Creates a new product
+	 * @param product the product
+	 * @return boolean
+	 */
     boolean addProduct(Product product);
     
-    //update a product
+    /**
+     * Updates a product
+     * @param product the product
+     * @return boolean
+     */
     boolean updateProduct(Product product);
     
     //delete a product
+    /**
+     * Deletes a product
+     * @param product the product
+     * @return boolean
+     */
     boolean deleteProduct(Product product);
     
-    //get product by name
+    /**
+     * Gets product by name
+     * @param name the product name
+     * @return product
+     */
     Product getProductByName(String name);
     
-    //get all products
+    /**
+     * Gets all products
+     * @return a list of product
+     */
 	List<Product> getAllProduct();
 	
-	//get product by id
+	/**
+	 * Gets product by id
+	 * @param productid the product id
+	 * @return product
+	 */
     Product getProductById(int productid);
     
-    //to know if the product existed or not
+    /**
+     * Knows if the product existed or not
+     * @param productid the product id
+     * @return boolean
+     */
     boolean existed(int productid);
 }

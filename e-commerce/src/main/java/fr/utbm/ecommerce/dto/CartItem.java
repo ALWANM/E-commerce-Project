@@ -11,9 +11,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-/*
- * to define the entity 
- * */
+
+/**
+ * Entity carteitem
+ *
+ */
 @Entity
 @Table(name = "carteitem")
 public class CartItem implements Serializable{
@@ -42,41 +44,82 @@ public class CartItem implements Serializable{
 	
 	/**Getters and Setters**/
 	
+	/**
+	 * Gets the cart item id
+	 * @return carteitemid
+	 */
 	public int getCarteitemID() {
 		return CarteitemID;
 	}
+	
+	/**
+	 * Sets the cart item id
+	 * @param carteitemID the id
+	 */
 	public void setCarteitemID(int carteitemID) {
 		CarteitemID = carteitemID;
 	}
+	
+	/**
+	 * Gets the quantity
+	 * @return quantity
+	 */
 	public int getQuantity() {
 		return Quantity;
 	}
+	
+	/**
+	 * Sets the quantity
+	 * @param quantity the quantity
+	 */
 	public void setQuantity(int quantity) {
 		Quantity = quantity;
 	}
+	
+	/**
+	 * Gets the order id
+	 * @return order
+	 */
 	public Order getOrder() {
 		return Order;
 	}
+	
+	/**
+	 * Sets the order id
+	 * @param order the object order
+	 */
 	public void setOrder(Order order) {
 		Order = order;
 	}
+	
+	/**
+	 * Gets the product
+	 * @return the product
+	 */
 	public Product getProduct() {
 		return Product;
 	}
+	
+	/**
+	 * Sets the product
+	 * @param product the object product
+	 */
 	public void setProduct(Product product) {
 		Product = product;
 	}
-	/*
-	 * to string method to print the object java
-	 * */
+
 	@Override
 	public String toString() {
 		return "CartItem [CarteitemID=" + CarteitemID + ", Quantity=" + Quantity + ", Order=" + Order + ", Product="
 				+ Product + "]";
 	}
-	/*
-	 * constructor
-	 * */
+
+	/**
+	 * Default constructor
+	 * @param quantity the quantity
+	 * @param order the order id
+	 * @param product the product id
+	 */
 	public CartItem(int quantity, fr.utbm.ecommerce.dto.@NotNull Order order,
 			fr.utbm.ecommerce.dto.@NotNull Product product) {
 		super();
@@ -84,10 +127,10 @@ public class CartItem implements Serializable{
 		Order = order;
 		Product = product;
 	}
-	/*
-	 * default constructor
-	 * */
 
+	/**
+	 * Default constructor
+	 */
 	public CartItem() {
 		super();
 	}

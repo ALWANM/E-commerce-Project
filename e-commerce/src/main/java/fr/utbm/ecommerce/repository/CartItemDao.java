@@ -14,7 +14,11 @@ import fr.utbm.ecommerce.dto.CartItem;
 @Transactional
 public interface CartItemDao extends CrudRepository<CartItem, Integer> {
 
-	//get all item of one order
+	/**
+	 * Gets a list of cart item of one order
+	 * @param orderid the order id
+	 * @return the list of cartitem
+	 */
 	@Query("SELECT ci from CartItem ci where ci.Order.OrderID =:orderid ")
 	List<CartItem> getAllItemByOrder(@Param("orderid") int orderid);
 }

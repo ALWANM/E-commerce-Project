@@ -14,7 +14,6 @@ import fr.utbm.ecommerce.repository.CategoryDao;
 @Transactional
 public class CategoryService implements ICategoryService {
 	@Autowired
-
 	private CategoryDao categoryDao;
 
 	public boolean addCategory(Category category) {
@@ -49,12 +48,6 @@ public class CategoryService implements ICategoryService {
 
 	public boolean existed(int id){
 		return categoryDao.existsById(id);
-	}
-
-	@Override
-	public Category getCategoryById(int id) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

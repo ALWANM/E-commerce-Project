@@ -4,21 +4,37 @@ import java.util.List;
 
 import fr.utbm.ecommerce.dto.Category;
 
- 
+ /**
+  * Interface Category Service
+  *
+  */
 public interface ICategoryService {
-	//add a new category
+	
+	/**
+	 * Creates a new category
+	 * @param category the object category
+	 * @return boolean
+	 */
 	boolean addCategory(Category category);
 
-	//update a category
+	/**
+	 * Updates a category
+	 * @param category the object category
+	 * @return boolean
+	 */
 	boolean updateCategory(Category category);
 
-	//delete a category
+	/**
+	 * Deletes a category
+	 * @param category the object category
+	 * @return boolean
+	 */
 	boolean deleteCategory(Category category);
 
-	//get all categories
+	/**
+	 * Gets all categories
+	 * @return a list of categories
+	 */
 	List<Category> getAllCategory( );
 
-	//get category by id
-	Category getCategoryById(int id);
-	  
 }

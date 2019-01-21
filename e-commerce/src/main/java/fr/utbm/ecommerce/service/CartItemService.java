@@ -7,27 +7,28 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.utbm.ecommerce.dto.CartItem;
+import fr.utbm.ecommerce.iservice.ICartItemService;
 import fr.utbm.ecommerce.repository.CartItemDao;
 @Service("CartItemService")
 @Transactional
-public class CartItemService {
+public class CartItemService implements ICartItemService{
 	@Autowired
 	private CartItemDao cartItemDao;
 
 	//add cart item
-	public Boolean addCartItem(CartItem cartItem) {
+	public boolean addCartItem(CartItem cartItem) {
 		cartItemDao.save(cartItem);
 		return true;
 	}
 	
 	//update a cart item
-	public Boolean updateCartItem(CartItem cartItem) {
+	public boolean updateCartItem(CartItem cartItem) {
 		cartItemDao.save(cartItem);
 		return true;
 	}
 	
 	//delete a cart item
-	public Boolean deleteCartItem(CartItem cartItem) {
+	public boolean deleteCartItem(CartItem cartItem) {
 		 cartItemDao.save(cartItem);
 		 return true;
 	}

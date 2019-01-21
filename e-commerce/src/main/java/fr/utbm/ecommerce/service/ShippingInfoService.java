@@ -7,11 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.utbm.ecommerce.dto.ShippingInfo;
+import fr.utbm.ecommerce.iservice.IShippingInfoService;
 import fr.utbm.ecommerce.repository.ShippingInfoDao;
 
 @Service("ShippingInfoService")
 @Transactional
-public class ShippingInfoService {
+public class ShippingInfoService implements IShippingInfoService{
 	@Autowired
 	private ShippingInfoDao shippingInfoDao;
 

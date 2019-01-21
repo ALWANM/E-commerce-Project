@@ -7,11 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.utbm.ecommerce.dto.Product;
+import fr.utbm.ecommerce.iservice.IProductService;
 import fr.utbm.ecommerce.repository.ProductDao;
 
 @Service("ProductService")
 @Transactional
-public class ProductService {
+public class ProductService implements IProductService{
 	@Autowired
 	private ProductDao productDao;
 

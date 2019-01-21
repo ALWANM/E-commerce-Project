@@ -12,6 +12,11 @@ import fr.utbm.ecommerce.dto.Order;
 public interface OrderDao extends CrudRepository<Order, Integer> {
 	 
 	//get all order for one user
+	/**
+	 * Gets all orders by user
+	 * @param iduser the user id
+	 * @return a list of orders
+	 */
 	@Query("SELECT o FROM Order o WHERE o.User.UserID = :iduser ")
 	List<Order> getAllOrdersForUser(@Param("iduser") int iduser);
 }

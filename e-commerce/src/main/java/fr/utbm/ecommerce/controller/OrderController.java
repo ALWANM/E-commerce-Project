@@ -17,6 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.utbm.ecommerce.dto.Order;
 import fr.utbm.ecommerce.service.OrderService;
 
+/**
+ * Order controller
+ *
+ */
 @RestController
 @RequestMapping("order")
 public class OrderController {
@@ -25,7 +29,11 @@ public class OrderController {
 	@Autowired
 	private OrderService OrderService;
 
-	//request method to create a new Order
+	/**
+	 * Creates a new order
+	 * @param Order the object order
+	 * @return response http created
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public ResponseEntity<?> createOrder(@RequestBody Order Order){
@@ -39,7 +47,11 @@ public class OrderController {
 		return new ResponseEntity<Order>(Order, HttpStatus.CREATED);
 	}
 
-	//request a method to update a Order
+	/**
+	 * Updates the order
+	 * @param Order the object order
+	 * @return response http ok
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/update", method=RequestMethod.PUT)
 	public ResponseEntity<?> updateOrder(@RequestBody Order Order){
@@ -52,7 +64,11 @@ public class OrderController {
 		return new ResponseEntity<Order>(Order, HttpStatus.OK);
 	}
 
-	//request a method to delete a Order
+	/**
+	 * Deletes the order 
+	 * @param Order the object order
+	 * @return response http no content
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/delete", method=RequestMethod.POST)
 	public ResponseEntity<?> deleteOrder(@RequestBody Order Order){
@@ -67,7 +83,11 @@ public class OrderController {
 		return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
 	}
 
-	//request a method to get all Order by user
+	/**
+	 * Gets all order by user id
+	 * @param iduser the user id
+	 * @return a list of order
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/{iduser}", method=RequestMethod.GET)
 	public ResponseEntity<List<Order>> getAllOrders(@PathVariable("iduser") int iduser){

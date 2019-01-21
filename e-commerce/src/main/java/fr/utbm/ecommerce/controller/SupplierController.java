@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.utbm.ecommerce.dto.Supplier;
 import fr.utbm.ecommerce.service.SupplierService;
 
+/**
+ * Supplier controller
+ *
+ */
 @RestController
 @RequestMapping("supplier")
 public class SupplierController {
@@ -24,7 +28,11 @@ public class SupplierController {
 	@Autowired
 	private SupplierService SupplierService;
 	
-	//request method to create a new Supplier
+	/**
+	 * Creates a new supplier
+	 * @param Supplier the object supplier
+	 * @return response http created
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public ResponseEntity<?> createSupplier(@RequestBody Supplier Supplier){
@@ -38,7 +46,11 @@ public class SupplierController {
 		return new ResponseEntity<Supplier>(Supplier, HttpStatus.CREATED);
 	}
 
-	//request a method to update a Supplier
+	/**
+	 * Updates the supplier
+	 * @param Supplier the object supplier
+	 * @return response http ok
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/update", method=RequestMethod.PUT)
 	public ResponseEntity<?> updateSupplier(@RequestBody Supplier Supplier){
@@ -51,7 +63,11 @@ public class SupplierController {
 		return new ResponseEntity<Supplier>(Supplier, HttpStatus.OK);
 	}
 
-	//request a method to delete a Supplier by id
+	/**
+	 * Deletes the supplier
+	 * @param Supplier the object supplier
+	 * @return response http no content
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/delete", method=RequestMethod.POST)
 	public ResponseEntity<?> deleteSupplier(@RequestBody Supplier Supplier){
@@ -65,7 +81,10 @@ public class SupplierController {
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 
-	//request a method to get all Suppliers
+	/**
+	 * Gets all suppliers
+	 * @return a list of supplier
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/suppliers", method=RequestMethod.GET)
 	public ResponseEntity<List<Supplier>> getAllSuppliers(){

@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.utbm.ecommerce.dto.CartItem;
 import fr.utbm.ecommerce.service.CartItemService;
-
+/**
+ * Cart item controller
+ *
+ */
 @RestController
 @RequestMapping("cartitem")
 public class CartItemController {
@@ -25,7 +28,11 @@ public class CartItemController {
 	@Autowired
 	private CartItemService CartItemService;
 
-	//request method to create a new CartItem
+	/**
+	 * Creates a cart item
+	 * @param CartItem the object cartitem
+	 * @return response http created
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public ResponseEntity<?> createCartItem(@RequestBody CartItem CartItem){
@@ -39,7 +46,11 @@ public class CartItemController {
 		return new ResponseEntity<CartItem>(CartItem, HttpStatus.CREATED);
 	}
 
-	//request a method to update a CartItem
+	/**
+	 * Updates a cart item 
+	 * @param CartItem the object cartitem
+	 * @return response http ok
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/update", method=RequestMethod.PUT)
 	public ResponseEntity<?> updateCartItem(@RequestBody CartItem CartItem){
@@ -53,7 +64,11 @@ public class CartItemController {
 		return new ResponseEntity<CartItem>(CartItem, HttpStatus.OK);
 	}
 
-	//request a method to delete a CartItem
+	/**
+	 * Deletes a cart item
+	 * @param CartItem the object cartitem
+	 * @return response http no content
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/delete", method=RequestMethod.POST)
 	public ResponseEntity<?> deleteCartItem(@RequestBody CartItem CartItem){
@@ -69,7 +84,11 @@ public class CartItemController {
 		return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
 	}
 
-	//request a method to get all CartItem by orderid
+	/**
+	 * Gets the list of cart item for one order
+	 * @param orderid the order id
+	 * @return the list of cart item
+	 */
 	@CrossOrigin
 	@RequestMapping(value="/order/items/{orderid}", method=RequestMethod.GET)
 	public ResponseEntity<List<CartItem>> getAllCartItems(@PathVariable("orderid") int orderid){
